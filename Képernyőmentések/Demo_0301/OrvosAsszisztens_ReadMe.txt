@@ -1,0 +1,4 @@
+-Az orvos/asszisztens bejelentkezve a felületre elõször is megjelenik a bejelentkezõ neve. 
+-Lehetõsége van a felhasználónak módosítani felhasználói adatait.
+-A felületen megjelenik az orvos betegeinek listája, ha rákattint a betegre, jobb oldalt megjelenik a beteg adatlapja.
+-Lehetõség van módosítani a kórlapot, új kezelést hozzáadni, illetve ugyanezt tenni a lázlappal is. 
