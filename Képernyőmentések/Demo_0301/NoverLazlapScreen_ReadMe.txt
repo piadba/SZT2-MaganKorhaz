@@ -1,0 +1,2 @@
+A felvett lázlapok listája található itt, elérhetõ innen a lázlap részletei és a betegek adatai. A Mûszak vége gombbal lehet a mûszakot zárni,
+ekkor a lázlapok autómatikusan záródnak, akár lezárta a nõvér akár nem (checkbox), majd az orvos igény szerint visszanyithatja.

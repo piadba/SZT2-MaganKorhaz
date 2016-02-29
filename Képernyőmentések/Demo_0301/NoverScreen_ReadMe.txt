@@ -1,0 +1,2 @@
+Bejelentkezés után a nõvérnek megjelennek az adatai, és a felvehetõ lázlapok, gombbal megjelenik a részletes adat képernyõje a lázlapnak.
+A duplaklikk/gombra átkerül a felvett listára egy lázlap, majd mûszak felvétel után feljön a kezelések ablaka (ld LazlapKezeles.png)
