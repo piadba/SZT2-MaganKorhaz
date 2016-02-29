@@ -11,7 +11,7 @@
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="TabItem" Height="22" VerticalAlignment="Bottom">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
