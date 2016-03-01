@@ -1,0 +1,3 @@
+1.)igyénylések comboboxbol kiválasztod h újat akarsz küldeni, vagy meg szeretnéd nézni a korábbi igényléseidet(azokat nem modosithatod)
+2.)a többi meg mintha emailt irnál... 
+3.)küldéssel elküldöd az üzenetet, és bekerül a többi igényléshez(1.)
