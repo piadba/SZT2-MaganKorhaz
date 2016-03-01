@@ -1,0 +1,1 @@
+A recepciósnak ezen a felületen adott napon adott orvoshoz tartozó idõpontok lekérésére van lehetõsége, majd ezeknek adatait tudja módosítani az orvossal és beteggel egyeztetve, ebbe beleértve egy adott beteg idõpont foglalását is.
