@@ -26,5 +26,6 @@ namespace EFTeszt01
         }
     
         public DbSet<People> People { get; set; }
+        public DbSet<LookUps> LookUps { get; set; }
     }
 }

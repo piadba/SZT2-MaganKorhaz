@@ -37,6 +37,7 @@ namespace EFTeszt01
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            
             string username = userName.Text;
             string pw = PWBox.Password;
             if (mungoSystem.People
