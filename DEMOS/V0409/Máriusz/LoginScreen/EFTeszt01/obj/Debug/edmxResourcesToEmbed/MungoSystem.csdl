@@ -12,5 +12,15 @@
   </EntityType>
   <EntityContainer Name="MungoSystem" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="People" EntityType="Self.People" />
+    <EntitySet Name="LookUps" EntityType="St_MungoModel.LookUps" />
   </EntityContainer>
+  <EntityType Name="LookUps">
+    <Key>
+      <PropertyRef Name="LookupID" />
+    </Key>
+    <Property Name="LookupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Deleted" Type="Byte" />
+    <Property Name="ObjectType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>
