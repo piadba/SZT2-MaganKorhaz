@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFTeszt01", "EFTeszt01\EFTeszt01.csproj", "{BDFE513E-615D-4617-844B-81420988C89D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDFE513E-615D-4617-844B-81420988C89D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFE513E-615D-4617-844B-81420988C89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFE513E-615D-4617-844B-81420988C89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFE513E-615D-4617-844B-81420988C89D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
