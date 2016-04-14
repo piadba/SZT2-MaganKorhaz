@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="St_MungoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PeopleID" />
+    </Key>
+    <Property Name="PeopleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="Group" Type="Int32" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityContainer Name="MungoSystem" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="People" EntityType="Self.People" />
+  </EntityContainer>
+</Schema>
