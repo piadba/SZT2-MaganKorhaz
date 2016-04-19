@@ -18,6 +18,7 @@ namespace EFTeszt01
         public MungoSystem()
             : base("name=MungoSystem")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -26,5 +27,6 @@ namespace EFTeszt01
         }
     
         public DbSet<People> People { get; set; }
+        public DbSet<LookUps> LookUps { get; set; }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace EFTeszt01
 {
@@ -24,20 +25,23 @@ namespace EFTeszt01
         {
             InitializeComponent();
             this.mungoSystem = mungoSystem;
+            this.DataContext = this.mungoSystem;
             comboBox.ItemsSource = new List<string> { "People" };
         }
 
         private void modositasButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+            mungoSystem.People.Load();
             if (comboBox.SelectedIndex == 0)
             {
-            //    var adatok = from People in mungoSystem.People
-            //                 select new  {  People.UserName, People.Password, People.Group, People.Deleted };
+                var adatok = from People in mungoSystem.People
+                             select new  {  People.UserName, People.Password, People.Group, People.Deleted };
+               
                 // dataGrid.ItemsSource = adatok;
               
                 dataGrid.ItemsSource = mungoSystem.People.Local;
+                
                // dataGrid.Columns.First().IsReadOnly = true;
             }
         }

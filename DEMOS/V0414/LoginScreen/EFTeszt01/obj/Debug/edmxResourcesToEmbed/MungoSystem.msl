@@ -12,5 +12,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LookUps">
+      <EntityTypeMapping TypeName="St_MungoModel.LookUps">
+        <MappingFragment StoreEntitySet="LookUps">
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="LookupID" ColumnName="LookupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="St_MungoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LookUps">
+    <Key>
+      <PropertyRef Name="LookupID" />
+    </Key>
+    <Property Name="LookupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="200" />
+    <Property Name="Deleted" Type="tinyint" />
+    <Property Name="ObjectType" Type="varchar" MaxLength="200" />
+  </EntityType>
   <EntityType Name="People">
     <Key>
       <PropertyRef Name="PeopleID" />
@@ -11,6 +20,7 @@
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
   <EntityContainer Name="St_MungoModelStoreContainer">
+    <EntitySet Name="LookUps" EntityType="Self.LookUps" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

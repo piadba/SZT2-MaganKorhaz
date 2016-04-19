@@ -37,6 +37,3 @@ C:\Users\andras\Documents\GitHub\work\LoginScreen\EFTeszt01\obj\Debug\MainWindow
 C:\Users\andras\Documents\GitHub\work\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.g.resources
 C:\Users\andras\Documents\GitHub\work\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.Properties.Resources.resources
 C:\Users\andras\Documents\GitHub\work\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.csproj.GenerateResource.Cache
-E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\V0414\LoginScreen\EFTeszt01\bin\Debug\EFTeszt01.exe.config
-E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\V0414\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.exe
-E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\V0414\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.pdb
