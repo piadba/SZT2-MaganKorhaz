@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace EFTeszt01
 {
@@ -47,6 +48,7 @@ namespace EFTeszt01
                 People sessionUser = mungoSystem.People
                 .Where(ppl => ppl.Password == pw && ppl.UserName == username && ppl.Deleted == 0)
                 .First();
+                mungoSystem.People.Load();
                 this.Hide();
                 switch (sessionUser.Group)
                 {
@@ -59,7 +61,6 @@ namespace EFTeszt01
                         aw.ShowDialog();
                         break;
                 }
-                Gyogyszer gy = new Gyogyszer();
                 this.Close();
                 //MessageBox.Show("Sikeres bejelentkezés!");
                 
