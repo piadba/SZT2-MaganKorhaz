@@ -58,5 +58,57 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Gyogyszer">
+      <EntityTypeMapping TypeName="St_MungoModel.Gyogyszer">
+        <MappingFragment StoreEntitySet="Gyogyszer">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="EgysegMennyiseg" ColumnName="EgysegMennyiseg" />
+          <ScalarProperty Name="Egyseg" ColumnName="Egyseg" />
+          <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+          <ScalarProperty Name="Hatoanyag" ColumnName="Hatoanyag" />
+          <ScalarProperty Name="Megnevezes" ColumnName="Megnevezes" />
+          <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KiadottGyogyszer">
+      <EntityTypeMapping TypeName="St_MungoModel.KiadottGyogyszer">
+        <MappingFragment StoreEntitySet="KiadottGyogyszer">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+          <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+          <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+          <ScalarProperty Name="ForrasID" ColumnName="ForrasID" />
+          <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lazlap">
+      <EntityTypeMapping TypeName="St_MungoModel.Lazlap">
+        <MappingFragment StoreEntitySet="Lazlap">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+          <ScalarProperty Name="UtolsoFelvetelDatum" ColumnName="UtolsoFelvetelDatum" />
+          <ScalarProperty Name="ApoloMegjegyzes" ColumnName="ApoloMegjegyzes" />
+          <ScalarProperty Name="OrvosMegjegyzes" ColumnName="OrvosMegjegyzes" />
+          <ScalarProperty Name="ApoloID" ColumnName="ApoloID" />
+          <ScalarProperty Name="OrvosID" ColumnName="OrvosID" />
+          <ScalarProperty Name="BetegID" ColumnName="BetegID" />
+          <ScalarProperty Name="LazlapID" ColumnName="LazlapID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LazlapGyogyszer">
+      <EntityTypeMapping TypeName="St_MungoModel.LazlapGyogyszer">
+        <MappingFragment StoreEntitySet="LazlapGyogyszer">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+          <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+          <ScalarProperty Name="LazlapID" ColumnName="LazlapID" />
+          <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

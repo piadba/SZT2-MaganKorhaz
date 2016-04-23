@@ -9,6 +9,30 @@
     <Property Name="TAJ" Type="varchar" MaxLength="7" />
     <Property Name="Deleted" Type="smallint" />
   </EntityType>
+  <EntityType Name="Gyogyszer">
+    <Key>
+      <PropertyRef Name="GyogyszerID" />
+    </Key>
+    <Property Name="GyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+    <Property Name="Hatoanyag" Type="varchar" MaxLength="200" />
+    <Property Name="Mennyiseg" Type="int" />
+    <Property Name="Egyseg" Type="varchar" MaxLength="20" />
+    <Property Name="EgysegMennyiseg" Type="int" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="KiadottGyogyszer">
+    <Key>
+      <PropertyRef Name="LazlapGyogyszerID" />
+    </Key>
+    <Property Name="LazlapGyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ForrasID" Type="int" />
+    <Property Name="GyogyszerID" Type="int" />
+    <Property Name="Mennyiseg" Type="int" />
+    <Property Name="Statusz" Type="int" />
+    <Property Name="Datum" Type="datetime" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
   <EntityType Name="Kortortenet_fej">
     <Key>
       <PropertyRef Name="KortortenetFejID" />
@@ -27,6 +51,30 @@
     <Property Name="Orvos" Type="varchar" MaxLength="20" />
     <Property Name="Kezeles" Type="varchar" MaxLength="200" />
     <Property Name="Deleted" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Lazlap">
+    <Key>
+      <PropertyRef Name="LazlapID" />
+    </Key>
+    <Property Name="LazlapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BetegID" Type="int" />
+    <Property Name="OrvosID" Type="int" />
+    <Property Name="ApoloID" Type="int" />
+    <Property Name="OrvosMegjegyzes" Type="varchar(max)" />
+    <Property Name="ApoloMegjegyzes" Type="varchar(max)" />
+    <Property Name="UtolsoFelvetelDatum" Type="datetime" />
+    <Property Name="Statusz" Type="int" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="LazlapGyogyszer">
+    <Key>
+      <PropertyRef Name="LazlapGyogyszerID" />
+    </Key>
+    <Property Name="LazlapGyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LazlapID" Type="int" />
+    <Property Name="GyogyszerID" Type="int" />
+    <Property Name="Mennyiseg" Type="int" />
+    <Property Name="Deleted" Type="tinyint" />
   </EntityType>
   <EntityType Name="LookUps">
     <Key>
@@ -54,8 +102,12 @@
   </EntityType>
   <EntityContainer Name="St_MungoModelStoreContainer">
     <EntitySet Name="Betegek" EntityType="Self.Betegek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gyogyszer" EntityType="Self.Gyogyszer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KiadottGyogyszer" EntityType="Self.KiadottGyogyszer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kortortenet_fej" EntityType="Self.Kortortenet_fej" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kortortenet_tetel" EntityType="Self.Kortortenet_tetel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lazlap" EntityType="Self.Lazlap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LazlapGyogyszer" EntityType="Self.LazlapGyogyszer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LookUps" EntityType="Self.LookUps" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
