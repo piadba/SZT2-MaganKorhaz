@@ -26,24 +26,43 @@ namespace EFTeszt01
             InitializeComponent();
             this.mungoSystem = mungoSystem;
             this.DataContext = this.mungoSystem;
-            comboBox.ItemsSource = new List<string> { "People" };
+            comboBox.ItemsSource = new List<string> { "People", "LookUps", "Betegek", "Kórtörténet Fej", "Kórtörténet Tétel" };
         }
 
         private void modositasButton_Click(object sender, RoutedEventArgs e)
         {
 
-            mungoSystem.People.Load();
-            if (comboBox.SelectedIndex == 0)
+            
+
+            switch (comboBox.SelectedIndex)
             {
-                var adatok = from People in mungoSystem.People
-                             select new  {  People.UserName, People.Password, People.Group, People.Deleted };
-               
-                // dataGrid.ItemsSource = adatok;
-              
-                dataGrid.ItemsSource = mungoSystem.People.Local;
-                
-               // dataGrid.Columns.First().IsReadOnly = true;
+                case 0:
+
+                    // dataGrid.ItemsSource = adatok;
+                    mungoSystem.People.Load();
+                    dataGrid.ItemsSource = mungoSystem.People.Local;
+
+                    // dataGrid.Columns.First().IsReadOnly = true;
+                    break;
+
+                case 1:
+                    mungoSystem.LookUps.Load();
+                    dataGrid.ItemsSource = mungoSystem.LookUps.Local;
+                    break;
+                case 2:
+                    mungoSystem.Betegek.Load();
+                    dataGrid.ItemsSource = mungoSystem.Betegek.Local;
+                    break;
+                case 3:
+                    mungoSystem.Kortortenet_fej.Load();
+                    dataGrid.ItemsSource = mungoSystem.Kortortenet_fej.Local;
+                    break;
+                case 4:
+                    mungoSystem.Kortortenet_tetel.Load();
+                    dataGrid.ItemsSource = mungoSystem.Kortortenet_tetel.Local;
+                    break;
             }
+ 
         }
 
         private void mentesButton_Click(object sender, RoutedEventArgs e)

@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="300" Width="456.442">
+        Title="AdminWindow" Height="300" Width="600.442">
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="189" Margin="10,35,0,0" VerticalAlignment="Top" Width="428" IsSynchronizedWithCurrentItem="True" CanUserReorderColumns="False" CanUserSortColumns="False"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="20" Margin="97,10,0,0" VerticalAlignment="Top" Width="141"/>
-        <Button x:Name="modositasButton" Content="Tábla módosítás" HorizontalAlignment="Left" Height="20" Margin="243,10,0,0" VerticalAlignment="Top" Width="101" Click="modositasButton_Click"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="189" Margin="10,35,0,0" VerticalAlignment="Top" Width="572" IsSynchronizedWithCurrentItem="True" CanUserReorderColumns="False" CanUserSortColumns="False"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="20" Margin="97,10,0,0" VerticalAlignment="Top" Width="194"/>
+        <Button x:Name="modositasButton" Content="Tábla módosítás" HorizontalAlignment="Left" Height="20" Margin="296,10,0,0" VerticalAlignment="Top" Width="101" Click="modositasButton_Click"/>
         <Button x:Name="mentesButton" Content="Változások mentése" HorizontalAlignment="Left" Height="30" Margin="320,229,0,0" VerticalAlignment="Top" Width="118" Click="mentesButton_Click"/>
 
     </Grid>
