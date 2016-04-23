@@ -61,6 +61,7 @@ namespace EFTeszt01
                         break;
                     case 3:
                         showWindow = new ApoloMainWindow(mungoSystem, sessionUser);
+                        showWindow.DataContext = sessionUser;
                         break;
                     case 4:
                         //Gazdasági alkalmazott

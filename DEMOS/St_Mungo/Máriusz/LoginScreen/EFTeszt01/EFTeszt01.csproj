@@ -78,10 +78,15 @@
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ApoloMuszakButtonConverter.cs" />
     <Compile Include="ApoloMainWindow.xaml.cs">
       <DependentUpon>ApoloMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ApoloWindowConverter.cs" />
+    <Compile Include="ApoloMuszak.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApoloWindowConverterBetegID.cs" />
+    <Compile Include="ApoloWindowOrvosID.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,8 +98,17 @@
     <Compile Include="Gyogyszer.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
+    <Compile Include="Idopontok.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="KezelesKonverter.cs" />
     <Compile Include="KiadottGyogyszer.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KorhaziEszkoz.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KorhaziEszkozok_Fej.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Kortortenet_fej.cs">

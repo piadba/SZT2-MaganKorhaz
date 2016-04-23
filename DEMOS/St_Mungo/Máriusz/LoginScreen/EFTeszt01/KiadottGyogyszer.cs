@@ -14,7 +14,7 @@ namespace EFTeszt01
     
     public partial class KiadottGyogyszer
     {
-        public int LazlapGyogyszerID { get; set; }
+        public int KiadottGyogyszer1 { get; set; }
         public Nullable<int> ForrasID { get; set; }
         public Nullable<int> GyogyszerID { get; set; }
         public Nullable<int> Mennyiseg { get; set; }

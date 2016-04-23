@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="ApoloMainWindow" Height="300" Width="300" Loaded="Window_Loaded">
+        Title="ApoloMainWindow" Height="300" Width="382.787" Loaded="Window_Loaded">
     <Grid>
         <Grid.Resources>
-            <!--<current:ApoloWindowConverter></current:ApoloWindowConverter>-->
-            <current:BetegNevKonverter x:Key="BetegNevKonverter"/>
+            <local:ApoloWindowOrvosID x:Key="ApoloWindowOrvosID"/>
+            <local:ApoloWindowConverterBetegID x:Key="ApoloWindowConverterBetegID"/>
+            <local:ApoloMuszakButtonConverter x:Key="ApoloMuszakButtonConverter"/>
         </Grid.Resources>
-        <Button x:Name="button" Content="Műszak felvétele" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="106"/>
-        <ListBox x:Name="LazlapListBox" HorizontalAlignment="Left" Height="224" Margin="10,35,0,0" VerticalAlignment="Top" Width="177">
+        <Button x:Name="button" Content="{Binding Path=PeopleID, Converter={StaticResource ApoloMuszakButtonConverter}}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="106" Click="button_Click"/>
+        <ListBox x:Name="LazlapListBox" HorizontalAlignment="Left" Height="224" Margin="10,35,0,0" VerticalAlignment="Top" Width="272">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Label Content="{Binding Path=LazlapID, Converter={StaticResource }}" ContentStringFormat="Lapszám: {0}" />
-                        <Label Content="{Binding Path=OrvosID}" ContentStringFormat="Kiíró Orvos: {0}"/>
-                        <Label Content="{Binding Path=BetegID}" ContentStringFormat="Kezelendő Beteg: {0}"/>
+                        <Label Content="{Binding Path=LazlapID}" ContentStringFormat="Lapszám: {0}" />
+                        <Label Content="{Binding Path=OrvosID,Converter={StaticResource ApoloWindowOrvosID}}" ContentStringFormat="Kiíró Orvos: {0}"/>
+                        <Label Content="{Binding Path=BetegID, Converter={StaticResource ApoloWindowConverterBetegID}}" ContentStringFormat="Kezelendő Beteg: {0}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

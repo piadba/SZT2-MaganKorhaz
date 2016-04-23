@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="St_MungoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ApoloMuszak">
+    <Key>
+      <PropertyRef Name="ApoloMuszakID" />
+    </Key>
+    <Property Name="ApoloMuszakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PeopleID" Type="int" />
+    <Property Name="Datum" Type="date" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
   <EntityType Name="Betegek">
     <Key>
       <PropertyRef Name="BetegID" />
@@ -21,16 +30,44 @@
     <Property Name="EgysegMennyiseg" Type="int" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
+  <EntityType Name="Idopontok">
+    <Key>
+      <PropertyRef Name="IdopontID" />
+    </Key>
+    <Property Name="IdopontID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BetegID" Type="int" />
+    <Property Name="OrvosID" Type="int" />
+    <Property Name="Datum" Type="datetime" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
   <EntityType Name="KiadottGyogyszer">
     <Key>
-      <PropertyRef Name="LazlapGyogyszerID" />
+      <PropertyRef Name="KiadottGyogyszer" />
     </Key>
-    <Property Name="LazlapGyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KiadottGyogyszer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ForrasID" Type="int" />
     <Property Name="GyogyszerID" Type="int" />
     <Property Name="Mennyiseg" Type="int" />
     <Property Name="Statusz" Type="int" />
     <Property Name="Datum" Type="datetime" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="KorhaziEszkoz">
+    <Key>
+      <PropertyRef Name="EszkozID" />
+    </Key>
+    <Property Name="EszkozID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Eszkoz_FejID" Type="int" />
+    <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+    <Property Name="Statusz" Type="bit" />
+    <Property Name="Deleted" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="KorhaziEszkozok_Fej">
+    <Key>
+      <PropertyRef Name="Eszkoz_FejID" />
+    </Key>
+    <Property Name="Eszkoz_FejID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
   <EntityType Name="Kortortenet_fej">
@@ -101,9 +138,13 @@
     <Property Name="Phone" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityContainer Name="St_MungoModelStoreContainer">
+    <EntitySet Name="ApoloMuszak" EntityType="Self.ApoloMuszak" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Betegek" EntityType="Self.Betegek" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gyogyszer" EntityType="Self.Gyogyszer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Idopontok" EntityType="Self.Idopontok" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KiadottGyogyszer" EntityType="Self.KiadottGyogyszer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KorhaziEszkoz" EntityType="Self.KorhaziEszkoz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KorhaziEszkozok_Fej" EntityType="Self.KorhaziEszkozok_Fej" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kortortenet_fej" EntityType="Self.Kortortenet_fej" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kortortenet_tetel" EntityType="Self.Kortortenet_tetel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Lazlap" EntityType="Self.Lazlap" Schema="dbo" store:Type="Tables" />

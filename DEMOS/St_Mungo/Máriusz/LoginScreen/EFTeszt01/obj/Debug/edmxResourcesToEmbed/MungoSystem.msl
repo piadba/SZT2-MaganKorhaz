@@ -71,19 +71,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KiadottGyogyszer">
-      <EntityTypeMapping TypeName="St_MungoModel.KiadottGyogyszer">
-        <MappingFragment StoreEntitySet="KiadottGyogyszer">
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          <ScalarProperty Name="Datum" ColumnName="Datum" />
-          <ScalarProperty Name="Statusz" ColumnName="Statusz" />
-          <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
-          <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
-          <ScalarProperty Name="ForrasID" ColumnName="ForrasID" />
-          <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Lazlap">
       <EntityTypeMapping TypeName="St_MungoModel.Lazlap">
         <MappingFragment StoreEntitySet="Lazlap">
@@ -107,6 +94,60 @@
           <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
           <ScalarProperty Name="LazlapID" ColumnName="LazlapID" />
           <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApoloMuszak">
+      <EntityTypeMapping TypeName="St_MungoModel.ApoloMuszak">
+        <MappingFragment StoreEntitySet="ApoloMuszak">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+          <ScalarProperty Name="ApoloMuszakID" ColumnName="ApoloMuszakID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Idopontok">
+      <EntityTypeMapping TypeName="St_MungoModel.Idopontok">
+        <MappingFragment StoreEntitySet="Idopontok">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="OrvosID" ColumnName="OrvosID" />
+          <ScalarProperty Name="BetegID" ColumnName="BetegID" />
+          <ScalarProperty Name="IdopontID" ColumnName="IdopontID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KorhaziEszkoz">
+      <EntityTypeMapping TypeName="St_MungoModel.KorhaziEszkoz">
+        <MappingFragment StoreEntitySet="KorhaziEszkoz">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+          <ScalarProperty Name="Megnevezes" ColumnName="Megnevezes" />
+          <ScalarProperty Name="Eszkoz_FejID" ColumnName="Eszkoz_FejID" />
+          <ScalarProperty Name="EszkozID" ColumnName="EszkozID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KorhaziEszkozok_Fej">
+      <EntityTypeMapping TypeName="St_MungoModel.KorhaziEszkozok_Fej">
+        <MappingFragment StoreEntitySet="KorhaziEszkozok_Fej">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Megnevezes" ColumnName="Megnevezes" />
+          <ScalarProperty Name="Eszkoz_FejID" ColumnName="Eszkoz_FejID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KiadottGyogyszer">
+      <EntityTypeMapping TypeName="St_MungoModel.KiadottGyogyszer">
+        <MappingFragment StoreEntitySet="KiadottGyogyszer">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+          <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+          <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+          <ScalarProperty Name="ForrasID" ColumnName="ForrasID" />
+          <ScalarProperty Name="KiadottGyogyszer1" ColumnName="KiadottGyogyszer" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

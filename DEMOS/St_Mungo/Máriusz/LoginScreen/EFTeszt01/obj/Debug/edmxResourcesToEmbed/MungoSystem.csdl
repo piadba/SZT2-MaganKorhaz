@@ -22,9 +22,13 @@
     <EntitySet Name="Kortortenet_fej" EntityType="St_MungoModel.Kortortenet_fej" />
     <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
     <EntitySet Name="Gyogyszer" EntityType="St_MungoModel.Gyogyszer" />
-    <EntitySet Name="KiadottGyogyszer" EntityType="St_MungoModel.KiadottGyogyszer" />
     <EntitySet Name="Lazlap" EntityType="St_MungoModel.Lazlap" />
     <EntitySet Name="LazlapGyogyszer" EntityType="St_MungoModel.LazlapGyogyszer" />
+    <EntitySet Name="ApoloMuszak" EntityType="St_MungoModel.ApoloMuszak" />
+    <EntitySet Name="Idopontok" EntityType="St_MungoModel.Idopontok" />
+    <EntitySet Name="KorhaziEszkoz" EntityType="St_MungoModel.KorhaziEszkoz" />
+    <EntitySet Name="KorhaziEszkozok_Fej" EntityType="St_MungoModel.KorhaziEszkozok_Fej" />
+    <EntitySet Name="KiadottGyogyszer" EntityType="St_MungoModel.KiadottGyogyszer" />
   </EntityContainer>
   <EntityType Name="LookUps">
     <Key>
@@ -75,18 +79,6 @@
     <Property Name="EgysegMennyiseg" Type="Int32" />
     <Property Name="Deleted" Type="Byte" />
   </EntityType>
-  <EntityType Name="KiadottGyogyszer">
-    <Key>
-      <PropertyRef Name="LazlapGyogyszerID" />
-    </Key>
-    <Property Name="LazlapGyogyszerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ForrasID" Type="Int32" />
-    <Property Name="GyogyszerID" Type="Int32" />
-    <Property Name="Mennyiseg" Type="Int32" />
-    <Property Name="Statusz" Type="Int32" />
-    <Property Name="Datum" Type="DateTime" Precision="3" />
-    <Property Name="Deleted" Type="Byte" />
-  </EntityType>
   <EntityType Name="Lazlap">
     <Key>
       <PropertyRef Name="LazlapID" />
@@ -109,6 +101,55 @@
     <Property Name="LazlapID" Type="Int32" />
     <Property Name="GyogyszerID" Type="Int32" />
     <Property Name="Mennyiseg" Type="Int32" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="ApoloMuszak">
+    <Key>
+      <PropertyRef Name="ApoloMuszakID" />
+    </Key>
+    <Property Name="ApoloMuszakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PeopleID" Type="Int32" />
+    <Property Name="Datum" Type="DateTime" Precision="0" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Idopontok">
+    <Key>
+      <PropertyRef Name="IdopontID" />
+    </Key>
+    <Property Name="IdopontID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BetegID" Type="Int32" />
+    <Property Name="OrvosID" Type="Int32" />
+    <Property Name="Datum" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="KorhaziEszkoz">
+    <Key>
+      <PropertyRef Name="EszkozID" />
+    </Key>
+    <Property Name="EszkozID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Eszkoz_FejID" Type="Int32" />
+    <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Statusz" Type="Boolean" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="KorhaziEszkozok_Fej">
+    <Key>
+      <PropertyRef Name="Eszkoz_FejID" />
+    </Key>
+    <Property Name="Eszkoz_FejID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="KiadottGyogyszer">
+    <Key>
+      <PropertyRef Name="KiadottGyogyszer1" />
+    </Key>
+    <Property Name="KiadottGyogyszer1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForrasID" Type="Int32" />
+    <Property Name="GyogyszerID" Type="Int32" />
+    <Property Name="Mennyiseg" Type="Int32" />
+    <Property Name="Statusz" Type="Int32" />
+    <Property Name="Datum" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Byte" />
   </EntityType>
 </Schema>

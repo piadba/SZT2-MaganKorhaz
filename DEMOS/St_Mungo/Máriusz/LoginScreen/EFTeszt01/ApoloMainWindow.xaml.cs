@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace EFTeszt01
 {
@@ -20,6 +21,7 @@ namespace EFTeszt01
     /// </summary>
     public partial class ApoloMainWindow : Window
     {
+
         MungoSystem mungoSystem;
         People sessionUser;
         List<Lazlap> lazlapok;
@@ -31,8 +33,34 @@ namespace EFTeszt01
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            mungoSystem.Lazlap.Load();
             lazlapok = mungoSystem.Lazlap.Where(lazlap => lazlap.Deleted == 0 && lazlap.Statusz == 7).ToList();
             LazlapListBox.ItemsSource = lazlapok;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            int y = DateTime.Now.Year;
+            int m = DateTime.Now.Month;
+            int d = DateTime.Now.Day;
+            DateTime ma = new DateTime(y, m, d);
+            mungoSystem.ApoloMuszak.Load();
+            if (mungoSystem.ApoloMuszak.Where(am => am.Datum == ma
+                    && am.PeopleID == sessionUser.PeopleID && am.Deleted == 0).Count() > 1)
+            {
+                mungoSystem.ApoloMuszak.Where(am => am.Datum == ma
+                     && am.PeopleID == sessionUser.PeopleID && am.Deleted == 0)
+                     .OrderByDescending(x => x.ApoloMuszakID)
+                     .First().Deleted = 1;
+                button.Content = "Műszak felvétele";
+            }
+            else
+            {
+                mungoSystem.ApoloMuszak.Add(new ApoloMuszak() { Datum = ma, PeopleID = sessionUser.PeopleID, Deleted = 0 });
+                button.Content = "Műszak leadása";
+            }
+            
+            mungoSystem.SaveChanges();
         }
     }
 }
