@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="573ec74b930440df992b03873987c997" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="573ec74b930440df992b03873987c997" Name="Diagram1" ZoomLevel="100">
         <EntityTypeShape EntityType="St_MungoModel.People" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="St_MungoModel.LookUps" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="St_MungoModel.Betegek" Width="1.5" PointX="3.75" PointY="3.75" />
