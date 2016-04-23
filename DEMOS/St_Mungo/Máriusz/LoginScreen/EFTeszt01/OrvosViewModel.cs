@@ -19,6 +19,7 @@ namespace EFTeszt01
         Betegek selectedBeteg;
         Kortortenet_fej selectedKorlapFej;
         ObservableCollection<Kortortenet_tetel> selectedKorlapTetel;
+        Kortortenet_tetel selectedKezeles;
         //------------------------------------------------------------------------------------
 
         //-----------------------------Összes szükséges lekért adat a táblákból----------------
@@ -132,7 +133,13 @@ namespace EFTeszt01
                 selectedKorlapTetel = value;
             }
         }
-        
+
+
+        public Kortortenet_tetel SelectedKezeles
+        {
+            get { return selectedKezeles; }
+            set { selectedKezeles = value; }
+        }
 
         //------------------------------------------------------------------------------------
         public void MungoSystemInitial(MungoSystem ms) {
@@ -184,6 +191,26 @@ namespace EFTeszt01
             ms.People.Load();
             ms.Betegek.Load();
             MungoSystemInitial(this.ms);
+        }
+
+        public void KezelesModositas(Kortortenet_tetel kt) {
+            Kortortenet_tetel kt2 = ms.Kortortenet_tetel.Where(x => x.KortortenetTetelID == kt.KortortenetTetelID).First();
+
+            kt2.Datum = kt.Datum;
+            kt2.Kezeles = kt.Kezeles;
+            kt2.Orvos = kt.Orvos;
+           
+            Mentes();
+            MungoSystemInitial(this.ms);
+            SelectionChanged();
+        }
+        public void KezelesLetrehozas(Kortortenet_tetel kt) {
+            kt.KortortenetFejID = selectedKorlapFej.KortortenetFejID;
+            ms.Kortortenet_tetel.Add(kt);
+
+            Mentes();
+            MungoSystemInitial(this.ms);
+            SelectionChanged();
         }
 
     }

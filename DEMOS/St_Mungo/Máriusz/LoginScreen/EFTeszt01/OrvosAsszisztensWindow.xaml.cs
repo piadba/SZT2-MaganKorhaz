@@ -53,5 +53,28 @@ namespace EFTeszt01
             OrvosAsszisztensUjBetegWindow ubw = new OrvosAsszisztensUjBetegWindow();
             ubw.Show();
         }
+
+        private void kezelesFelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (ovm.SelectedKezeles != null)
+            {
+                OrvosAsszisztensKezelesWindow oak = new OrvosAsszisztensKezelesWindow(false);
+                oak.ShowDialog();
+            }
+        }
+
+        private void kezelesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ovm.SelectedKezeles = ovm.SelectedKorlapTetel.ElementAt(adatlapLst.SelectedIndex);
+        }
+
+        private void korlapModBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (ovm.SelectedKezeles != null)
+            {
+                OrvosAsszisztensKezelesWindow oak = new OrvosAsszisztensKezelesWindow(true);
+                oak.ShowDialog();
+            }
+        }
     }
 }
