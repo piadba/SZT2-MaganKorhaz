@@ -59,7 +59,7 @@ namespace EFTeszt01
                         aw.ShowDialog();
                         break;
                 }
-              
+                Gyogyszer gy = new Gyogyszer();
                 this.Close();
                 //MessageBox.Show("Sikeres bejelentkezés!");
                 

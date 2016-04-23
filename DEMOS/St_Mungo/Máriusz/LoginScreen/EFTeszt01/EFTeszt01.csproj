@@ -82,11 +82,23 @@
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="BetegNevKonverter.cs" />
+    <Compile Include="Gyogyszer.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="KezelesKonverter.cs" />
+    <Compile Include="KiadottGyogyszer.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="Kortortenet_fej.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Kortortenet_tetel.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lazlap.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LazlapGyogyszer.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="LookUps.cs">
