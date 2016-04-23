@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="St_MungoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Betegek">
+          <Key>
+            <PropertyRef Name="BetegID" />
+          </Key>
+          <Property Name="BetegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PeopleID" Type="int" />
+          <Property Name="TAJ" Type="varchar" MaxLength="7" />
+          <Property Name="Deleted" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Kortortenet_fej">
+          <Key>
+            <PropertyRef Name="KortortenetFejID" />
+          </Key>
+          <Property Name="KortortenetFejID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BetegID" Type="int" />
+          <Property Name="Deleted" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Kortortenet_tetel">
+          <Key>
+            <PropertyRef Name="KortortenetTetelID" />
+          </Key>
+          <Property Name="KortortenetTetelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KortortenetFejID" Type="int" />
+          <Property Name="Datum" Type="date" />
+          <Property Name="Orvos" Type="varchar" MaxLength="20" />
+          <Property Name="Kezeles" Type="varchar" MaxLength="200" />
+          <Property Name="Deleted" Type="smallint" />
+        </EntityType>
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="40" />
+          <Property Name="Password" Type="varchar" MaxLength="40" />
+          <Property Name="Group" Type="int" />
+          <Property Name="Deleted" Type="tinyint" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="varchar" MaxLength="30" />
+          <Property Name="Gender" Type="varchar" MaxLength="5" />
+          <Property Name="Email" Type="varchar" MaxLength="40" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="St_MungoModelStoreContainer">
+          <EntitySet Name="Betegek" EntityType="Self.Betegek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kortortenet_fej" EntityType="Self.Kortortenet_fej" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kortortenet_tetel" EntityType="Self.Kortortenet_tetel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="St_MungoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="People">
+          <Key>
+            <PropertyRef Name="PeopleID" />
+          </Key>
+          <Property Name="PeopleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Group" Type="Int32" />
+          <Property Name="Deleted" Type="Byte" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="MungoSystem" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="People" EntityType="Self.People" />
+          <EntitySet Name="Betegek" EntityType="St_MungoModel.Betegek" />
+          <EntitySet Name="Kortortenet_fej" EntityType="St_MungoModel.Kortortenet_fej" />
+          <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
+        </EntityContainer>
+        <EntityType Name="Betegek">
+          <Key>
+            <PropertyRef Name="BetegID" />
+          </Key>
+          <Property Name="BetegID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeopleID" Type="Int32" />
+          <Property Name="TAJ" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Kortortenet_fej">
+          <Key>
+            <PropertyRef Name="KortortenetFejID" />
+          </Key>
+          <Property Name="KortortenetFejID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BetegID" Type="Int32" />
+          <Property Name="Deleted" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Kortortenet_tetel">
+          <Key>
+            <PropertyRef Name="KortortenetTetelID" />
+          </Key>
+          <Property Name="KortortenetTetelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KortortenetFejID" Type="Int32" />
+          <Property Name="Datum" Type="DateTime" Precision="0" />
+          <Property Name="Orvos" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Kezeles" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Int16" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="St_MungoModelStoreContainer" CdmEntityContainer="MungoSystem">
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="St_MungoModel.People">
+              <MappingFragment StoreEntitySet="People">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Betegek">
+            <EntityTypeMapping TypeName="St_MungoModel.Betegek">
+              <MappingFragment StoreEntitySet="Betegek">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="TAJ" ColumnName="TAJ" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="BetegID" ColumnName="BetegID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kortortenet_fej">
+            <EntityTypeMapping TypeName="St_MungoModel.Kortortenet_fej">
+              <MappingFragment StoreEntitySet="Kortortenet_fej">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="BetegID" ColumnName="BetegID" />
+                <ScalarProperty Name="KortortenetFejID" ColumnName="KortortenetFejID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kortortenet_tetel">
+            <EntityTypeMapping TypeName="St_MungoModel.Kortortenet_tetel">
+              <MappingFragment StoreEntitySet="Kortortenet_tetel">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Kezeles" ColumnName="Kezeles" />
+                <ScalarProperty Name="Orvos" ColumnName="Orvos" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="KortortenetFejID" ColumnName="KortortenetFejID" />
+                <ScalarProperty Name="KortortenetTetelID" ColumnName="KortortenetTetelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="EFTeszt01.OrvosAsszisztensWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:current="clr-namespace:EFTeszt01"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="OrvosAsszisztensWindow" Height="350" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Resources>
+            <current:BetegNevKonverter x:Key="BetegNevKonverter"/>
+            <current:KezelesKonverter x:Key="KezelesKonverter"/>
+        </Grid.Resources>
+        <Label x:Name="label" Content="St. Mungo Magánkórház" HorizontalAlignment="Left" Margin="165,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="Bejelentkezve mint:" HorizontalAlignment="Left" Margin="21,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="aktOrvosLbl" Content="{Binding Orvos.UserName}" HorizontalAlignment="Left" Margin="152,41,0,0" VerticalAlignment="Top" Height="26" Width="69"/>
+        <Button x:Name="felhModBtn" Content="Felhasználói adatmódosítás" HorizontalAlignment="Left" Margin="284,44,0,0" VerticalAlignment="Top" Width="157" Click="felhModBtn_Click"/>
+        <Label x:Name="label3" Content="Betegek listája:" HorizontalAlignment="Left" Margin="21,67,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3_Copy" Content="Kiválasztott beteg adatlapja:" HorizontalAlignment="Left" Margin="248,67,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="betegLst" ItemsSource="{Binding Betegek, Converter={StaticResource BetegNevKonverter}}" HorizontalAlignment="Left" Height="140" Margin="21,98,0,0" VerticalAlignment="Top" Width="189" SelectionChanged="selChanged"/>
+        <ListBox x:Name="adatlapLst" ItemsSource="{Binding SelectedKorlapTetel, Converter={StaticResource KezelesKonverter}}" HorizontalAlignment="Left" Height="140" Margin="248,98,0,0" VerticalAlignment="Top" Width="212"/>
+        <Button x:Name="ujBetegBtn" Content="Új beteg felvétele" HorizontalAlignment="Left" Margin="21,243,0,0" VerticalAlignment="Top" Width="112" Click="ujBetegBtn_Click"/>
+        <Button x:Name="kezelesFelBtn" Content="Kezelés felvétele" HorizontalAlignment="Left" Margin="248,243,0,0" VerticalAlignment="Top" Width="97"/>
+        <Button x:Name="korlapModBtn" Content="Kórlap módosítása" HorizontalAlignment="Left" Margin="350,243,0,0" VerticalAlignment="Top" Width="110"/>
+        <Button x:Name="lazlapFelBtn" Content="Lázlap felvétele" HorizontalAlignment="Left" Margin="248,274,0,0" VerticalAlignment="Top" Width="97"/>
+        <Button x:Name="lazlapModBtn" Content="Lázlap módosítása" HorizontalAlignment="Left" Margin="350,274,0,0" VerticalAlignment="Top" Width="110"/>
+
+    </Grid>
+</Window>
