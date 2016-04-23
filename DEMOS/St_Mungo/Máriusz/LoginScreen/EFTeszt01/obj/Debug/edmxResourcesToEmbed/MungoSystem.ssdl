@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="St_MungoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Betegek">
+    <Key>
+      <PropertyRef Name="BetegID" />
+    </Key>
+    <Property Name="BetegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PeopleID" Type="int" />
+    <Property Name="TAJ" Type="varchar" MaxLength="7" />
+    <Property Name="Deleted" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Kortortenet_fej">
+    <Key>
+      <PropertyRef Name="KortortenetFejID" />
+    </Key>
+    <Property Name="KortortenetFejID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BetegID" Type="int" />
+    <Property Name="Deleted" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Kortortenet_tetel">
+    <Key>
+      <PropertyRef Name="KortortenetTetelID" />
+    </Key>
+    <Property Name="KortortenetTetelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KortortenetFejID" Type="int" />
+    <Property Name="Datum" Type="date" />
+    <Property Name="Orvos" Type="varchar" MaxLength="20" />
+    <Property Name="Kezeles" Type="varchar" MaxLength="200" />
+    <Property Name="Deleted" Type="smallint" />
+  </EntityType>
+  <EntityType Name="LookUps">
+    <Key>
+      <PropertyRef Name="LookupID" />
+    </Key>
+    <Property Name="LookupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="200" />
+    <Property Name="Deleted" Type="tinyint" />
+    <Property Name="ObjectType" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PeopleID" />
+    </Key>
+    <Property Name="PeopleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="40" />
+    <Property Name="Password" Type="varchar" MaxLength="40" />
+    <Property Name="Group" Type="int" />
+    <Property Name="Deleted" Type="tinyint" />
+    <Property Name="Name" Type="varchar" MaxLength="20" />
+    <Property Name="Address" Type="varchar" MaxLength="30" />
+    <Property Name="Gender" Type="varchar" MaxLength="5" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityContainer Name="St_MungoModelStoreContainer">
+    <EntitySet Name="Betegek" EntityType="Self.Betegek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kortortenet_fej" EntityType="Self.Kortortenet_fej" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kortortenet_tetel" EntityType="Self.Kortortenet_tetel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LookUps" EntityType="Self.LookUps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
