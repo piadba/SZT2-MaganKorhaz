@@ -140,7 +140,7 @@ namespace EFTeszt01
             this.betegTabla = new ObservableCollection<Betegek>(ms.Betegek);
             this.kortortenetFej = new ObservableCollection<Kortortenet_fej>(ms.Kortortenet_fej);
             this.kortortenetTetel = new ObservableCollection<Kortortenet_tetel>(ms.Kortortenet_tetel);
-            this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl => ppl.Group == 2));
+            this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl => ppl.Group == 1));
             pID = ms.People.Max(p => p.PeopleID);
             bID = ms.Betegek.Max(p => p.BetegID);
             kfID = ms.Kortortenet_fej.Max(p => p.KortortenetFejID);

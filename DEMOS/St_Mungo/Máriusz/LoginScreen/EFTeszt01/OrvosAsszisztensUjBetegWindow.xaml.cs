@@ -39,7 +39,7 @@ namespace EFTeszt01
             //ovm.Ms.Betegek.Load();
 
             //ovm.MungoSystemInitial(ovm.Ms);
-            ovm.Ujbeteg(new People() { Name = nevTB.Text, Address = lakcimTB.Text, Gender = nemTB.Text, Email = emailTB.Text, Password = jszTB.Text, Phone = telTB.Text, Deleted = 0, Group = 2, UserName = felhTB.Text }, tajTB.Text);
+            ovm.Ujbeteg(new People() { Name = nevTB.Text, Address = lakcimTB.Text, Gender = nemTB.Text, Email = emailTB.Text, Password = jszTB.Text, Phone = telTB.Text, Deleted = 0, Group = 1, UserName = felhTB.Text }, tajTB.Text);
             this.Close();
         }
 
