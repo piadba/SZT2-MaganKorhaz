@@ -164,13 +164,14 @@ namespace EFTeszt01
                 PropertyChanged(this, new PropertyChangedEventArgs(s));
             }
         }
-        void SelectionChanged() {          
+        void SelectionChanged() {
             try
             {
                 selectedBeteg = BetegTabla.Where(b => b.PeopleID == selectedPeopleBeteg.PeopleID).First();
                 selectedKorlapFej = KortortenetFej.Where(k => k.BetegID == selectedBeteg.BetegID).First();
                 SelectedKorlapTetel = new ObservableCollection<Kortortenet_tetel>(KortortenetTetel.Where(kt => kt.KortortenetFejID == selectedKorlapFej.KortortenetFejID));
                 OnPropChanged("selectedKorlapTetel");
+                
             }
             catch { }
         }
