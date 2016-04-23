@@ -1,4 +1,4 @@
-drop table KiadottGyogyszer
+IF OBJECT_ID('KiadottGyogyszer') IS NOT NULL drop table KiadottGyogyszer
 create table KiadottGyogyszer(
 	LazlapGyogyszerID int identity(1,1) primary key,
 	ForrasID int,
@@ -8,7 +8,7 @@ create table KiadottGyogyszer(
 	Datum datetime,
 	Deleted tinyint
 )
-drop table Gyogyszer
+IF OBJECT_ID('Gyogyszer') IS NOT NULL drop table Gyogyszer
 create table Gyogyszer(
 	GyogyszerID int identity(1,1) primary key,
 	Megnevezes varchar(200),
@@ -18,7 +18,7 @@ create table Gyogyszer(
 	EgysegMennyiseg int,
 	Deleted tinyint
 )
-drop table Lazlap
+IF OBJECT_ID('Lazlap') IS NOT NULL drop table Lazlap
 create table Lazlap(
 	LazlapID int identity(1,1) primary key,
 	BetegID int,
@@ -29,4 +29,26 @@ create table Lazlap(
 	UtolsoFelvetelDatum datetime,
 	Statusz int,
 	Deleted tinyint
+)
+IF OBJECT_ID('KorhaziEszkozok_Fej') IS NOT NULL drop table KorhaziEszkozok_Fej
+create table KorhaziEszkozok_Fej(
+	Eszkoz_FejID int identity(1,1) primary key,
+	Megnevezes varchar(200),
+	Deleted tinyint
+)
+IF OBJECT_ID('KorhaziEszkoz') IS NOT NULL drop table KorhaziEszkoz
+create table KorhaziEszkoz(
+	EszkozID int identity(1,1) primary key,
+	Eszkoz_FejID int,
+	Megnevezes varchar(200),
+	Statusz bit,
+	Deleted tinyint
+)
+IF OBJECT_ID('Idopontok') IS NOT NULL drop table Idopontok
+create table Idopontok(
+	IdopontID int identity(1,1) primary key,
+	BetegID int,
+	OrvosID int,
+	Datum datetime,
+	Deleted tinyint,
 )

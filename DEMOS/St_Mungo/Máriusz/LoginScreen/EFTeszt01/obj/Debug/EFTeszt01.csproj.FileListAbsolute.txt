@@ -84,3 +84,5 @@ C:\Users\Zsu\Documents\work\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen
 C:\Users\Zsu\Documents\work\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.g.resources
 C:\Users\Zsu\Documents\work\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.Properties.Resources.resources
 C:\Users\Zsu\Documents\work\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.csproj.GenerateResource.Cache
+E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloMainWindow.g.cs
+E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloMainWindow.baml
