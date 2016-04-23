@@ -49,25 +49,35 @@ namespace EFTeszt01
                 .Where(ppl => ppl.Password == pw && ppl.UserName == username && ppl.Deleted == 0)
                 .First();
                 mungoSystem.People.Load();
+                Window showWindow=new Window();
                 this.Hide();
                 switch (sessionUser.Group)
                 {
+                    case 1:
+                        //Beteg
+                        break;
                     case 2:
-                        OrvosAsszisztensWindow oaw = new OrvosAsszisztensWindow(mungoSystem, sessionUser);
-                        oaw.ShowDialog();
+                        showWindow = new OrvosAsszisztensWindow(mungoSystem, sessionUser);
+                        break;
+                    case 3:
+                        showWindow = new ApoloMainWindow(mungoSystem, sessionUser);
+                        break;
+                    case 4:
+                        //Gazdasági alkalmazott
+                        break;
+                    case 5:
+                        //Recepciós
                         break;
                     case 6:
-                        AdminWindow aw = new AdminWindow(mungoSystem);
-                        aw.ShowDialog();
+                        showWindow = new AdminWindow(mungoSystem);
                         break;
                 }
-                this.Close();
-                //MessageBox.Show("Sikeres bejelentkezés!");
-                
+                showWindow.ShowDialog();
+                App.Current.Shutdown();
             }
             else
             {
-                MessageBox.Show("Helytelen felhasználónév vagy jelszó!");
+                MessageBox.Show("Hibás felhasználónév vagy jelszó!");
             }
         }
     }
