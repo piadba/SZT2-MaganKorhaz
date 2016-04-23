@@ -164,10 +164,10 @@ namespace EFTeszt01
                 PropertyChanged(this, new PropertyChangedEventArgs(s));
             }
         }
-        void SelectionChanged() {
-            selectedBeteg = BetegTabla.Where(b => b.PeopleID == selectedPeopleBeteg.PeopleID).First();
+        void SelectionChanged() {          
             try
             {
+                selectedBeteg = BetegTabla.Where(b => b.PeopleID == selectedPeopleBeteg.PeopleID).First();
                 selectedKorlapFej = KortortenetFej.Where(k => k.BetegID == selectedBeteg.BetegID).First();
                 SelectedKorlapTetel = new ObservableCollection<Kortortenet_tetel>(KortortenetTetel.Where(kt => kt.KortortenetFejID == selectedKorlapFej.KortortenetFejID));
                 OnPropChanged("selectedKorlapTetel");
@@ -175,14 +175,14 @@ namespace EFTeszt01
             catch { }
         }
         public void Ujbeteg(People beteg, string taj) {
-            // beteg.PeopleID = pID+1;
             ++pID;
             ms.People.Local.Add(beteg);
-            //ms.Betegek.Local.Add(new Betegek() {TAJ=taj, Deleted=0 , PeopleID=pID});
+            ms.Betegek.Local.Add(new Betegek() {TAJ=taj, Deleted=0 , PeopleID=pID});
+            
             Mentes();
-            //ms.People.Load();
-            //ms.Betegek.Load();
-           // MungoSystemInitial(this.ms);
+            ms.People.Load();
+            ms.Betegek.Load();
+            MungoSystemInitial(this.ms);
         }
 
     }
