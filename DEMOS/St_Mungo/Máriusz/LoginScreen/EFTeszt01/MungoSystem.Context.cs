@@ -30,5 +30,9 @@ namespace EFTeszt01
         public DbSet<Betegek> Betegek { get; set; }
         public DbSet<Kortortenet_fej> Kortortenet_fej { get; set; }
         public DbSet<Kortortenet_tetel> Kortortenet_tetel { get; set; }
+        public DbSet<Gyogyszer> Gyogyszer { get; set; }
+        public DbSet<KiadottGyogyszer> KiadottGyogyszer { get; set; }
+        public DbSet<Lazlap> Lazlap { get; set; }
+        public DbSet<LazlapGyogyszer> LazlapGyogyszer { get; set; }
     }
 }

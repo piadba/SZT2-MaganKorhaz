@@ -14,6 +14,30 @@
           <Property Name="TAJ" Type="varchar" MaxLength="7" />
           <Property Name="Deleted" Type="smallint" />
         </EntityType>
+        <EntityType Name="Gyogyszer">
+          <Key>
+            <PropertyRef Name="GyogyszerID" />
+          </Key>
+          <Property Name="GyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+          <Property Name="Hatoanyag" Type="varchar" MaxLength="200" />
+          <Property Name="Mennyiseg" Type="int" />
+          <Property Name="Egyseg" Type="varchar" MaxLength="20" />
+          <Property Name="EgysegMennyiseg" Type="int" />
+          <Property Name="Deleted" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="KiadottGyogyszer">
+          <Key>
+            <PropertyRef Name="LazlapGyogyszerID" />
+          </Key>
+          <Property Name="LazlapGyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ForrasID" Type="int" />
+          <Property Name="GyogyszerID" Type="int" />
+          <Property Name="Mennyiseg" Type="int" />
+          <Property Name="Statusz" Type="int" />
+          <Property Name="Datum" Type="datetime" />
+          <Property Name="Deleted" Type="tinyint" />
+        </EntityType>
         <EntityType Name="Kortortenet_fej">
           <Key>
             <PropertyRef Name="KortortenetFejID" />
@@ -32,6 +56,30 @@
           <Property Name="Orvos" Type="varchar" MaxLength="20" />
           <Property Name="Kezeles" Type="varchar" MaxLength="200" />
           <Property Name="Deleted" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Lazlap">
+          <Key>
+            <PropertyRef Name="LazlapID" />
+          </Key>
+          <Property Name="LazlapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BetegID" Type="int" />
+          <Property Name="OrvosID" Type="int" />
+          <Property Name="ApoloID" Type="int" />
+          <Property Name="OrvosMegjegyzes" Type="varchar(max)" />
+          <Property Name="ApoloMegjegyzes" Type="varchar(max)" />
+          <Property Name="UtolsoFelvetelDatum" Type="datetime" />
+          <Property Name="Statusz" Type="int" />
+          <Property Name="Deleted" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="LazlapGyogyszer">
+          <Key>
+            <PropertyRef Name="LazlapGyogyszerID" />
+          </Key>
+          <Property Name="LazlapGyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LazlapID" Type="int" />
+          <Property Name="GyogyszerID" Type="int" />
+          <Property Name="Mennyiseg" Type="int" />
+          <Property Name="Deleted" Type="tinyint" />
         </EntityType>
         <EntityType Name="LookUps">
           <Key>
@@ -59,8 +107,12 @@
         </EntityType>
         <EntityContainer Name="St_MungoModelStoreContainer">
           <EntitySet Name="Betegek" EntityType="Self.Betegek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gyogyszer" EntityType="Self.Gyogyszer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KiadottGyogyszer" EntityType="Self.KiadottGyogyszer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kortortenet_fej" EntityType="Self.Kortortenet_fej" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kortortenet_tetel" EntityType="Self.Kortortenet_tetel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lazlap" EntityType="Self.Lazlap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LazlapGyogyszer" EntityType="Self.LazlapGyogyszer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LookUps" EntityType="Self.LookUps" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="People" EntityType="Self.People" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -89,6 +141,10 @@
           <EntitySet Name="Betegek" EntityType="St_MungoModel.Betegek" />
           <EntitySet Name="Kortortenet_fej" EntityType="St_MungoModel.Kortortenet_fej" />
           <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
+          <EntitySet Name="Gyogyszer" EntityType="St_MungoModel.Gyogyszer" />
+          <EntitySet Name="KiadottGyogyszer" EntityType="St_MungoModel.KiadottGyogyszer" />
+          <EntitySet Name="Lazlap" EntityType="St_MungoModel.Lazlap" />
+          <EntitySet Name="LazlapGyogyszer" EntityType="St_MungoModel.LazlapGyogyszer" />
         </EntityContainer>
         <EntityType Name="LookUps">
           <Key>
@@ -126,6 +182,54 @@
           <Property Name="Orvos" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Kezeles" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Deleted" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Gyogyszer">
+          <Key>
+            <PropertyRef Name="GyogyszerID" />
+          </Key>
+          <Property Name="GyogyszerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Hatoanyag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Mennyiseg" Type="Int32" />
+          <Property Name="Egyseg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EgysegMennyiseg" Type="Int32" />
+          <Property Name="Deleted" Type="Byte" />
+        </EntityType>
+        <EntityType Name="KiadottGyogyszer">
+          <Key>
+            <PropertyRef Name="LazlapGyogyszerID" />
+          </Key>
+          <Property Name="LazlapGyogyszerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ForrasID" Type="Int32" />
+          <Property Name="GyogyszerID" Type="Int32" />
+          <Property Name="Mennyiseg" Type="Int32" />
+          <Property Name="Statusz" Type="Int32" />
+          <Property Name="Datum" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Lazlap">
+          <Key>
+            <PropertyRef Name="LazlapID" />
+          </Key>
+          <Property Name="LazlapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BetegID" Type="Int32" />
+          <Property Name="OrvosID" Type="Int32" />
+          <Property Name="ApoloID" Type="Int32" />
+          <Property Name="OrvosMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ApoloMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UtolsoFelvetelDatum" Type="DateTime" Precision="3" />
+          <Property Name="Statusz" Type="Int32" />
+          <Property Name="Deleted" Type="Byte" />
+        </EntityType>
+        <EntityType Name="LazlapGyogyszer">
+          <Key>
+            <PropertyRef Name="LazlapGyogyszerID" />
+          </Key>
+          <Property Name="LazlapGyogyszerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LazlapID" Type="Int32" />
+          <Property Name="GyogyszerID" Type="Int32" />
+          <Property Name="Mennyiseg" Type="Int32" />
+          <Property Name="Deleted" Type="Byte" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -187,6 +291,58 @@
                 <ScalarProperty Name="Datum" ColumnName="Datum" />
                 <ScalarProperty Name="KortortenetFejID" ColumnName="KortortenetFejID" />
                 <ScalarProperty Name="KortortenetTetelID" ColumnName="KortortenetTetelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gyogyszer">
+            <EntityTypeMapping TypeName="St_MungoModel.Gyogyszer">
+              <MappingFragment StoreEntitySet="Gyogyszer">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="EgysegMennyiseg" ColumnName="EgysegMennyiseg" />
+                <ScalarProperty Name="Egyseg" ColumnName="Egyseg" />
+                <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+                <ScalarProperty Name="Hatoanyag" ColumnName="Hatoanyag" />
+                <ScalarProperty Name="Megnevezes" ColumnName="Megnevezes" />
+                <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KiadottGyogyszer">
+            <EntityTypeMapping TypeName="St_MungoModel.KiadottGyogyszer">
+              <MappingFragment StoreEntitySet="KiadottGyogyszer">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+                <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+                <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+                <ScalarProperty Name="ForrasID" ColumnName="ForrasID" />
+                <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lazlap">
+            <EntityTypeMapping TypeName="St_MungoModel.Lazlap">
+              <MappingFragment StoreEntitySet="Lazlap">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Statusz" ColumnName="Statusz" />
+                <ScalarProperty Name="UtolsoFelvetelDatum" ColumnName="UtolsoFelvetelDatum" />
+                <ScalarProperty Name="ApoloMegjegyzes" ColumnName="ApoloMegjegyzes" />
+                <ScalarProperty Name="OrvosMegjegyzes" ColumnName="OrvosMegjegyzes" />
+                <ScalarProperty Name="ApoloID" ColumnName="ApoloID" />
+                <ScalarProperty Name="OrvosID" ColumnName="OrvosID" />
+                <ScalarProperty Name="BetegID" ColumnName="BetegID" />
+                <ScalarProperty Name="LazlapID" ColumnName="LazlapID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LazlapGyogyszer">
+            <EntityTypeMapping TypeName="St_MungoModel.LazlapGyogyszer">
+              <MappingFragment StoreEntitySet="LazlapGyogyszer">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
+                <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
+                <ScalarProperty Name="LazlapID" ColumnName="LazlapID" />
+                <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
