@@ -6,7 +6,8 @@
     </Key>
     <Property Name="ApoloMuszakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PeopleID" Type="int" />
-    <Property Name="Datum" Type="date" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
   <EntityType Name="Betegek">
