@@ -76,5 +76,14 @@ namespace EFTeszt01
                 oak.ShowDialog();
             }
         }
+
+        private void lazlapFelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(ovm.SelectedBeteg != null)
+            {
+                OrvosAsszisztensLazlapWindow oal = new OrvosAsszisztensLazlapWindow();
+                oal.ShowDialog();
+            }
+        }
     }
 }

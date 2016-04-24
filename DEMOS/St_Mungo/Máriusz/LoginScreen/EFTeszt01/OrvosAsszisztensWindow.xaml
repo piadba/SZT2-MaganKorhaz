@@ -27,8 +27,7 @@
         <Button x:Name="ujBetegBtn" Content="Új beteg felvétele" HorizontalAlignment="Left" Margin="21,243,0,0" VerticalAlignment="Top" Width="112" Click="ujBetegBtn_Click"/>
         <Button x:Name="kezelesFelBtn" Content="Kezelés felvétele" HorizontalAlignment="Left" Margin="310,243,0,0" VerticalAlignment="Top" Width="97" Click="kezelesFelBtn_Click"/>
         <Button x:Name="korlapModBtn" Content="Kórlap módosítása" HorizontalAlignment="Left" Margin="73.368,243,0,0" VerticalAlignment="Top" Width="110" Grid.Column="1" Click="korlapModBtn_Click"/>
-        <Button x:Name="lazlapFelBtn" Content="Lázlap felvétele" HorizontalAlignment="Left" Margin="310,274,0,0" VerticalAlignment="Top" Width="97"/>
-        <Button x:Name="lazlapModBtn" Content="Lázlap módosítása" HorizontalAlignment="Left" Margin="73.368,274,0,0" VerticalAlignment="Top" Width="110" Grid.Column="1"/>
+        <Button x:Name="lazlapFelBtn" Content="Lázlap felvétele" HorizontalAlignment="Left" Margin="310,274,0,0" VerticalAlignment="Top" Width="97" Click="lazlapFelBtn_Click"/>
 
     </Grid>
 </Window>
