@@ -97,6 +97,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ApoloMuszak">
+      <EntityTypeMapping TypeName="St_MungoModel.ApoloMuszak">
+        <MappingFragment StoreEntitySet="ApoloMuszak">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+          <ScalarProperty Name="ApoloMuszakID" ColumnName="ApoloMuszakID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Idopontok">
       <EntityTypeMapping TypeName="St_MungoModel.Idopontok">
         <MappingFragment StoreEntitySet="Idopontok">
@@ -138,17 +148,6 @@
           <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
           <ScalarProperty Name="ForrasID" ColumnName="ForrasID" />
           <ScalarProperty Name="KiadottGyogyszer1" ColumnName="KiadottGyogyszer" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ApoloMuszak">
-      <EntityTypeMapping TypeName="St_MungoModel.ApoloMuszak">
-        <MappingFragment StoreEntitySet="ApoloMuszak">
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
-          <ScalarProperty Name="ApoloMuszakID" ColumnName="ApoloMuszakID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
