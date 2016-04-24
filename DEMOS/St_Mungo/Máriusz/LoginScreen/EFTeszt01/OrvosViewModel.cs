@@ -20,6 +20,9 @@ namespace EFTeszt01
         Kortortenet_fej selectedKorlapFej;
         ObservableCollection<Kortortenet_tetel> selectedKorlapTetel;
         Kortortenet_tetel selectedKezeles;
+
+        Lazlap betegLazlapja;
+        ObservableCollection<KiadottGyogyszer> betegGyogyszerei;
         //------------------------------------------------------------------------------------
 
         //-----------------------------Összes szükséges lekért adat a táblákból----------------
@@ -28,6 +31,8 @@ namespace EFTeszt01
         ObservableCollection<Betegek> betegTabla;
         ObservableCollection<Kortortenet_fej> kortortenetFej;
         ObservableCollection<Kortortenet_tetel> kortortenetTetel;
+        ObservableCollection<Lazlap> lazlapok;
+        ObservableCollection<KiadottGyogyszer> gyogyszerek;
         MungoSystem ms;
         //------------------------------------------------------------------------------------
 
@@ -141,6 +146,59 @@ namespace EFTeszt01
             set { selectedKezeles = value; }
         }
 
+        public ObservableCollection<Lazlap> Lazlapok
+        {
+            get
+            {
+                return lazlapok;
+            }
+
+            set
+            {
+                lazlapok = value;
+            }
+        }
+
+        public ObservableCollection<KiadottGyogyszer> Gyogyszerek
+        {
+            get
+            {
+                return gyogyszerek;
+            }
+
+            set
+            {
+                gyogyszerek = value;
+            }
+        }
+
+        public Lazlap BetegLazlapja
+        {
+            get
+            {
+                return betegLazlapja;
+            }
+
+            set
+            {
+                betegLazlapja = value;
+            }
+        }
+
+        public ObservableCollection<KiadottGyogyszer> BetegGyogyszerei
+        {
+            get
+            {
+                return betegGyogyszerei;
+            }
+
+            set
+            {
+                betegGyogyszerei = value;
+                OnPropChanged("betegekGyogyszerei");
+            }
+        }
+
         //------------------------------------------------------------------------------------
         public void MungoSystemInitial(MungoSystem ms) {
             this.ms = ms;
@@ -148,6 +206,8 @@ namespace EFTeszt01
             this.kortortenetFej = new ObservableCollection<Kortortenet_fej>(ms.Kortortenet_fej);
             this.kortortenetTetel = new ObservableCollection<Kortortenet_tetel>(ms.Kortortenet_tetel);
             this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl => ppl.Group == 1));
+            this.lazlapok = new ObservableCollection<Lazlap>(ms.Lazlap);
+            this.gyogyszerek = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer);
             pID = ms.People.Max(p => p.PeopleID);
             bID = ms.Betegek.Max(p => p.BetegID);
             kfID = ms.Kortortenet_fej.Max(p => p.KortortenetFejID);
@@ -211,6 +271,71 @@ namespace EFTeszt01
             Mentes();
             MungoSystemInitial(this.ms);
             SelectionChanged();
+        }
+
+        public void SelectedBetegLazlapja() {
+            if (selectedBeteg != null)
+            {
+                try
+                {
+                    betegLazlapja = lazlapok.Where(x => x.Deleted == 0 && x.BetegID == selectedBeteg.BetegID).First();
+                }
+                catch
+                {
+                    betegLazlapja = new Lazlap() { BetegID = selectedBeteg.BetegID, Deleted = 0, OrvosID = orvos.PeopleID, OrvosMegjegyzes = "Nincs megjegyzés.", ApoloMegjegyzes = "Nincs megjegyzés." };
+                }
+                finally { OnPropChanged("betegLazlapja"); }
+            }
+        }
+        public void SelectedBetegGyogyszerei() {
+            if (betegLazlapja != null)
+            {
+                try
+                {
+                    betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID));
+                }
+                catch
+                {
+                    betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>();
+                }
+                {
+                    OnPropChanged("betegGyogyszerei");
+                }
+            }
+        }
+        public void SelectedBetegLazlapMentes() {
+            if (betegLazlapja != null) {
+               
+                    
+                try
+                {
+                    Lazlap l = ms.Lazlap.Where(x => x.Deleted == 0 && x.BetegID == selectedBeteg.BetegID).First();
+
+                    l.ApoloMegjegyzes = betegLazlapja.ApoloMegjegyzes;
+                    l.OrvosMegjegyzes = betegLazlapja.OrvosMegjegyzes;
+                    try
+                    {
+                        ms.KiadottGyogyszer = (DbSet<KiadottGyogyszer>)ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.ForrasID != betegLazlapja.LazlapID);
+                    }
+                    catch { }
+                }
+                catch {
+                    ms.Lazlap.Add(new Lazlap() { ApoloMegjegyzes = betegLazlapja.ApoloMegjegyzes, OrvosMegjegyzes = betegLazlapja.OrvosMegjegyzes, BetegID = selectedBeteg.BetegID, OrvosID = orvos.PeopleID, Deleted = 0, Statusz = 7});
+                }
+                finally
+                {
+                    
+                    foreach (var i in betegGyogyszerei)
+                    {
+                        
+                        ms.KiadottGyogyszer.Add(i);
+                    }
+                    Mentes();
+                    MungoSystemInitial(this.ms);
+                    BetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>();
+
+                }
+            }
         }
 
     }
