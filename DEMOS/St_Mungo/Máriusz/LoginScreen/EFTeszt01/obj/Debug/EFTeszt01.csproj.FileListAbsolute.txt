@@ -86,3 +86,11 @@ C:\Users\Zsu\Documents\work\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen
 C:\Users\Zsu\Documents\work\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.csproj.GenerateResource.Cache
 E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloMainWindow.g.cs
 E:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloMainWindow.baml
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensKezelesWindow.baml
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkMainWindow.g.cs
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensKezelesWindow.g.cs
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensGyogyszerWindow.g.cs
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensLazlapWindow.g.cs
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkMainWindow.baml
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensGyogyszerWindow.baml
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensLazlapWindow.baml

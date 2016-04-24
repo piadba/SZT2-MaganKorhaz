@@ -142,7 +142,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="OrvosAsszisztensGyogyszerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="OrvosAsszisztensKezelesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OrvosAsszisztensLazlapWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -172,8 +180,14 @@
       <DependentUpon>MungoSystem.edmx</DependentUpon>
     </Compile>
     <Compile Include="OrvosAsszisztensFelhModWindow.xaml.cs" />
+    <Compile Include="OrvosAsszisztensGyogyszerWindow.xaml.cs">
+      <DependentUpon>OrvosAsszisztensGyogyszerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrvosAsszisztensKezelesWindow.xaml.cs">
       <DependentUpon>OrvosAsszisztensKezelesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrvosAsszisztensLazlapWindow.xaml.cs">
+      <DependentUpon>OrvosAsszisztensLazlapWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrvosAsszisztensUjBetegWindow.xaml.cs" />
     <Compile Include="OrvosAsszisztensWindow.xaml.cs" />
