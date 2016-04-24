@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GazdAlkMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,14 +82,15 @@
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ApoloMuszak.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="ApoloMuszakButtonConverter.cs" />
     <Compile Include="ApoloMainWindow.xaml.cs">
       <DependentUpon>ApoloMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ApoloMuszak.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
     <Compile Include="ApoloWindowConverterBetegID.cs" />
+    <Compile Include="ApoloWindowLazlapListboxisEnabledConverter.cs" />
     <Compile Include="ApoloWindowOrvosID.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -95,6 +100,9 @@
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="BetegNevKonverter.cs" />
+    <Compile Include="GazdAlkMainWindow.xaml.cs">
+      <DependentUpon>GazdAlkMainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Gyogyszer.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
@@ -134,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="OrvosAsszisztensKezelesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="OrvosAsszisztensUjBetegWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -160,6 +172,9 @@
       <DependentUpon>MungoSystem.edmx</DependentUpon>
     </Compile>
     <Compile Include="OrvosAsszisztensFelhModWindow.xaml.cs" />
+    <Compile Include="OrvosAsszisztensKezelesWindow.xaml.cs">
+      <DependentUpon>OrvosAsszisztensKezelesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrvosAsszisztensUjBetegWindow.xaml.cs" />
     <Compile Include="OrvosAsszisztensWindow.xaml.cs" />
     <Compile Include="OrvosViewModel.cs" />

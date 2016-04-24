@@ -23,5 +23,7 @@ namespace EFTeszt01
         public Nullable<System.DateTime> UtolsoFelvetelDatum { get; set; }
         public Nullable<int> Statusz { get; set; }
         public Nullable<byte> Deleted { get; set; }
+        public string MegjegyzesTT { get { return "Orvos megj.: "+OrvosMegjegyzes+"\n Ápolói megj.: "+ApoloMegjegyzes; } }
     }
+    
 }

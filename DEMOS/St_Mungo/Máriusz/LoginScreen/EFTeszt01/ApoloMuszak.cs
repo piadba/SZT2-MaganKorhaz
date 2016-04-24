@@ -16,7 +16,8 @@ namespace EFTeszt01
     {
         public int ApoloMuszakID { get; set; }
         public Nullable<int> PeopleID { get; set; }
-        public Nullable<System.DateTime> Datum { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
         public Nullable<byte> Deleted { get; set; }
     }
 }

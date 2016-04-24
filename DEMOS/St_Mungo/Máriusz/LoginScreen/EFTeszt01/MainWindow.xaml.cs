@@ -64,7 +64,7 @@ namespace EFTeszt01
                         showWindow.DataContext = sessionUser;
                         break;
                     case 4:
-                        //Gazdasági alkalmazott
+                        showWindow = new GazdAlkMainWindow(mungoSystem, sessionUser);
                         break;
                     case 5:
                         //Recepciós

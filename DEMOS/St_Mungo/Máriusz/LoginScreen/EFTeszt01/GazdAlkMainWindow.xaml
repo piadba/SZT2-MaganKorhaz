@@ -1,0 +1,29 @@
+﻿<Window x:Class="EFTeszt01.GazdAlkMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="GazdAlkMainWindow" Height="300" Width="380.838" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="370">
+            <TabItem Header="Gyógyszer készlet" x:Name="tabItemGyogyszer">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Kórházi eszközök" x:Name="tabItemKorhaziEszkoz">
+                <Grid Background="#FFE5E5E5">
+                    <TreeView x:Name="treeViewEszkoz" HorizontalAlignment="Left" Height="241" VerticalAlignment="Top" Width="364">
+                        <TreeView.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding Path=Megnevezes}"></Label>
+                            </DataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

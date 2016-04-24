@@ -11,7 +11,8 @@
           </Key>
           <Property Name="ApoloMuszakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PeopleID" Type="int" />
-          <Property Name="Datum" Type="date" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
           <Property Name="Deleted" Type="tinyint" />
         </EntityType>
         <EntityType Name="Betegek">
@@ -185,11 +186,11 @@
           <EntitySet Name="Gyogyszer" EntityType="St_MungoModel.Gyogyszer" />
           <EntitySet Name="Lazlap" EntityType="St_MungoModel.Lazlap" />
           <EntitySet Name="LazlapGyogyszer" EntityType="St_MungoModel.LazlapGyogyszer" />
-          <EntitySet Name="ApoloMuszak" EntityType="St_MungoModel.ApoloMuszak" />
           <EntitySet Name="Idopontok" EntityType="St_MungoModel.Idopontok" />
           <EntitySet Name="KorhaziEszkoz" EntityType="St_MungoModel.KorhaziEszkoz" />
           <EntitySet Name="KorhaziEszkozok_Fej" EntityType="St_MungoModel.KorhaziEszkozok_Fej" />
           <EntitySet Name="KiadottGyogyszer" EntityType="St_MungoModel.KiadottGyogyszer" />
+          <EntitySet Name="ApoloMuszak" EntityType="St_MungoModel.ApoloMuszak" />
         </EntityContainer>
         <EntityType Name="LookUps">
           <Key>
@@ -264,15 +265,6 @@
           <Property Name="Mennyiseg" Type="Int32" />
           <Property Name="Deleted" Type="Byte" />
         </EntityType>
-        <EntityType Name="ApoloMuszak">
-          <Key>
-            <PropertyRef Name="ApoloMuszakID" />
-          </Key>
-          <Property Name="ApoloMuszakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PeopleID" Type="Int32" />
-          <Property Name="Datum" Type="DateTime" Precision="0" />
-          <Property Name="Deleted" Type="Byte" />
-        </EntityType>
         <EntityType Name="Idopontok">
           <Key>
             <PropertyRef Name="IdopontID" />
@@ -311,6 +303,16 @@
           <Property Name="Mennyiseg" Type="Int32" />
           <Property Name="Statusz" Type="Int32" />
           <Property Name="Datum" Type="DateTime" Precision="3" />
+          <Property Name="Deleted" Type="Byte" />
+        </EntityType>
+        <EntityType Name="ApoloMuszak">
+          <Key>
+            <PropertyRef Name="ApoloMuszakID" />
+          </Key>
+          <Property Name="ApoloMuszakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PeopleID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
           <Property Name="Deleted" Type="Byte" />
         </EntityType>
       </Schema>
@@ -415,16 +417,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ApoloMuszak">
-            <EntityTypeMapping TypeName="St_MungoModel.ApoloMuszak">
-              <MappingFragment StoreEntitySet="ApoloMuszak">
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="Datum" ColumnName="Datum" />
-                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
-                <ScalarProperty Name="ApoloMuszakID" ColumnName="ApoloMuszakID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Idopontok">
             <EntityTypeMapping TypeName="St_MungoModel.Idopontok">
               <MappingFragment StoreEntitySet="Idopontok">
@@ -466,6 +458,17 @@
                 <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
                 <ScalarProperty Name="ForrasID" ColumnName="ForrasID" />
                 <ScalarProperty Name="KiadottGyogyszer1" ColumnName="KiadottGyogyszer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApoloMuszak">
+            <EntityTypeMapping TypeName="St_MungoModel.ApoloMuszak">
+              <MappingFragment StoreEntitySet="ApoloMuszak">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
+                <ScalarProperty Name="ApoloMuszakID" ColumnName="ApoloMuszakID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

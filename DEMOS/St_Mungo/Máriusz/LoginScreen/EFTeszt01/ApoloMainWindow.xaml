@@ -5,25 +5,48 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="ApoloMainWindow" Height="300" Width="382.787" Loaded="Window_Loaded">
+        Title="{Binding Path=Name}" Height="648" Width="686.287" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Window.Resources>
+        <local:ApoloWindowOrvosID x:Key="ApoloWindowOrvosID"/>
+        <local:ApoloWindowConverterBetegID x:Key="ApoloWindowConverterBetegID"/>
+        <local:ApoloWindowLazlapListboxisEnabledConverter x:Key="ApoloWindowLazlapListboxisEnabledConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.Resources>
             <local:ApoloWindowOrvosID x:Key="ApoloWindowOrvosID"/>
             <local:ApoloWindowConverterBetegID x:Key="ApoloWindowConverterBetegID"/>
             <local:ApoloMuszakButtonConverter x:Key="ApoloMuszakButtonConverter"/>
+            <local:ApoloWindowLazlapListboxisEnabledConverter x:Key="ApoloWindowLazlapListboxisEnabledConverter"/>
         </Grid.Resources>
-        <Button x:Name="button" Content="{Binding Path=PeopleID, Converter={StaticResource ApoloMuszakButtonConverter}}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="106" Click="button_Click"/>
-        <ListBox x:Name="LazlapListBox" HorizontalAlignment="Left" Height="224" Margin="10,35,0,0" VerticalAlignment="Top" Width="272">
+        <Button x:Name="button" Content="{Binding Path=PeopleID, Converter={StaticResource ApoloMuszakButtonConverter}}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="123" Click="button_Click"/>
+        <ListBox x:Name="LazlapListBox" HorizontalAlignment="Left" Height="572" Margin="10,35,0,0" VerticalAlignment="Top" Width="272" IsEnabled="{Binding Path=PeopleID, Converter={StaticResource ApoloWindowLazlapListboxisEnabledConverter}}" ToolTip="{Binding Path=MegjegyzesTT}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <Label Content="{Binding Path=LazlapID}" ContentStringFormat="Lapszám: {0}" />
-                        <Label Content="{Binding Path=OrvosID,Converter={StaticResource ApoloWindowOrvosID}}" ContentStringFormat="Kiíró Orvos: {0}"/>
-                        <Label Content="{Binding Path=BetegID, Converter={StaticResource ApoloWindowConverterBetegID}}" ContentStringFormat="Kezelendő Beteg: {0}"/>
-                    </StackPanel>
+                    <Border BorderThickness="0,0,0,5" BorderBrush="Teal">
+                        <StackPanel Width="255">
+                            <Label Content="{Binding Path=LazlapID}" ContentStringFormat="Lapszám: {0}" />
+                            <Label Content="{Binding Path=OrvosID,Converter={StaticResource ApoloWindowOrvosID}}" ContentStringFormat="Kiíró Orvos: {0}"/>
+                            <Label Content="{Binding Path=BetegID, Converter={StaticResource ApoloWindowConverterBetegID}}" ContentStringFormat="Kezelendő Beteg: {0}"/>
+                        </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-
+        <Button x:Name="LazlapReszlet" Content="Lázlap részletek" HorizontalAlignment="Left" Margin="138,10,0,0" VerticalAlignment="Top" Width="144" Click="LazlapReszlet_Click"/>
+        <Button x:Name="LazlapAdd" Content="Lázlap felvétel >>" HorizontalAlignment="Left" Height="23" Margin="287,35,0,0" VerticalAlignment="Top" Width="101" Click="LazlapAdd_Click"/>
+        <Button x:Name="LazlapRemove" Content="&lt;&lt; Lázlap leadás" HorizontalAlignment="Left" Height="23" Margin="287,63,0,0" VerticalAlignment="Top" Width="101" Click="LazlapRemove_Click"/>
+        <ListBox x:Name="SelfLazlapListBox" HorizontalAlignment="Left" Height="572" Margin="393,35,0,0" VerticalAlignment="Top" Width="272">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="0,0,0,5" BorderBrush="Teal">
+                        <StackPanel Width="255">
+                            <Label Content="{Binding LazlapID}" ContentStringFormat="Lapszám: {0}" />
+                            <Label Content="{Binding OrvosID, Converter={StaticResource ApoloWindowOrvosID}}" ContentStringFormat="Kiíró Orvos: {0}"/>
+                            <Label Content="{Binding BetegID, Converter={StaticResource ApoloWindowConverterBetegID}}" ContentStringFormat="Kezelendő Beteg: {0}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
