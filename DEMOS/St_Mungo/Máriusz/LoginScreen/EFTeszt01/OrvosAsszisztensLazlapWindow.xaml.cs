@@ -29,7 +29,6 @@ namespace EFTeszt01
             ovm.SelectedBetegLazlapja();
             ovm.SelectedBetegGyogyszerei();
             this.DataContext = ovm;
-            
         }
 
         private void mentesBTN_Click(object sender, RoutedEventArgs e)

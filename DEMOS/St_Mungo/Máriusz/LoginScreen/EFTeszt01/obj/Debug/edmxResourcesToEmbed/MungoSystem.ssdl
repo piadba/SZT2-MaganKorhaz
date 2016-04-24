@@ -6,7 +6,8 @@
     </Key>
     <Property Name="ApoloMuszakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PeopleID" Type="int" />
-    <Property Name="Datum" Type="date" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
   <EntityType Name="Betegek">
@@ -23,10 +24,10 @@
       <PropertyRef Name="GyogyszerID" />
     </Key>
     <Property Name="GyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
-    <Property Name="Hatoanyag" Type="varchar" MaxLength="200" />
+    <Property Name="Megnevezes" Type="nvarchar" MaxLength="200" />
+    <Property Name="Hatoanyag" Type="nvarchar" MaxLength="200" />
     <Property Name="Mennyiseg" Type="int" />
-    <Property Name="Egyseg" Type="varchar" MaxLength="20" />
+    <Property Name="Egyseg" Type="nvarchar" MaxLength="20" />
     <Property Name="EgysegMennyiseg" Type="int" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
@@ -58,7 +59,7 @@
     </Key>
     <Property Name="EszkozID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Eszkoz_FejID" Type="int" />
-    <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+    <Property Name="Megnevezes" Type="nvarchar" MaxLength="200" />
     <Property Name="Statusz" Type="bit" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
@@ -67,7 +68,7 @@
       <PropertyRef Name="Eszkoz_FejID" />
     </Key>
     <Property Name="Eszkoz_FejID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+    <Property Name="Megnevezes" Type="nvarchar" MaxLength="200" />
     <Property Name="Deleted" Type="tinyint" />
   </EntityType>
   <EntityType Name="Kortortenet_fej">
@@ -97,8 +98,8 @@
     <Property Name="BetegID" Type="int" />
     <Property Name="OrvosID" Type="int" />
     <Property Name="ApoloID" Type="int" />
-    <Property Name="OrvosMegjegyzes" Type="varchar(max)" />
-    <Property Name="ApoloMegjegyzes" Type="varchar(max)" />
+    <Property Name="OrvosMegjegyzes" Type="nvarchar(max)" />
+    <Property Name="ApoloMegjegyzes" Type="nvarchar(max)" />
     <Property Name="UtolsoFelvetelDatum" Type="datetime" />
     <Property Name="Statusz" Type="int" />
     <Property Name="Deleted" Type="tinyint" />
@@ -118,24 +119,24 @@
       <PropertyRef Name="LookupID" />
     </Key>
     <Property Name="LookupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Value" Type="varchar" MaxLength="200" />
+    <Property Name="Value" Type="nvarchar" MaxLength="200" />
     <Property Name="Deleted" Type="tinyint" />
-    <Property Name="ObjectType" Type="varchar" MaxLength="200" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="People">
     <Key>
       <PropertyRef Name="PeopleID" />
     </Key>
     <Property Name="PeopleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="varchar" MaxLength="40" />
-    <Property Name="Password" Type="varchar" MaxLength="40" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="40" />
+    <Property Name="Password" Type="nvarchar" MaxLength="40" />
     <Property Name="Group" Type="int" />
     <Property Name="Deleted" Type="tinyint" />
-    <Property Name="Name" Type="varchar" MaxLength="20" />
-    <Property Name="Address" Type="varchar" MaxLength="30" />
-    <Property Name="Gender" Type="varchar" MaxLength="5" />
-    <Property Name="Email" Type="varchar" MaxLength="40" />
-    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" MaxLength="40" />
+    <Property Name="Address" Type="nvarchar" MaxLength="40" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="40" />
+    <Property Name="Email" Type="nvarchar" MaxLength="40" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityContainer Name="St_MungoModelStoreContainer">
     <EntitySet Name="ApoloMuszak" EntityType="Self.ApoloMuszak" Schema="dbo" store:Type="Tables" />

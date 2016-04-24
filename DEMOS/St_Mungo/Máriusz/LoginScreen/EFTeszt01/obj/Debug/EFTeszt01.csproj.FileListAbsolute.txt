@@ -94,3 +94,5 @@ e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTes
 e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkMainWindow.baml
 e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensGyogyszerWindow.baml
 e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensLazlapWindow.baml
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozGroupAddWindow.g.cs
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozGroupAddWindow.baml

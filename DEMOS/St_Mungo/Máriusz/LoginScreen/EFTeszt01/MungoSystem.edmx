@@ -11,8 +11,8 @@
           </Key>
           <Property Name="ApoloMuszakID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PeopleID" Type="int" />
-          <Property Name="StartDate" Type="date" />
-          <Property Name="EndDate" Type="date" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
           <Property Name="Deleted" Type="tinyint" />
         </EntityType>
         <EntityType Name="Betegek">
@@ -29,10 +29,10 @@
             <PropertyRef Name="GyogyszerID" />
           </Key>
           <Property Name="GyogyszerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
-          <Property Name="Hatoanyag" Type="varchar" MaxLength="200" />
+          <Property Name="Megnevezes" Type="nvarchar" MaxLength="200" />
+          <Property Name="Hatoanyag" Type="nvarchar" MaxLength="200" />
           <Property Name="Mennyiseg" Type="int" />
-          <Property Name="Egyseg" Type="varchar" MaxLength="20" />
+          <Property Name="Egyseg" Type="nvarchar" MaxLength="20" />
           <Property Name="EgysegMennyiseg" Type="int" />
           <Property Name="Deleted" Type="tinyint" />
         </EntityType>
@@ -64,7 +64,7 @@
           </Key>
           <Property Name="EszkozID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Eszkoz_FejID" Type="int" />
-          <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+          <Property Name="Megnevezes" Type="nvarchar" MaxLength="200" />
           <Property Name="Statusz" Type="bit" />
           <Property Name="Deleted" Type="tinyint" />
         </EntityType>
@@ -73,7 +73,7 @@
             <PropertyRef Name="Eszkoz_FejID" />
           </Key>
           <Property Name="Eszkoz_FejID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Megnevezes" Type="varchar" MaxLength="200" />
+          <Property Name="Megnevezes" Type="nvarchar" MaxLength="200" />
           <Property Name="Deleted" Type="tinyint" />
         </EntityType>
         <EntityType Name="Kortortenet_fej">
@@ -103,8 +103,8 @@
           <Property Name="BetegID" Type="int" />
           <Property Name="OrvosID" Type="int" />
           <Property Name="ApoloID" Type="int" />
-          <Property Name="OrvosMegjegyzes" Type="varchar(max)" />
-          <Property Name="ApoloMegjegyzes" Type="varchar(max)" />
+          <Property Name="OrvosMegjegyzes" Type="nvarchar(max)" />
+          <Property Name="ApoloMegjegyzes" Type="nvarchar(max)" />
           <Property Name="UtolsoFelvetelDatum" Type="datetime" />
           <Property Name="Statusz" Type="int" />
           <Property Name="Deleted" Type="tinyint" />
@@ -124,24 +124,24 @@
             <PropertyRef Name="LookupID" />
           </Key>
           <Property Name="LookupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Value" Type="varchar" MaxLength="200" />
+          <Property Name="Value" Type="nvarchar" MaxLength="200" />
           <Property Name="Deleted" Type="tinyint" />
-          <Property Name="ObjectType" Type="varchar" MaxLength="200" />
+          <Property Name="ObjectType" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="People">
           <Key>
             <PropertyRef Name="PeopleID" />
           </Key>
           <Property Name="PeopleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="40" />
-          <Property Name="Password" Type="varchar" MaxLength="40" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="40" />
+          <Property Name="Password" Type="nvarchar" MaxLength="40" />
           <Property Name="Group" Type="int" />
           <Property Name="Deleted" Type="tinyint" />
-          <Property Name="Name" Type="varchar" MaxLength="20" />
-          <Property Name="Address" Type="varchar" MaxLength="30" />
-          <Property Name="Gender" Type="varchar" MaxLength="5" />
-          <Property Name="Email" Type="varchar" MaxLength="40" />
-          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Name" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address" Type="nvarchar" MaxLength="40" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="40" />
+          <Property Name="Email" Type="nvarchar" MaxLength="40" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityContainer Name="St_MungoModelStoreContainer">
           <EntitySet Name="ApoloMuszak" EntityType="Self.ApoloMuszak" Schema="dbo" store:Type="Tables" />
@@ -167,15 +167,15 @@
             <PropertyRef Name="PeopleID" />
           </Key>
           <Property Name="PeopleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Group" Type="Int32" />
           <Property Name="Deleted" Type="Byte" />
-          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Gender" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="MungoSystem" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="People" EntityType="Self.People" />
@@ -197,9 +197,9 @@
             <PropertyRef Name="LookupID" />
           </Key>
           <Property Name="LookupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Deleted" Type="Byte" />
-          <Property Name="ObjectType" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Betegek">
           <Key>
@@ -234,10 +234,10 @@
             <PropertyRef Name="GyogyszerID" />
           </Key>
           <Property Name="GyogyszerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Hatoanyag" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Hatoanyag" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Mennyiseg" Type="Int32" />
-          <Property Name="Egyseg" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Egyseg" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="EgysegMennyiseg" Type="Int32" />
           <Property Name="Deleted" Type="Byte" />
         </EntityType>
@@ -249,8 +249,8 @@
           <Property Name="BetegID" Type="Int32" />
           <Property Name="OrvosID" Type="Int32" />
           <Property Name="ApoloID" Type="Int32" />
-          <Property Name="OrvosMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ApoloMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OrvosMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApoloMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UtolsoFelvetelDatum" Type="DateTime" Precision="3" />
           <Property Name="Statusz" Type="Int32" />
           <Property Name="Deleted" Type="Byte" />
@@ -281,7 +281,7 @@
           </Key>
           <Property Name="EszkozID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Eszkoz_FejID" Type="Int32" />
-          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Statusz" Type="Boolean" />
           <Property Name="Deleted" Type="Byte" />
         </EntityType>
@@ -290,7 +290,7 @@
             <PropertyRef Name="Eszkoz_FejID" />
           </Key>
           <Property Name="Eszkoz_FejID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Deleted" Type="Byte" />
         </EntityType>
         <EntityType Name="KiadottGyogyszer">
@@ -311,8 +311,8 @@
           </Key>
           <Property Name="ApoloMuszakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PeopleID" Type="Int32" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
           <Property Name="Deleted" Type="Byte" />
         </EntityType>
       </Schema>

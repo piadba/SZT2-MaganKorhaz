@@ -1,0 +1,16 @@
+﻿<Window x:Class="EFTeszt01.EszkozGroupAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="EszkozGroupAddWindow" Height="108.683" Width="315.269" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="21" Margin="116,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes}" VerticalAlignment="Top" Width="168"/>
+        <Label x:Name="label" Content="Megnevezés: " HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
+        <Button x:Name="button" Content="Mentés" HorizontalAlignment="Left" Height="27" Margin="10,40,0,0" VerticalAlignment="Top" Width="168" Click="button_Click"/>
+        <Button x:Name="button1" Content="Mégsem" HorizontalAlignment="Left" Height="27" Margin="183,40,0,0" VerticalAlignment="Top" Width="101" Click="button1_Click"/>
+
+    </Grid>
+</Window>
