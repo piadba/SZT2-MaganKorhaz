@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GyogyszerIDNevKonverter.cs" />
     <Compile Include="IdopontKezelo.xaml.cs">
       <DependentUpon>IdopontKezelo.xaml</DependentUpon>
     </Compile>
