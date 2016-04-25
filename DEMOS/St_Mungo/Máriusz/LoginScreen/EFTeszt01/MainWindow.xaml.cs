@@ -67,6 +67,7 @@ namespace EFTeszt01
                         showWindow = new GazdAlkMainWindow(mungoSystem, sessionUser);
                         break;
                     case 5:
+                        showWindow = new RecepciosMainWindow(mungoSystem, sessionUser);
                         //Recepciós
                         break;
                     case 6:

@@ -63,6 +63,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IdopontKezelo.xaml.cs">
+      <DependentUpon>IdopontKezelo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosMainWindow.xaml.cs">
+      <DependentUpon>RecepciosMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosViewModel.cs" />
     <Page Include="AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,6 +89,14 @@
     <Page Include="GazdAlkMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IdopontKezelo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IdopontSzerkeszto.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="IgenyMainWindow.xaml">
       <SubType>Designer</SubType>
@@ -127,6 +142,9 @@
     </Compile>
     <Compile Include="Idopontok.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IdopontSzerkeszto.xaml.cs">
+      <DependentUpon>IdopontSzerkeszto.xaml</DependentUpon>
     </Compile>
     <Compile Include="IgenyMainWindow.xaml.cs">
       <DependentUpon>IgenyMainWindow.xaml</DependentUpon>
@@ -178,6 +196,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="OrvosAsszisztensWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
