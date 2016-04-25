@@ -85,5 +85,10 @@ namespace EFTeszt01
                 oal.ShowDialog();
             }
         }
+
+        private void igenyBTN_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

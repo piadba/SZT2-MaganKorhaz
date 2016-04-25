@@ -205,7 +205,7 @@ namespace EFTeszt01
             this.betegTabla = new ObservableCollection<Betegek>(ms.Betegek);
             this.kortortenetFej = new ObservableCollection<Kortortenet_fej>(ms.Kortortenet_fej);
             this.kortortenetTetel = new ObservableCollection<Kortortenet_tetel>(ms.Kortortenet_tetel);
-            this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl => ppl.Group == 1));
+            this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl =>ppl.Deleted == 0 && ppl.Group == 1));
             this.lazlapok = new ObservableCollection<Lazlap>(ms.Lazlap);
             this.gyogyszerek = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer);
             pID = ms.People.Max(p => p.PeopleID);
@@ -234,9 +234,9 @@ namespace EFTeszt01
         void SelectionChanged() {
             try
             {
-                selectedBeteg = BetegTabla.Where(b => b.PeopleID == selectedPeopleBeteg.PeopleID).First();
-                selectedKorlapFej = KortortenetFej.Where(k => k.BetegID == selectedBeteg.BetegID).First();
-                SelectedKorlapTetel = new ObservableCollection<Kortortenet_tetel>(KortortenetTetel.Where(kt => kt.KortortenetFejID == selectedKorlapFej.KortortenetFejID));
+                selectedBeteg = BetegTabla.Where(b => b.Deleted == 0 && b.PeopleID == selectedPeopleBeteg.PeopleID).First();
+                selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
+                SelectedKorlapTetel = new ObservableCollection<Kortortenet_tetel>(KortortenetTetel.Where(kt => kt.Deleted == 0 && kt.KortortenetFejID == selectedKorlapFej.KortortenetFejID));
                 OnPropChanged("selectedKorlapTetel");
                 
             }
@@ -254,7 +254,7 @@ namespace EFTeszt01
         }
 
         public void KezelesModositas(Kortortenet_tetel kt) {
-            Kortortenet_tetel kt2 = ms.Kortortenet_tetel.Where(x => x.KortortenetTetelID == kt.KortortenetTetelID).First();
+            Kortortenet_tetel kt2 = ms.Kortortenet_tetel.Where(x => x.Deleted == 0 && x.KortortenetTetelID == kt.KortortenetTetelID).First();
 
             kt2.Datum = kt.Datum;
             kt2.Kezeles = kt.Kezeles;
@@ -304,31 +304,27 @@ namespace EFTeszt01
             }
         }
         public void SelectedBetegLazlapMentes() {
-            if (betegLazlapja != null) {
-               
-                    
+            if (betegLazlapja != null) {                 
                 try
                 {
                     Lazlap l = ms.Lazlap.Where(x => x.Deleted == 0 && x.BetegID == selectedBeteg.BetegID).First();
 
                     l.ApoloMegjegyzes = betegLazlapja.ApoloMegjegyzes;
                     l.OrvosMegjegyzes = betegLazlapja.OrvosMegjegyzes;
-                    try
-                    {
-                        ms.KiadottGyogyszer = (DbSet<KiadottGyogyszer>)ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.ForrasID != betegLazlapja.LazlapID);
-                    }
-                    catch { }
+
                 }
                 catch {
                     ms.Lazlap.Add(new Lazlap() { ApoloMegjegyzes = betegLazlapja.ApoloMegjegyzes, OrvosMegjegyzes = betegLazlapja.OrvosMegjegyzes, BetegID = selectedBeteg.BetegID, OrvosID = orvos.PeopleID, Deleted = 0, Statusz = 7});
                 }
                 finally
-                {
-                    
+                {   
                     foreach (var i in betegGyogyszerei)
                     {
-                        
-                        ms.KiadottGyogyszer.Add(i);
+                        KiadottGyogyszer kgy = i;
+                        try {
+                            KiadottGyogyszer tmp = ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.ForrasID == betegLazlapja.LazlapID && x.GyogyszerID == kgy.GyogyszerID).First();
+                        }
+                        catch { ms.KiadottGyogyszer.Add(i); }                            
                     }
                     Mentes();
                     MungoSystemInitial(this.ms);
@@ -336,6 +332,38 @@ namespace EFTeszt01
 
                 }
             }
+        }
+        public void SelectedGyogyszerTorles(KiadottGyogyszer del) {
+            foreach (var i in ms.KiadottGyogyszer)
+            {
+                KiadottGyogyszer ki = i;
+                if (ki.GyogyszerID == del.GyogyszerID)
+                    ki.Deleted = 1;
+            }
+            betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID));
+            OnPropChanged("betegGyogyszerei");
+        }
+
+        public int LetezoGyogyszerVizsgalat(string nev) {
+            try {
+                return GyogyszerID(nev);
+            }
+            catch { return 0; }            
+        }
+
+        public string GyogyszerNev(int id) {
+            Gyogyszer gy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.GyogyszerID == id).First();
+            return gy.Megnevezes;
+        }
+        public int GyogyszerID(string nev)
+        {
+            Gyogyszer gy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.Megnevezes == nev).First();
+            return gy.GyogyszerID;
+        }
+        public KiadottGyogyszer GyogyszerNevToKiadott(string nev) {
+            nev = nev.Substring(0, nev.IndexOf("\t"));
+            Gyogyszer gy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.Megnevezes == nev).First();
+            return ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.GyogyszerID == gy.GyogyszerID).First();
         }
 
     }

@@ -49,5 +49,11 @@ namespace EFTeszt01
             OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow();
             ogyw.ShowDialog();
         }
+
+        private void gyogyDelBTN_Click(object sender, RoutedEventArgs e)
+        {
+            KiadottGyogyszer kgy =  ovm.GyogyszerNevToKiadott(listBox.SelectedItem as string);
+            ovm.SelectedGyogyszerTorles(kgy);
+        }
     }
 }
