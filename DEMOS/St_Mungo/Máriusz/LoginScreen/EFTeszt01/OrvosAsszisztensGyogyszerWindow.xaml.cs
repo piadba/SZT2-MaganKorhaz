@@ -29,7 +29,6 @@ namespace EFTeszt01
 
         private void mentesBTN_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
             int id = ovm.LetezoGyogyszerVizsgalat(gyogyszerIDTB.Text);
 
             if (id != 0)
@@ -37,12 +36,6 @@ namespace EFTeszt01
                 ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = int.Parse(mennyTB.Text), Deleted = 0, Statusz = 11 });
                 ovm.GyogyszerBeszurasTortent();
             }
-=======
-            int id = ovm.LetezoGyogyszerVizsgalat(gyogyszerIDTB.Text); 
-            if(id != 0)
-                ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() {ForrasID= ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = int.Parse(mennyTB.Text), Deleted = 0, Statusz = 11});
-           
->>>>>>> origin/master
             this.Close();
         }
 
