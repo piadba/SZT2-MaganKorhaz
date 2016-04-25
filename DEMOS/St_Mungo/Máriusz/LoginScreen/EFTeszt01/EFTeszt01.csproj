@@ -71,11 +71,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EszkozAddModWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EszkozGroupAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GazdAlkMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IgenyMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,6 +112,9 @@
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="BetegNevKonverter.cs" />
+    <Compile Include="EszkozAddModWindow.xaml.cs">
+      <DependentUpon>EszkozAddModWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EszkozGroupAddWindow.xaml.cs">
       <DependentUpon>EszkozGroupAddWindow.xaml</DependentUpon>
     </Compile>
@@ -115,6 +126,9 @@
     </Compile>
     <Compile Include="Idopontok.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IgenyMainWindow.xaml.cs">
+      <DependentUpon>IgenyMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="KezelesKonverter.cs" />
     <Compile Include="KiadottGyogyszer.cs">
@@ -237,6 +251,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="HOSPICON.png" />
     <Content Include="MungoSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MungoSystem.edmx</DependentUpon>

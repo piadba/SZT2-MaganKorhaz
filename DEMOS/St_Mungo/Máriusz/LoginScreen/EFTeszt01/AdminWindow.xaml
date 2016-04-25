@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="300" Width="600.442">
+        Title="Admin" Height="300" Width="600.442" Icon="HOSPICON.png">
     <Grid>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="189" Margin="10,35,0,0" VerticalAlignment="Top" Width="572" IsSynchronizedWithCurrentItem="True" CanUserReorderColumns="False" CanUserSortColumns="False"/>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="20" Margin="97,10,0,0" VerticalAlignment="Top" Width="194"/>

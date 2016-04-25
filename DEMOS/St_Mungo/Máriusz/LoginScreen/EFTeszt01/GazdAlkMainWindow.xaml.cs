@@ -36,6 +36,7 @@ namespace EFTeszt01
             mungoSystem.Gyogyszer.Load();
             mungoSystem.KorhaziEszkoz.Load();
             mungoSystem.KorhaziEszkozok_Fej.Load();
+            this.DataContext = sessionUser;
             gyogyszerek = new ObservableCollection<Gyogyszer>(mungoSystem.Gyogyszer.Where(gy => gy.Deleted==0));
             eszkozok_fej = new ObservableCollection<KorhaziEszkozok_Fej>(mungoSystem.KorhaziEszkozok_Fej.Where(kef=>kef.Deleted==0));
         }
@@ -61,7 +62,7 @@ namespace EFTeszt01
         {
             
             KorhaziEszkozok_Fej newFej = new KorhaziEszkozok_Fej() { Deleted = 2 };
-            EszkozGroupAddWindow egaw = new EszkozGroupAddWindow(newFej,mungoSystem);
+            EszkozGroupAddWindow egaw = new EszkozGroupAddWindow(newFej);
             mungoSystem.KorhaziEszkozok_Fej.Add(newFej);
             egaw.ShowDialog();
             if (newFej.Deleted == 0)
@@ -78,10 +79,11 @@ namespace EFTeszt01
             }
             else
             {
-                EszkozGroupAddWindow egaw = new EszkozGroupAddWindow(selectedGroup, mungoSystem);
+                EszkozGroupAddWindow egaw = new EszkozGroupAddWindow
+                    (selectedGroup);
                 if (egaw.ShowDialog()==true)
                 {
-                    mungoSystem.SaveChanges();
+                    mungoSystem.SaveChanges();                    
                 }
             }
             
@@ -123,7 +125,54 @@ namespace EFTeszt01
             }
         }
 
+        private void newEszkoz_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedGroup!=null)
+            {
+                KorhaziEszkoz newEszkoz = new KorhaziEszkoz() { Deleted = 2, Eszkoz_FejID = selectedGroup.Eszkoz_FejID, Statusz = false };
+                EszkozAddModWindow eamw = new EszkozAddModWindow(newEszkoz);
+                mungoSystem.KorhaziEszkoz.Add(newEszkoz);
+                eamw.ShowDialog();
+                if (newEszkoz.Deleted == 0)
+                {
+                    eszkozok.Add(newEszkoz);
+                }
+                mungoSystem.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Nincs kijelölve csoport!");
+            }
+            
+        }
 
-     
+        private void GroupMod_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxEszkoz.SelectedItem == null)
+            {
+                MessageBox.Show("Nincs kijelölt elem!");
+            }
+            else
+            {
+                selectedEszkoz = (KorhaziEszkoz)listBoxEszkoz.SelectedItem;
+                EszkozAddModWindow eamw = new EszkozAddModWindow
+                    (selectedEszkoz);
+                if (eamw.ShowDialog() == true)
+                {
+                    mungoSystem.SaveChanges();
+                }
+            }
+        }
+
+        private void listBoxEszkoz_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //if ((KorhaziEszkoz)listBoxEszkoz.SelectedItem != null)
+            //{
+            //    selectedEszkoz = (KorhaziEszkoz)listBoxEszkoz.SelectedItem;
+            //    eszkozok = new ObservableCollection<KorhaziEszkoz>
+            //        (mungoSystem.KorhaziEszkoz.Where(ke => ke.Deleted == 0 && ke.Eszkoz_FejID == selectedGroup.Eszkoz_FejID));
+            //    listBoxEszkoz.ItemsSource = eszkozok;
+            //}
+        }
     }
 }

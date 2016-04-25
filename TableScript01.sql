@@ -8,13 +8,14 @@ create table KiadottGyogyszer(
 	Datum datetime,
 	Deleted tinyint
 )
+
 IF OBJECT_ID('Gyogyszer') IS NOT NULL drop table Gyogyszer
 create table Gyogyszer(
 	GyogyszerID int identity(1,1) primary key,
-	Megnevezes varchar(200),
-	Hatoanyag varchar(200),
+	Megnevezes nvarchar(200),
+	Hatoanyag nvarchar(200),
 	Mennyiseg int,
-	Egyseg varchar(20),
+	Egyseg nvarchar(20),
 	EgysegMennyiseg int,
 	Deleted tinyint
 )
@@ -24,8 +25,8 @@ create table Lazlap(
 	BetegID int,
 	OrvosID int,
 	ApoloID int,
-	OrvosMegjegyzes varchar(max),
-	ApoloMegjegyzes varchar(max),
+	OrvosMegjegyzes nvarchar(max),
+	ApoloMegjegyzes nvarchar(max),
 	UtolsoFelvetelDatum datetime,
 	Statusz int,
 	Deleted tinyint
@@ -34,7 +35,7 @@ create table Lazlap(
 IF OBJECT_ID('KorhaziEszkozok_Fej') IS NOT NULL drop table KorhaziEszkozok_Fej
 create table KorhaziEszkozok_Fej(
 	Eszkoz_FejID int identity(1,1) primary key,
-	Megnevezes varchar(200),
+	Megnevezes nvarchar(200),
 	Deleted tinyint
 )
 
@@ -42,7 +43,7 @@ IF OBJECT_ID('KorhaziEszkoz') IS NOT NULL drop table KorhaziEszkoz
 create table KorhaziEszkoz(
 	EszkozID int identity(1,1) primary key,
 	Eszkoz_FejID int,
-	Megnevezes varchar(200),
+	Megnevezes nvarchar(200),
 	Statusz bit,
 	Deleted tinyint
 )
@@ -58,5 +59,7 @@ IF OBJECT_ID('ApoloMuszak') IS NOT NULL drop table ApoloMuszak
 create table ApoloMuszak(
 	ApoloMuszakID int identity(1,1) primary key,
 	PeopleID int,
-	Datum datetime
+	StartDate datetime,
+	EndDate datetime,
+	Deleted tinyint
 )

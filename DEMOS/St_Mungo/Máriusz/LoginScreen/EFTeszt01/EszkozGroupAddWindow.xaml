@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="EszkozGroupAddWindow" Height="108.683" Width="315.269" WindowStartupLocation="CenterScreen">
+        Title="EszkozGroupAddWindow" Height="108.683" Icon="HOSPICON.png" Width="315.269" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="21" Margin="116,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes}" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="21" Margin="116,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" Width="168"/>
         <Label x:Name="label" Content="Megnevezés: " HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
         <Button x:Name="button" Content="Mentés" HorizontalAlignment="Left" Height="27" Margin="10,40,0,0" VerticalAlignment="Top" Width="168" Click="button_Click"/>
         <Button x:Name="button1" Content="Mégsem" HorizontalAlignment="Left" Height="27" Margin="183,40,0,0" VerticalAlignment="Top" Width="101" Click="button1_Click"/>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="EFTeszt01.EszkozAddModWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="Szerkesztés" Height="116.767" Width="300.898" Icon="HOSPICON.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="saveBtn" Content="Mentés" HorizontalAlignment="Left" Margin="24,47,0,0" VerticalAlignment="Top" Width="118" Click="saveBtn_Click"/>
+        <Button x:Name="cancelBtn" Content="Mégsem" HorizontalAlignment="Left" Margin="147,47,0,0" VerticalAlignment="Top" Width="124" Click="cancelBtn_Click"/>
+        <Label x:Name="label" Content="Megnevezés: " HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Width="89"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="19" Margin="118,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="149"/>
+    </Grid>
+</Window>

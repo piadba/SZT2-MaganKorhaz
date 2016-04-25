@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Lázlap kezelése" Height="470" Width="300">
+        Title="Lázlap kezelése" Height="470" Icon="HOSPICON.png" Width="300">
     <Grid>
         <TextBox x:Name="orvosTB" HorizontalAlignment="Left" Height="136" Margin="91,10,0,0" TextWrapping="Wrap" Text="{Binding BetegLazlapja.OrvosMegjegyzes}" VerticalAlignment="Top" Width="191"/>
         <Label x:Name="label" Content="Lázlap:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="68"/>

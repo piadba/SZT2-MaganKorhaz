@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="OrvosAsszisztensGyogyszerWindow" Height="300" Width="300">
+        Title="OrvosAsszisztensGyogyszerWindow" Icon="HOSPICON.png" Height="300" Width="300">
     <Grid>
         <TextBox x:Name="gyogyszerIDTB" HorizontalAlignment="Left" Height="23" Margin="114,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="mennyTB" HorizontalAlignment="Left" Height="23" Margin="114,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>

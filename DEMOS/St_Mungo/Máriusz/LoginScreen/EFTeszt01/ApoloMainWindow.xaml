@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="{Binding Path=Name}" Height="648" Width="686.287" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        Title="{Binding Path=Name}" Height="648" Width="686.287" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="HOSPICON.png">
     <Window.Resources>
         <local:ApoloWindowOrvosID x:Key="ApoloWindowOrvosID"/>
         <local:ApoloWindowConverterBetegID x:Key="ApoloWindowConverterBetegID"/>

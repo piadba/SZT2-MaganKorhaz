@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="GazdAlkMainWindow" Height="454.491" Width="516.667" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="{Binding Path=Name}" Height="454.491" Icon="HOSPICON.png" Width="516.667" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="500">
             <TabItem Header="Gyógyszer készlet" x:Name="tabItemGyogyszer">
@@ -17,13 +17,15 @@
                     <ListBox x:Name="listBoxEszkozGroup" HorizontalAlignment="Left" Height="327" VerticalAlignment="Top" Width="240" Margin="0,58,0,0" SelectionChanged="listBoxEszkozGroup_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Label Content="{Binding Path=Megnevezes}"></Label>
+                                <StackPanel>
+                                    <Label Content="{Binding Path=Megnevezes}"/>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <Label x:Name="label" Content="Eszköz típusok" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="240" HorizontalContentAlignment="Center"/>
                     <Button x:Name="newEszkozGroup" Content="Új típus" HorizontalAlignment="Left" Height="21" Margin="0,32,0,0" VerticalAlignment="Top" Width="77" Click="newEszkozGroup_Click"/>
-                    <ListBox x:Name="listBoxEszkoz" HorizontalAlignment="Left" Height="327" Margin="251,58,0,0" VerticalAlignment="Top" Width="240">
+                    <ListBox x:Name="listBoxEszkoz" HorizontalAlignment="Left" Height="327" Margin="251,58,0,0" VerticalAlignment="Top" Width="240" SelectionChanged="listBoxEszkoz_SelectionChanged">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding Path=Megnevezes}"></Label>
@@ -31,12 +33,12 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <Label x:Name="label1" Content="Eszközök" HorizontalAlignment="Left" Height="26" Margin="251,2,0,0" VerticalAlignment="Top" Width="233" HorizontalContentAlignment="Center"/>
-                    <Button x:Name="newEszkoz" Content="Új eszköz" HorizontalAlignment="Left" Height="21" Margin="251,33,0,0" VerticalAlignment="Top" Width="87"/>
+                    <Button x:Name="newEszkoz" Content="Új eszköz" HorizontalAlignment="Left" Height="21" Margin="251,33,0,0" VerticalAlignment="Top" Width="87" Click="newEszkoz_Click"/>
                     <Button x:Name="groupDelete" Content="Törlés" HorizontalAlignment="Left" Height="21" Margin="82,32,0,0" VerticalAlignment="Top" Width="73" Click="groupDelete_Click"/>
                     <Button x:Name="eszkozDelete" Content="Törlés" HorizontalAlignment="Left" Height="21" Margin="343,33,0,0" VerticalAlignment="Top" Width="66" Click="eszkozDelete_Click"/>
                     <Border BorderBrush="Black" BorderThickness="1,0,0,0" HorizontalAlignment="Left" Height="395" Margin="245,0,0,0" VerticalAlignment="Top" Width="6"/>
                     <Button x:Name="GroupMod" Content="Módosítás" HorizontalAlignment="Left" Height="21" Margin="160,32,0,0" VerticalAlignment="Top" Width="80" Click="GroupMod_Click"/>
-                    <Button x:Name="GroupMod_Copy" Content="Módosítás" HorizontalAlignment="Left" Height="21" Margin="414,33,0,0" VerticalAlignment="Top" Width="80"/>
+                    <Button x:Name="GroupMod_Copy" Content="Módosítás" HorizontalAlignment="Left" Height="21" Margin="414,33,0,0" VerticalAlignment="Top" Width="80" Click="GroupMod_Copy_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

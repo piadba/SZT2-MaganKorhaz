@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,20 +15,19 @@ using System.Windows.Shapes;
 namespace EFTeszt01
 {
     /// <summary>
-    /// Interaction logic for EszkozGroupAddWindow.xaml
+    /// Interaction logic for EszkozAddModWindow.xaml
     /// </summary>
-    public partial class EszkozGroupAddWindow : Window
+    public partial class EszkozAddModWindow : Window
     {
         string originalMegnevezes;
-
-        public EszkozGroupAddWindow(KorhaziEszkozok_Fej elem)
+        public EszkozAddModWindow(KorhaziEszkoz newEszkoz)
         {
             InitializeComponent();
-            this.DataContext = elem;
-            originalMegnevezes = elem.Megnevezes;            
+            this.DataContext = newEszkoz;
+            originalMegnevezes = newEszkoz.Megnevezes;
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(textBox.Text))
             {
@@ -37,16 +35,16 @@ namespace EFTeszt01
             }
             else
             {
-                ((KorhaziEszkozok_Fej)DataContext).Deleted = 0;
+                ((KorhaziEszkoz)DataContext).Deleted = 0;
                 textBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
                 this.DialogResult = true;
                 this.Close();
             }
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void cancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            ((KorhaziEszkozok_Fej)DataContext).Megnevezes = originalMegnevezes;
+            ((KorhaziEszkoz)DataContext).Megnevezes = originalMegnevezes;
             Close();
         }
     }
