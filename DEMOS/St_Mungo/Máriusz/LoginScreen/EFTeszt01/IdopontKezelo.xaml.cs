@@ -38,11 +38,15 @@ namespace EFTeszt01
             mungoSystem.People.Load();
        
             this.DataContext = recepciosViewModel;
+            recepciosViewModel.Orvosok.Clear();
             var orvosadatok = mungoSystem.People.Local.Where(x => x.Group == 2 && x.Deleted==0);
+            
             foreach (var p in orvosadatok)
             {
                 recepciosViewModel.Orvosok.Add(p);
             }
+
+           
             
         }
 
@@ -51,45 +55,46 @@ namespace EFTeszt01
             mungoSystem.Idopontok.Load();
            
             People o = comboBox.SelectedItem as People;
-            var idopontadatok = mungoSystem.Idopontok.Local.Where(x => x.OrvosID == o.PeopleID);
+            var idopontok = mungoSystem.Idopontok.Local.Where
+                (x => x.Deleted == 0 && o.Deleted == 0 && x.OrvosID == o.PeopleID && x.Datum.Value.ToShortDateString() ==datePicker.SelectedDate.Value.ToShortDateString());
+            recepciosViewModel.Idopontok.Clear();
+
+            var idopontadatok = from i in idopontok
+                                join b in mungoSystem.Betegek on i.BetegID equals b.BetegID
+                                join p in mungoSystem.People on b.PeopleID equals p.PeopleID
+                                where i.Deleted == 0 && b.Deleted == 0 && p.Deleted == 0
+                                select new { Nev = p.Name, IdopontID = i.IdopontID, Datum = i.Datum, TAJ = b.TAJ };
+
+
+            recepciosViewModel.IdopontAdatok.Clear();
+
             foreach (var p in idopontadatok)
-                recepciosViewModel.Idopontok.Add(p);
+                recepciosViewModel.IdopontAdatok.Add(new IdopontIDBeteg { Nev = p.Nev, TAJ = p.TAJ, IdopontID = p.IdopontID, Datum = (DateTime)p.Datum });
+
+            foreach (var i in idopontok)
+            {
+                if (i.BetegID == null)
+                    recepciosViewModel.IdopontAdatok.Add(new IdopontIDBeteg { IdopontID = i.IdopontID, Datum = (DateTime)i.Datum, Nev = "", TAJ = "" });
+            }
 
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            IdopontSzerkeszto isz = new IdopontSzerkeszto(recepciosViewModel, listBox.SelectedItem as Idopontok);
-            this.Hide();
+            Console.WriteLine(listBox.SelectedItem);
+            IdopontIDBeteg selected = (listBox.SelectedItem) as IdopontIDBeteg;
+            Idopontok ip = mungoSystem.Idopontok.Where(x => x.IdopontID == selected.IdopontID).First();
+            IdopontSzerkeszto isz = new IdopontSzerkeszto(recepciosViewModel, ip);
+           
             isz.ShowDialog();
-            this.Show();
+ 
         }
-    }
 
-    public class IdopontAdatok
-    {
-        DateTime datum;
-        int peopleID;
 
-        public IdopontAdatok(DateTime datum, int peopleID)
-        {
-            this.datum = datum;
-            this.peopleID = peopleID;
-        }
     }
 
 
 
-    //public class OrvosAdatConverter : IValueConverter
-    //{
-    //    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
 
-    //    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
+
 }

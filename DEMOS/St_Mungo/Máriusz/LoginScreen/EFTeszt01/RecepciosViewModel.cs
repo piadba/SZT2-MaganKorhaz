@@ -14,6 +14,17 @@ namespace EFTeszt01
         public int PeopleID { get; set; }
         public int BetegID { get; set; }
     }
+
+    public class IdopontIDBeteg
+    {
+        public int IdopontID { get; set; }
+
+        public DateTime Datum { get; set; }
+      
+        public string TAJ { get; set; }
+        public string  Nev { get; set; }
+    }
+
     public class RecepciosViewModel
     {
         MungoSystem mungoSystem;
@@ -31,6 +42,8 @@ namespace EFTeszt01
         ObservableCollection<Idopontok> idopontok;
         public ObservableCollection<Idopontok> Idopontok { get { return idopontok; } }
 
+        ObservableCollection<IdopontIDBeteg> idopontAdatok;
+        public  ObservableCollection<IdopontIDBeteg> IdopontAdatok { get { return idopontAdatok; } }
 
         public RecepciosViewModel(MungoSystem mungoSystem, People sessionUser)
         {
@@ -39,6 +52,7 @@ namespace EFTeszt01
             orvosok = new ObservableCollection<People>();
             idopontok = new ObservableCollection<Idopontok>();
             betegek = new ObservableCollection<BetegTajIDNev>();
+            idopontAdatok = new ObservableCollection<IdopontIDBeteg>();
         }
     }
 

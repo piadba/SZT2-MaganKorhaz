@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Recepciós felület" Height="198" Width="217">
+        Title="Recepciós felület" Height="200" Width="218.215">
     <Grid>
-        <Button x:Name="button" Content="Időpont kezelés" HorizontalAlignment="Left" Height="34" Margin="38,10,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
-        <Button x:Name="button1" Content="Kapcsolat kezelés" HorizontalAlignment="Left" Height="35" Margin="38,62,0,0" VerticalAlignment="Top" Width="147"/>
-        <Button x:Name="button2" Content="Beteg regisztráció kezelés" HorizontalAlignment="Left" Height="41" Margin="38,116,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="button" Content="Időpont kezelés" HorizontalAlignment="Left" Height="30" Margin="38,10,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
+        <Button x:Name="button1" Content="Kapcsolat kezelés" HorizontalAlignment="Left" Height="30" Margin="38,50,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="button2" Content="Beteg regisztráció kezelés" HorizontalAlignment="Left" Height="30" Margin="38,90,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="visszaButton" Content="Kilépés " HorizontalAlignment="Left" Height="30" Margin="38,130,0,0" VerticalAlignment="Top" Width="147" Click="button3_Click"/>
 
     </Grid>
 </Window>

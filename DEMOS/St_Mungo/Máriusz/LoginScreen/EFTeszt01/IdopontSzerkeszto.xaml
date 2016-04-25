@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="IdopontSzerkeszto" Height="300" Width="300">
+        Title="IdopontSzerkeszto" Height="217.178" Width="402.147" Loaded="Window_Loaded">
     <Grid>
         <Label x:Name="label" Content="Orvos: " HorizontalAlignment="Left" Height="35" Margin="25,10,0,0" VerticalAlignment="Top" Width="85"/>
         <Label x:Name="label1" Content="Dátum: " HorizontalAlignment="Left" Height="32" Margin="25,50,0,0" VerticalAlignment="Top" Width="85"/>
         <Label x:Name="orvosLbl" Content="" HorizontalAlignment="Left" Height="35" Margin="79,10,0,0" VerticalAlignment="Top" Width="127"/>
         <Label x:Name="datumLbl" Content="" HorizontalAlignment="Left" Height="32" Margin="79,50,0,0" VerticalAlignment="Top" Width="151"/>
         <Label x:Name="label2" Content="Beteg: " HorizontalAlignment="Left" Height="29" Margin="25,87,0,0" VerticalAlignment="Top" Width="49"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="29" Margin="79,87,0,0" VerticalAlignment="Top" Width="118" ItemsSource="{Binding Betegek}">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Height="29" Margin="79,87,0,0" VerticalAlignment="Top" Width="194" ItemsSource="{Binding Betegek}">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>
@@ -23,7 +23,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button x:Name="button" Content="Mentés" HorizontalAlignment="Left" Height="30" Margin="209,87,0,0" VerticalAlignment="Top" Width="73" Click="button_Click"/>
+        <Button x:Name="mentesButton" Content="Mentés" HorizontalAlignment="Left" Height="30" Margin="287,87,0,0" VerticalAlignment="Top" Width="73" Click="button_Click"/>
+        <Label x:Name="statusz" Content="" HorizontalAlignment="Left" Height="28" Margin="25,121,0,0" VerticalAlignment="Top" Width="119"/>
 
     </Grid>
 </Window>
