@@ -298,6 +298,7 @@ namespace EFTeszt01
                 {
                     betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>();
                 }
+                finally
                 {
                     OnPropChanged("betegGyogyszerei");
                 }
@@ -329,17 +330,20 @@ namespace EFTeszt01
                     Mentes();
                     MungoSystemInitial(this.ms);
                     BetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>();
-
+                    OnPropChanged("betegGyogyszerei");
                 }
             }
         }
         public void SelectedGyogyszerTorles(KiadottGyogyszer del) {
+            //ms.KiadottGyogyszer.Where(x => x.KiadottGyogyszer1 == del.KiadottGyogyszer1).Single().Deleted = 1;
+            
             foreach (var i in ms.KiadottGyogyszer)
             {
                 KiadottGyogyszer ki = i;
                 if (ki.GyogyszerID == del.GyogyszerID)
                     ki.Deleted = 1;
             }
+            Mentes();
             betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID));
             OnPropChanged("betegGyogyszerei");
         }
@@ -360,10 +364,23 @@ namespace EFTeszt01
             Gyogyszer gy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.Megnevezes == nev).First();
             return gy.GyogyszerID;
         }
-        public KiadottGyogyszer GyogyszerNevToKiadott(string nev) {
-            nev = nev.Substring(0, nev.IndexOf("\t"));
-            Gyogyszer gy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.Megnevezes == nev).First();
-            return ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.GyogyszerID == gy.GyogyszerID).First();
+        public IgenyMainWindow IgenyNyito() {
+            IgenyMainWindow imw = new IgenyMainWindow(orvos, ms);
+            return imw;
+        }
+
+        public void GyogyszerBeszurasTortent() {
+            foreach (var i in betegGyogyszerei)
+            {
+                KiadottGyogyszer kgy = i;
+                try
+                {
+                    KiadottGyogyszer tmp = ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.ForrasID == betegLazlapja.LazlapID && x.GyogyszerID == kgy.GyogyszerID).First();
+                }
+                catch { ms.KiadottGyogyszer.Add(i); }
+            }
+            Mentes();
+            OnPropChanged("betegGyogyszerei");
         }
 
     }

@@ -16,7 +16,15 @@
         <Label x:Name="noverLBL" Content="{Binding BetegLazlapja.ApoloMegjegyzes}" HorizontalAlignment="Left" Margin="26,319,0,0" VerticalAlignment="Top" Height="64" Width="242"/>
         <Button x:Name="mentesBTN" Content="Mentés" HorizontalAlignment="Left" Margin="10,404,0,0" VerticalAlignment="Top" Width="75" Click="mentesBTN_Click"/>
         <Button x:Name="megseBTN" Content="Mégse" HorizontalAlignment="Left" Margin="207,404,0,0" VerticalAlignment="Top" Width="75" Click="megseBTN_Click" RenderTransformOrigin="0.402,-1.283"/>
-        <ListBox x:Name="listBox" ItemsSource="{Binding BetegGyogyszerei, Converter={StaticResource GyogyszerIDNevKonverter}}" HorizontalAlignment="Left" Height="109" Margin="91,174,0,0" VerticalAlignment="Top" Width="191">
+        <ListBox x:Name="listBox" ItemsSource="{Binding BetegGyogyszerei}" HorizontalAlignment="Left" Height="109" Margin="91,174,0,0" VerticalAlignment="Top" Width="191">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <Label Content="{Binding GyogyszerID, Converter={StaticResource GyogyszerIDNevKonverter}}"/>
+                        <Label Content="{Binding Mennyiseg}"/>
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <Label x:Name="label2" Content="Gyógyszerek:" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top" Width="81"/>
         <Button x:Name="gyogyBTN" Content="+" HorizontalAlignment="Left" Margin="61,205,0,0" VerticalAlignment="Top" Width="17" Click="gyogyBTN_Click"/>

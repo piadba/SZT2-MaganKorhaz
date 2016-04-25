@@ -52,8 +52,15 @@ namespace EFTeszt01
 
         private void gyogyDelBTN_Click(object sender, RoutedEventArgs e)
         {
-            KiadottGyogyszer kgy =  ovm.GyogyszerNevToKiadott(listBox.SelectedItem as string);
-            ovm.SelectedGyogyszerTorles(kgy);
+            //if (listBox.SelectedItem != null)
+            //{
+                try
+                {
+                    KiadottGyogyszer kgy = listBox.SelectedItem as KiadottGyogyszer;
+                    ovm.SelectedGyogyszerTorles(kgy);
+                }
+                catch { }
+           // }
         }
     }
 }

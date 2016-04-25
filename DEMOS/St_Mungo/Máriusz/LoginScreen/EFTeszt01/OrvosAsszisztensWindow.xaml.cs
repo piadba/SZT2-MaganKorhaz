@@ -88,7 +88,8 @@ namespace EFTeszt01
 
         private void igenyBTN_Click(object sender, RoutedEventArgs e)
         {
-
+            IgenyMainWindow imw = ovm.IgenyNyito();
+            imw.ShowDialog();
         }
     }
 }
