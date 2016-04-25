@@ -30,7 +30,14 @@ namespace EFTeszt01
         private void button_Click(object sender, RoutedEventArgs e)
         {
             IdopontKezelo ik = new IdopontKezelo(recepciosViewModel);
+         
             ik.ShowDialog();
+            
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
         }
     }
 }

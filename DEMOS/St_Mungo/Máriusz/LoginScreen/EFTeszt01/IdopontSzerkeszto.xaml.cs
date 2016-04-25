@@ -40,12 +40,15 @@ namespace EFTeszt01
 
             var betegek = from b in mungoSystem.Betegek
                           join p in mungoSystem.People on b.PeopleID equals p.PeopleID
+                          where b.Deleted == 0 && p.Deleted==0
                           select new { TAJ = b.TAJ, Nev = p.Name, BetegID = b.BetegID, PeopleID = b.PeopleID };
            
             foreach(var b in betegek)
             {
                 recepciosViewModel.Betegek.Add(new BetegTajIDNev { TAJ = b.TAJ, Nev = b.Nev, BetegID = b.BetegID, PeopleID = (int)b.PeopleID });
             }
+
+            
  
         }
 
@@ -54,8 +57,18 @@ namespace EFTeszt01
             int kivBetegID = (comboBox.SelectedItem as BetegTajIDNev).BetegID;
             idopont.BetegID = kivBetegID;
 
-            Console.WriteLine(recepciosViewModel.MungoSystem.SaveChanges()); 
+            recepciosViewModel.MungoSystem.SaveChanges();
+
+            statusz.Content = "Mentés sikerült";
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            comboBox.SelectedItem = recepciosViewModel.Betegek.Where(x => x.BetegID == idopont.BetegID).First();
+          
+        }
+
+  
     }
 
 
