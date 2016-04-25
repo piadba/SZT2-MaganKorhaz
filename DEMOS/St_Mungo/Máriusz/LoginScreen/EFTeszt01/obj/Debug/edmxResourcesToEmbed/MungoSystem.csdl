@@ -23,7 +23,6 @@
     <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
     <EntitySet Name="Gyogyszer" EntityType="St_MungoModel.Gyogyszer" />
     <EntitySet Name="Lazlap" EntityType="St_MungoModel.Lazlap" />
-    <EntitySet Name="LazlapGyogyszer" EntityType="St_MungoModel.LazlapGyogyszer" />
     <EntitySet Name="Idopontok" EntityType="St_MungoModel.Idopontok" />
     <EntitySet Name="KorhaziEszkoz" EntityType="St_MungoModel.KorhaziEszkoz" />
     <EntitySet Name="KorhaziEszkozok_Fej" EntityType="St_MungoModel.KorhaziEszkozok_Fej" />
@@ -93,16 +92,6 @@
     <Property Name="Statusz" Type="Int32" />
     <Property Name="Deleted" Type="Byte" />
   </EntityType>
-  <EntityType Name="LazlapGyogyszer">
-    <Key>
-      <PropertyRef Name="LazlapGyogyszerID" />
-    </Key>
-    <Property Name="LazlapGyogyszerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LazlapID" Type="Int32" />
-    <Property Name="GyogyszerID" Type="Int32" />
-    <Property Name="Mennyiseg" Type="Int32" />
-    <Property Name="Deleted" Type="Byte" />
-  </EntityType>
   <EntityType Name="Idopontok">
     <Key>
       <PropertyRef Name="IdopontID" />
@@ -130,6 +119,7 @@
     <Property Name="Eszkoz_FejID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Megnevezes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Deleted" Type="Byte" />
+    <Property Name="Statusz" Type="Boolean" />
   </EntityType>
   <EntityType Name="KiadottGyogyszer">
     <Key>

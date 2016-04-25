@@ -36,6 +36,7 @@ IF OBJECT_ID('KorhaziEszkozok_Fej') IS NOT NULL drop table KorhaziEszkozok_Fej
 create table KorhaziEszkozok_Fej(
 	Eszkoz_FejID int identity(1,1) primary key,
 	Megnevezes nvarchar(200),
+	Statusz bit,
 	Deleted tinyint
 )
 

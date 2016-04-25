@@ -86,17 +86,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LazlapGyogyszer">
-      <EntityTypeMapping TypeName="St_MungoModel.LazlapGyogyszer">
-        <MappingFragment StoreEntitySet="LazlapGyogyszer">
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          <ScalarProperty Name="Mennyiseg" ColumnName="Mennyiseg" />
-          <ScalarProperty Name="GyogyszerID" ColumnName="GyogyszerID" />
-          <ScalarProperty Name="LazlapID" ColumnName="LazlapID" />
-          <ScalarProperty Name="LazlapGyogyszerID" ColumnName="LazlapGyogyszerID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Idopontok">
       <EntityTypeMapping TypeName="St_MungoModel.Idopontok">
         <MappingFragment StoreEntitySet="Idopontok">
@@ -122,6 +111,7 @@
     <EntitySetMapping Name="KorhaziEszkozok_Fej">
       <EntityTypeMapping TypeName="St_MungoModel.KorhaziEszkozok_Fej">
         <MappingFragment StoreEntitySet="KorhaziEszkozok_Fej">
+          <ScalarProperty Name="Statusz" ColumnName="Statusz" />
           <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           <ScalarProperty Name="Megnevezes" ColumnName="Megnevezes" />
           <ScalarProperty Name="Eszkoz_FejID" ColumnName="Eszkoz_FejID" />

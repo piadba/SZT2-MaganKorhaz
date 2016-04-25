@@ -98,3 +98,5 @@ e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTes
 e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozGroupAddWindow.baml
 e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozAddModWindow.g.cs
 e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozAddModWindow.baml
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IgenyMainWindow.g.cs
+e:\M\SZT2-MaganKorhaz\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IgenyMainWindow.baml

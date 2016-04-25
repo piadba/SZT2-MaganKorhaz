@@ -17,5 +17,6 @@ namespace EFTeszt01
         public int Eszkoz_FejID { get; set; }
         public string Megnevezes { get; set; }
         public Nullable<byte> Deleted { get; set; }
+        public Nullable<bool> Statusz { get; set; }
     }
 }

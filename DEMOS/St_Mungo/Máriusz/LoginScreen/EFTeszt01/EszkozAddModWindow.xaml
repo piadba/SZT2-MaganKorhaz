@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Szerkesztés" Height="116.767" Width="300.898" Icon="HOSPICON.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Szerkesztés" Height="183.577" Width="300.898" Icon="HOSPICON.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="saveBtn" Content="Mentés" HorizontalAlignment="Left" Margin="24,47,0,0" VerticalAlignment="Top" Width="118" Click="saveBtn_Click"/>
-        <Button x:Name="cancelBtn" Content="Mégsem" HorizontalAlignment="Left" Margin="147,47,0,0" VerticalAlignment="Top" Width="124" Click="cancelBtn_Click"/>
+        <Button x:Name="saveBtn" Content="Mentés" HorizontalAlignment="Left" Margin="24,109,0,0" VerticalAlignment="Top" Width="118" Click="saveBtn_Click" IsDefault="True"/>
+        <Button x:Name="cancelBtn" Content="Mégsem" HorizontalAlignment="Left" Margin="155,109,0,0" VerticalAlignment="Top" Width="124" Click="cancelBtn_Click"/>
         <Label x:Name="label" Content="Megnevezés: " HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Width="89"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="19" Margin="118,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="149"/>
+        <Label x:Name="labelCombo" Content="Csoport: " HorizontalAlignment="Left" Margin="24,72,0,0" VerticalAlignment="Top" Width="89"/>
+        <ComboBox SelectedValue="{Binding Path=Eszkoz_FejID, UpdateSourceTrigger=Explicit}" x:Name="comboCsoport" HorizontalAlignment="Left" Margin="118,76,0,0" VerticalAlignment="Top" Width="149"/>
+        <Label x:Name="labelIgeny" Content="Igényelt: " HorizontalAlignment="Left" Margin="24,41,0,0" VerticalAlignment="Top" Width="89"/>
+        <CheckBox x:Name="checkBox" Content="" HorizontalAlignment="Left" Margin="118,47,0,0" VerticalAlignment="Top" Width="149" Height="16" IsChecked="{Binding Path=Statusz, UpdateSourceTrigger=Explicit}"/>
     </Grid>
 </Window>

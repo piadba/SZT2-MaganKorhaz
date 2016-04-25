@@ -115,6 +115,7 @@
     <Compile Include="EszkozAddModWindow.xaml.cs">
       <DependentUpon>EszkozAddModWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EszkozBackgroundConverter.cs" />
     <Compile Include="EszkozGroupAddWindow.xaml.cs">
       <DependentUpon>EszkozGroupAddWindow.xaml</DependentUpon>
     </Compile>
@@ -147,9 +148,6 @@
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Lazlap.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LazlapGyogyszer.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="LookUps.cs">
