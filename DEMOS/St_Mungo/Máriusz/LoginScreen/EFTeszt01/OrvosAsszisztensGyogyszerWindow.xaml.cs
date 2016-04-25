@@ -30,7 +30,7 @@ namespace EFTeszt01
         private void mentesBTN_Click(object sender, RoutedEventArgs e)
         {
             int id = ovm.LetezoGyogyszerVizsgalat(gyogyszerIDTB.Text); 
-            if(id != 0)            
+            if(id != 0)
                 ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() {ForrasID= ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = int.Parse(mennyTB.Text), Deleted = 0, Statusz = 11});
            
             this.Close();
