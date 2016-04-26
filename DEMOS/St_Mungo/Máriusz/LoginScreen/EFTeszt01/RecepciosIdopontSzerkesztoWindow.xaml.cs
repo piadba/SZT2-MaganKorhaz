@@ -18,13 +18,13 @@ namespace EFTeszt01
     /// <summary>
     /// Interaction logic for IdopontSzerkeszto.xaml
     /// </summary>
-    public partial class IdopontSzerkeszto : Window
+    public partial class RecepciosIdopontSzerkesztoWindow : Window
     {
         Idopontok idopont;
         MungoSystem mungoSystem;
         RecepciosViewModel recepciosViewModel;
     
-        public IdopontSzerkeszto(RecepciosViewModel recepciosViewModel, Idopontok idopont )
+        public RecepciosIdopontSzerkesztoWindow(RecepciosViewModel recepciosViewModel, Idopontok idopont )
         {
             InitializeComponent();
             this.recepciosViewModel = recepciosViewModel;
@@ -64,7 +64,8 @@ namespace EFTeszt01
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            comboBox.SelectedItem = recepciosViewModel.Betegek.Where(x => x.BetegID == idopont.BetegID).First();
+            if (idopont.BetegID != null)
+                comboBox.SelectedItem = recepciosViewModel.Betegek.Where(x => x.BetegID == idopont.BetegID).First();
           
         }
 

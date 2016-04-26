@@ -20,11 +20,11 @@ namespace EFTeszt01
     /// <summary>
     /// Interaction logic for IdopontKezelo.xaml
     /// </summary>
-    public partial class IdopontKezelo : Window
+    public partial class RecepciosIdopontKezeloWindow : Window
     {
         MungoSystem mungoSystem;
         RecepciosViewModel recepciosViewModel;
-        public IdopontKezelo(RecepciosViewModel recepciosViewModel)
+        public RecepciosIdopontKezeloWindow(RecepciosViewModel recepciosViewModel)
         {
             InitializeComponent();
             this.recepciosViewModel = recepciosViewModel;
@@ -84,7 +84,7 @@ namespace EFTeszt01
             Console.WriteLine(listBox.SelectedItem);
             IdopontIDBeteg selected = (listBox.SelectedItem) as IdopontIDBeteg;
             Idopontok ip = mungoSystem.Idopontok.Where(x => x.IdopontID == selected.IdopontID).First();
-            IdopontSzerkeszto isz = new IdopontSzerkeszto(recepciosViewModel, ip);
+            RecepciosIdopontSzerkesztoWindow isz = new RecepciosIdopontSzerkesztoWindow(recepciosViewModel, ip);
            
             isz.ShowDialog();
  

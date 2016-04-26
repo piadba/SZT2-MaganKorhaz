@@ -64,8 +64,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GyogyszerIDNevKonverter.cs" />
-    <Compile Include="IdopontKezelo.xaml.cs">
-      <DependentUpon>IdopontKezelo.xaml</DependentUpon>
+    <Compile Include="RecepciosIdopontKezeloWindow.xaml.cs">
+      <DependentUpon>RecepciosIdopontKezeloWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosErtesitesWindow.xaml.cs">
+      <DependentUpon>RecepciosErtesitesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecepciosMainWindow.xaml.cs">
       <DependentUpon>RecepciosMainWindow.xaml</DependentUpon>
@@ -91,11 +94,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IdopontKezelo.xaml">
+    <Page Include="RecepciosIdopontKezeloWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="IdopontSzerkeszto.xaml">
+    <Page Include="RecepciosIdopontSzerkesztoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -144,8 +147,8 @@
     <Compile Include="Idopontok.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="IdopontSzerkeszto.xaml.cs">
-      <DependentUpon>IdopontSzerkeszto.xaml</DependentUpon>
+    <Compile Include="RecepciosIdopontSzerkesztoWindow.xaml.cs">
+      <DependentUpon>RecepciosIdopontSzerkesztoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="IgenyMainWindow.xaml.cs">
       <DependentUpon>IgenyMainWindow.xaml</DependentUpon>
@@ -199,6 +202,10 @@
     <Page Include="OrvosAsszisztensWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosErtesitesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RecepciosMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

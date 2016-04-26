@@ -23,6 +23,8 @@ namespace EFTeszt01
       
         public string TAJ { get; set; }
         public string  Nev { get; set; }
+
+        public string OrvosNev { get; set; }
     }
 
     public class RecepciosViewModel
@@ -44,6 +46,7 @@ namespace EFTeszt01
 
         ObservableCollection<IdopontIDBeteg> idopontAdatok;
         public  ObservableCollection<IdopontIDBeteg> IdopontAdatok { get { return idopontAdatok; } }
+
 
         public RecepciosViewModel(MungoSystem mungoSystem, People sessionUser)
         {

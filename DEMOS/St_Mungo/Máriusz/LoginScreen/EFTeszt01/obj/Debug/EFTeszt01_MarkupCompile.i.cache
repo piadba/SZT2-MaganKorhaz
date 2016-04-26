@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\
 EFTeszt01
 none
 false
 DEBUG;TRACE
-C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\App.xaml
-16-979286778
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\App.xaml
+17-1526466168
 2-1380222792
-49682360331
-181045603422
-AdminWindow.xaml;ApoloMainWindow.xaml;EszkozAddModWindow.xaml;EszkozGroupAddWindow.xaml;GazdAlkMainWindow.xaml;IdopontKezelo.xaml;IdopontSzerkeszto.xaml;IgenyMainWindow.xaml;MainWindow.xaml;OrvosAsszisztensFelhModWindow.xaml;OrvosAsszisztensGyogyszerWindow.xaml;OrvosAsszisztensKezelesWindow.xaml;OrvosAsszisztensLazlapWindow.xaml;OrvosAsszisztensUjBetegWindow.xaml;OrvosAsszisztensWindow.xaml;RecepciosMainWindow.xaml;
+50-1807868024
+18-1049769165
+AdminWindow.xaml;ApoloMainWindow.xaml;EszkozAddModWindow.xaml;EszkozGroupAddWindow.xaml;GazdAlkMainWindow.xaml;RecepciosIdopontKezeloWindow.xaml;RecepciosIdopontSzerkesztoWindow.xaml;IgenyMainWindow.xaml;MainWindow.xaml;OrvosAsszisztensFelhModWindow.xaml;OrvosAsszisztensGyogyszerWindow.xaml;OrvosAsszisztensKezelesWindow.xaml;OrvosAsszisztensLazlapWindow.xaml;OrvosAsszisztensUjBetegWindow.xaml;OrvosAsszisztensWindow.xaml;RecepciosErtesitesWindow.xaml;RecepciosMainWindow.xaml;
 
 True
 

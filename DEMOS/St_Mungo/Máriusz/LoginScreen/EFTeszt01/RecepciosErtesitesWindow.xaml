@@ -1,0 +1,29 @@
+﻿<Window x:Class="EFTeszt01.RecepciosErtesitesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="RecepciosErtesitesWindow" Height="329.63" Width="413.889" Loaded="Window_Loaded">
+    <Grid>
+        <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Height="29" Margin="111,36,0,0" VerticalAlignment="Top" Width="132"/>
+        <Label x:Name="label" Content="Dátum" HorizontalAlignment="Left" Height="29" Margin="58,36,0,0" VerticalAlignment="Top" Width="53"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="110" Margin="10,70,0,0" VerticalAlignment="Top" Width="386" ItemsSource="{Binding IdopontAdatok}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <Label Content="{Binding TAJ}" />
+                        <Label Content="{Binding Nev}" />
+                        <Label Content="{Binding Datum}" />
+                        <Label Content="{Binding OrvosNev}" />
+                    </DockPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="button" Content="Értesítés" HorizontalAlignment="Left" Height="21" Margin="232,268,0,0" VerticalAlignment="Top" Width="92" Click="button_Click"/>
+        <Button x:Name="button1" Content="Listázás" HorizontalAlignment="Left" Margin="248,45,0,0" VerticalAlignment="Top" Width="63" Click="button1_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="78" Margin="10,185,0,0" TextWrapping="Wrap" Text="Megjegyzés..." VerticalAlignment="Top" Width="386"/>
+
+    </Grid>
+</Window>
