@@ -45,7 +45,7 @@ namespace EFTeszt01
            
             foreach(var b in betegek)
             {
-                recepciosViewModel.Betegek.Add(new BetegTajIDNev { TAJ = b.TAJ, Nev = b.Nev, BetegID = b.BetegID, PeopleID = (int)b.PeopleID });
+                recepciosViewModel.Betegek.Add(new BetegAdatai { TAJ = b.TAJ, Nev = b.Nev, BetegID = b.BetegID, PeopleID = (int)b.PeopleID });
             }
 
             
@@ -54,7 +54,7 @@ namespace EFTeszt01
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int kivBetegID = (comboBox.SelectedItem as BetegTajIDNev).BetegID;
+            int kivBetegID = (comboBox.SelectedItem as BetegAdatai).BetegID;
             idopont.BetegID = kivBetegID;
 
             recepciosViewModel.MungoSystem.SaveChanges();

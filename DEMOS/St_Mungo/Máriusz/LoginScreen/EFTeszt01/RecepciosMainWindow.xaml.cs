@@ -45,5 +45,11 @@ namespace EFTeszt01
             RecepciosErtesitesWindow ert = new RecepciosErtesitesWindow(recepciosViewModel);
             ert.ShowDialog();
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            RecepciosBetegRegisztracioMainWindow br = new RecepciosBetegRegisztracioMainWindow(recepciosViewModel);
+            br.ShowDialog();
+        }
     }
 }

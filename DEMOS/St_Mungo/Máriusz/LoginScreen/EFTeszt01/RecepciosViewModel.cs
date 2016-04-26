@@ -7,12 +7,22 @@ using System.Threading.Tasks;
 
 namespace EFTeszt01
 {
-    public class BetegTajIDNev
+    public class BetegAdatai
     {
-        public string TAJ { get; set; }
-        public string Nev { get; set; }
         public int PeopleID { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+
+        public string Nev { get; set; }
+        public string Cim { get; set; }
+        public string Nem { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+
+        public string TAJ { get; set; }
+
         public int BetegID { get; set; }
+
     }
 
     public class IdopontIDBeteg
@@ -39,8 +49,11 @@ namespace EFTeszt01
 
         public ObservableCollection<People> Orvosok
         { get { return orvosok; } }
-        ObservableCollection<BetegTajIDNev> betegek;
-        public ObservableCollection<BetegTajIDNev> Betegek { get { return betegek; } }
+        ObservableCollection<BetegAdatai> betegek;
+        public ObservableCollection<BetegAdatai> Betegek { get { return betegek; } }
+
+        BetegAdatai kivalasztottBeteg;
+        public BetegAdatai KivalasztottBeteg { get { return kivalasztottBeteg; } set { kivalasztottBeteg = value; } }
         ObservableCollection<Idopontok> idopontok;
         public ObservableCollection<Idopontok> Idopontok { get { return idopontok; } }
 
@@ -54,7 +67,7 @@ namespace EFTeszt01
             this.sessionUser = sessionUser;
             orvosok = new ObservableCollection<People>();
             idopontok = new ObservableCollection<Idopontok>();
-            betegek = new ObservableCollection<BetegTajIDNev>();
+            betegek = new ObservableCollection<BetegAdatai>();
             idopontAdatok = new ObservableCollection<IdopontIDBeteg>();
         }
     }

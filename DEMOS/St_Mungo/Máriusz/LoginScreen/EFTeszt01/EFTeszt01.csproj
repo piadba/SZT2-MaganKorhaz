@@ -64,6 +64,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="GyogyszerIDNevKonverter.cs" />
+    <Compile Include="RecepciosBetegModositoWindow.xaml.cs">
+      <DependentUpon>RecepciosBetegModositoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosBetegRegisztracioMainWindow.xaml.cs">
+      <DependentUpon>RecepciosBetegRegisztracioMainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RecepciosIdopontKezeloWindow.xaml.cs">
       <DependentUpon>RecepciosIdopontKezeloWindow.xaml</DependentUpon>
     </Compile>
@@ -91,6 +97,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GazdAlkMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RecepciosBetegModositoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RecepciosBetegRegisztracioMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
