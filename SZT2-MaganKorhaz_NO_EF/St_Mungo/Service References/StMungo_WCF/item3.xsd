@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/StMungoWCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/StMungoWCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Entity" />
+  <xs:complexType name="ArrayOfKortortenetAdat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KortortenetAdat" nillable="true" type="tns:KortortenetAdat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKortortenetAdat" nillable="true" type="tns:ArrayOfKortortenetAdat" />
+  <xs:complexType name="KortortenetAdat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fej" nillable="true" type="tns:Kortortenet_fej" />
+      <xs:element minOccurs="0" name="Tetel" nillable="true" type="tns:Kortortenet_tetel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KortortenetAdat" nillable="true" type="tns:KortortenetAdat" />
+  <xs:complexType name="Kortortenet_fej">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BetegID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="KortortenetFejID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Kortortenet_fej" nillable="true" type="tns:Kortortenet_fej" />
+  <xs:complexType name="Kortortenet_tetel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="Kezeles" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="KortortenetFejID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="KortortenetTetelID" type="xs:int" />
+      <xs:element minOccurs="0" name="Orvos" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Kortortenet_tetel" nillable="true" type="tns:Kortortenet_tetel" />
+  <xs:complexType name="BetegAdat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BetegInfo" nillable="true" type="tns:Betegek" />
+      <xs:element minOccurs="0" name="PeopleInfo" nillable="true" type="tns:People" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BetegAdat" nillable="true" type="tns:BetegAdat" />
+  <xs:complexType name="Betegek">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BetegID" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="PeopleID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="TAJ" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Betegek" nillable="true" type="tns:Betegek" />
+  <xs:complexType name="People">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Group" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PeopleID" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="People" nillable="true" type="tns:People" />
+  <xs:complexType name="ArrayOfIdopontok">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Idopontok" nillable="true" type="tns:Idopontok" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdopontok" nillable="true" type="tns:ArrayOfIdopontok" />
+  <xs:complexType name="Idopontok">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BetegID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="IdopontID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrvosID" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Idopontok" nillable="true" type="tns:Idopontok" />
+  <xs:complexType name="MungoSystem">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Entity" base="q1:DbContext">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApoloMuszak" nillable="true" type="tns:ArrayOfApoloMuszak" />
+          <xs:element minOccurs="0" name="Betegek" nillable="true" type="tns:ArrayOfBetegek" />
+          <xs:element minOccurs="0" name="Gyogyszer" nillable="true" type="tns:ArrayOfGyogyszer" />
+          <xs:element minOccurs="0" name="Idopontok" nillable="true" type="tns:ArrayOfIdopontok" />
+          <xs:element minOccurs="0" name="KiadottGyogyszer" nillable="true" type="tns:ArrayOfKiadottGyogyszer" />
+          <xs:element minOccurs="0" name="KorhaziEszkoz" nillable="true" type="tns:ArrayOfKorhaziEszkoz" />
+          <xs:element minOccurs="0" name="KorhaziEszkozok_Fej" nillable="true" type="tns:ArrayOfKorhaziEszkozok_Fej" />
+          <xs:element minOccurs="0" name="Kortortenet_fej" nillable="true" type="tns:ArrayOfKortortenet_fej" />
+          <xs:element minOccurs="0" name="Kortortenet_tetel" nillable="true" type="tns:ArrayOfKortortenet_tetel" />
+          <xs:element minOccurs="0" name="Lazlap" nillable="true" type="tns:ArrayOfLazlap" />
+          <xs:element minOccurs="0" name="LookUps" nillable="true" type="tns:ArrayOfLookUps" />
+          <xs:element minOccurs="0" name="People" nillable="true" type="tns:ArrayOfPeople" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MungoSystem" nillable="true" type="tns:MungoSystem" />
+  <xs:complexType name="ArrayOfApoloMuszak">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApoloMuszak" nillable="true" type="tns:ApoloMuszak" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApoloMuszak" nillable="true" type="tns:ArrayOfApoloMuszak" />
+  <xs:complexType name="ApoloMuszak">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApoloMuszakID" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PeopleID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApoloMuszak" nillable="true" type="tns:ApoloMuszak" />
+  <xs:complexType name="ArrayOfBetegek">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Betegek" nillable="true" type="tns:Betegek" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBetegek" nillable="true" type="tns:ArrayOfBetegek" />
+  <xs:complexType name="ArrayOfGyogyszer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Gyogyszer" nillable="true" type="tns:Gyogyszer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGyogyszer" nillable="true" type="tns:ArrayOfGyogyszer" />
+  <xs:complexType name="Gyogyszer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Egyseg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EgysegMennyiseg" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GyogyszerID" type="xs:int" />
+      <xs:element minOccurs="0" name="Hatoanyag" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Megnevezes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mennyiseg" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Gyogyszer" nillable="true" type="tns:Gyogyszer" />
+  <xs:complexType name="ArrayOfKiadottGyogyszer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KiadottGyogyszer" nillable="true" type="tns:KiadottGyogyszer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKiadottGyogyszer" nillable="true" type="tns:ArrayOfKiadottGyogyszer" />
+  <xs:complexType name="KiadottGyogyszer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Datum" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ForrasID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="GyogyszerID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="KiadottGyogyszer1" type="xs:int" />
+      <xs:element minOccurs="0" name="Mennyiseg" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Statusz" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KiadottGyogyszer" nillable="true" type="tns:KiadottGyogyszer" />
+  <xs:complexType name="ArrayOfKorhaziEszkoz">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KorhaziEszkoz" nillable="true" type="tns:KorhaziEszkoz" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKorhaziEszkoz" nillable="true" type="tns:ArrayOfKorhaziEszkoz" />
+  <xs:complexType name="KorhaziEszkoz">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="EszkozID" type="xs:int" />
+      <xs:element minOccurs="0" name="Eszkoz_FejID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Megnevezes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Statusz" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KorhaziEszkoz" nillable="true" type="tns:KorhaziEszkoz" />
+  <xs:complexType name="ArrayOfKorhaziEszkozok_Fej">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KorhaziEszkozok_Fej" nillable="true" type="tns:KorhaziEszkozok_Fej" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKorhaziEszkozok_Fej" nillable="true" type="tns:ArrayOfKorhaziEszkozok_Fej" />
+  <xs:complexType name="KorhaziEszkozok_Fej">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Eszkoz_FejID" type="xs:int" />
+      <xs:element minOccurs="0" name="Megnevezes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Statusz" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KorhaziEszkozok_Fej" nillable="true" type="tns:KorhaziEszkozok_Fej" />
+  <xs:complexType name="ArrayOfKortortenet_fej">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Kortortenet_fej" nillable="true" type="tns:Kortortenet_fej" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKortortenet_fej" nillable="true" type="tns:ArrayOfKortortenet_fej" />
+  <xs:complexType name="ArrayOfKortortenet_tetel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Kortortenet_tetel" nillable="true" type="tns:Kortortenet_tetel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKortortenet_tetel" nillable="true" type="tns:ArrayOfKortortenet_tetel" />
+  <xs:complexType name="ArrayOfLazlap">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lazlap" nillable="true" type="tns:Lazlap" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLazlap" nillable="true" type="tns:ArrayOfLazlap" />
+  <xs:complexType name="Lazlap">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApoloID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ApoloMegjegyzes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BetegID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LazlapID" type="xs:int" />
+      <xs:element minOccurs="0" name="OrvosID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="OrvosMegjegyzes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Statusz" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UtolsoFelvetelDatum" nillable="true" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lazlap" nillable="true" type="tns:Lazlap" />
+  <xs:complexType name="ArrayOfLookUps">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LookUps" nillable="true" type="tns:LookUps" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLookUps" nillable="true" type="tns:ArrayOfLookUps" />
+  <xs:complexType name="LookUps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deleted" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LookupID" type="xs:int" />
+      <xs:element minOccurs="0" name="ObjectType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LookUps" nillable="true" type="tns:LookUps" />
+  <xs:complexType name="ArrayOfPeople">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="People" nillable="true" type="tns:People" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPeople" nillable="true" type="tns:ArrayOfPeople" />
+</xs:schema>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/StMungoWCFService" />
+  <xs:element name="getKortortenetekByBetegId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="betegID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getKortortenetekByBetegIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="getKortortenetekByBetegIdResult" nillable="true" type="q1:ArrayOfKortortenetAdat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBetegAdatok">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="peopleID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getBetegAdatokResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="getBetegAdatokResult" nillable="true" type="q2:BetegAdat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Beteg_SaveChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="beteg" nillable="true" type="q3:BetegAdat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Beteg_SaveChangesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getIdopontokByBetegId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="betegId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getIdopontokByBetegIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="getIdopontokByBetegIdResult" nillable="true" type="q4:ArrayOfIdopontok" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mungoSystem">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mungoSystemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="mungoSystemResult" nillable="true" type="q5:MungoSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mungoSystemSave">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mungoSystemSaveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="People_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="People_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="People_getLocalResult" nillable="true" type="q6:ArrayOfPeople" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="People_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="People_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Betegek_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Betegek_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="Betegek_getLocalResult" nillable="true" type="q7:ArrayOfBetegek" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Betegek_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Betegek_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdoPontok_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdoPontok_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="IdoPontok_getLocalResult" nillable="true" type="q8:ArrayOfIdopontok" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Idopontok_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Idopontok_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkozok_Fej_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkozok_Fej_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="KorhaziEszkozok_Fej_getLocalResult" nillable="true" type="q9:ArrayOfKorhaziEszkozok_Fej" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkozok_Fej_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkozok_Fej_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszozokAdd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="elem" nillable="true" type="q10:KorhaziEszkoz" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszozokAddResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkoz_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkoz_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="KorhaziEszkoz_getLocalResult" nillable="true" type="q11:ArrayOfKorhaziEszkoz" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkoz_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KorhaziEszkoz_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Gyogyszer_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Gyogyszer_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="Gyogyszer_getLocalResult" nillable="true" type="q12:ArrayOfGyogyszer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gyogyszer_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="gyogyszer_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApoloMuszak_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApoloMuszak_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="ApoloMuszak_getLocalResult" nillable="true" type="q13:ArrayOfApoloMuszak" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApoloMuszak_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApoloMuszak_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lazlap_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lazlap_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="Lazlap_getLocalResult" nillable="true" type="q14:ArrayOfLazlap" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lazlap_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lazlap_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_fej_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_fej_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="Kortortenet_fej_getLocalResult" nillable="true" type="q15:ArrayOfKortortenet_fej" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_fej_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_fej_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_tetel_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_tetel_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="Kortortenet_tetel_getLocalResult" nillable="true" type="q16:ArrayOfKortortenet_tetel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_tetel_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kortortenet_tetel_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lookups_getLocal">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lookups_getLocalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/StMungoWCFService" minOccurs="0" name="Lookups_getLocalResult" nillable="true" type="q17:ArrayOfLookUps" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lookups_getLoad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Lookups_getLoadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

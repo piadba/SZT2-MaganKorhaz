@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="StMungoService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/StMungoWCFService" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Entity" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IStMungoService_getKortortenetekByBetegId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getKortortenetekByBetegId" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_getKortortenetekByBetegId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getKortortenetekByBetegIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_getBetegAdatok_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBetegAdatok" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_getBetegAdatok_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBetegAdatokResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Beteg_SaveChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:Beteg_SaveChanges" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Beteg_SaveChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Beteg_SaveChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_getIdopontokByBetegId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getIdopontokByBetegId" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_getIdopontokByBetegId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getIdopontokByBetegIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_mungoSystem_InputMessage">
+    <wsdl:part name="parameters" element="tns:mungoSystem" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_mungoSystem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:mungoSystemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_mungoSystemSave_InputMessage">
+    <wsdl:part name="parameters" element="tns:mungoSystemSave" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_mungoSystemSave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:mungoSystemSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_People_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:People_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_People_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:People_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_People_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:People_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_People_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:People_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Betegek_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Betegek_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Betegek_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Betegek_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Betegek_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:Betegek_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Betegek_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Betegek_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_IdoPontok_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:IdoPontok_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_IdoPontok_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IdoPontok_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Idopontok_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:Idopontok_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Idopontok_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Idopontok_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkozok_Fej_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkozok_Fej_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkozok_Fej_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkozok_Fej_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkozok_Fej_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkozok_Fej_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkozok_Fej_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkozok_Fej_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszozokAdd_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszozokAdd" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszozokAdd_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszozokAddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkoz_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkoz_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkoz_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkoz_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkoz_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkoz_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_KorhaziEszkoz_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:KorhaziEszkoz_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Gyogyszer_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Gyogyszer_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Gyogyszer_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Gyogyszer_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_gyogyszer_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:gyogyszer_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_gyogyszer_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:gyogyszer_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_ApoloMuszak_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApoloMuszak_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_ApoloMuszak_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApoloMuszak_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_ApoloMuszak_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ApoloMuszak_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_ApoloMuszak_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ApoloMuszak_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lazlap_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Lazlap_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lazlap_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Lazlap_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lazlap_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:Lazlap_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lazlap_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Lazlap_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_fej_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_fej_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_fej_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_fej_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_fej_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_fej_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_fej_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_fej_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_tetel_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_tetel_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_tetel_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_tetel_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_tetel_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_tetel_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Kortortenet_tetel_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Kortortenet_tetel_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lookups_getLocal_InputMessage">
+    <wsdl:part name="parameters" element="tns:Lookups_getLocal" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lookups_getLocal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Lookups_getLocalResponse" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lookups_getLoad_InputMessage">
+    <wsdl:part name="parameters" element="tns:Lookups_getLoad" />
+  </wsdl:message>
+  <wsdl:message name="IStMungoService_Lookups_getLoad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Lookups_getLoadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IStMungoService">
+    <wsdl:operation name="getKortortenetekByBetegId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/getKortortenetekByBetegId" message="tns:IStMungoService_getKortortenetekByBetegId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/getKortortenetekByBetegIdResponse" message="tns:IStMungoService_getKortortenetekByBetegId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBetegAdatok">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/getBetegAdatok" message="tns:IStMungoService_getBetegAdatok_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/getBetegAdatokResponse" message="tns:IStMungoService_getBetegAdatok_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Beteg_SaveChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Beteg_SaveChanges" message="tns:IStMungoService_Beteg_SaveChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Beteg_SaveChangesResponse" message="tns:IStMungoService_Beteg_SaveChanges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getIdopontokByBetegId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/getIdopontokByBetegId" message="tns:IStMungoService_getIdopontokByBetegId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/getIdopontokByBetegIdResponse" message="tns:IStMungoService_getIdopontokByBetegId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="mungoSystem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/mungoSystem" message="tns:IStMungoService_mungoSystem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/mungoSystemResponse" message="tns:IStMungoService_mungoSystem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="mungoSystemSave">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/mungoSystemSave" message="tns:IStMungoService_mungoSystemSave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/mungoSystemSaveResponse" message="tns:IStMungoService_mungoSystemSave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="People_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/People_getLocal" message="tns:IStMungoService_People_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/People_getLocalResponse" message="tns:IStMungoService_People_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="People_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/People_getLoad" message="tns:IStMungoService_People_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/People_getLoadResponse" message="tns:IStMungoService_People_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Betegek_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Betegek_getLocal" message="tns:IStMungoService_Betegek_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Betegek_getLocalResponse" message="tns:IStMungoService_Betegek_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Betegek_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Betegek_getLoad" message="tns:IStMungoService_Betegek_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Betegek_getLoadResponse" message="tns:IStMungoService_Betegek_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IdoPontok_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/IdoPontok_getLocal" message="tns:IStMungoService_IdoPontok_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/IdoPontok_getLocalResponse" message="tns:IStMungoService_IdoPontok_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Idopontok_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Idopontok_getLoad" message="tns:IStMungoService_Idopontok_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Idopontok_getLoadResponse" message="tns:IStMungoService_Idopontok_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkozok_Fej_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkozok_Fej_getLocal" message="tns:IStMungoService_KorhaziEszkozok_Fej_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkozok_Fej_getLocalResponse" message="tns:IStMungoService_KorhaziEszkozok_Fej_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkozok_Fej_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkozok_Fej_getLoad" message="tns:IStMungoService_KorhaziEszkozok_Fej_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkozok_Fej_getLoadResponse" message="tns:IStMungoService_KorhaziEszkozok_Fej_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszozokAdd">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszozokAdd" message="tns:IStMungoService_KorhaziEszozokAdd_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszozokAddResponse" message="tns:IStMungoService_KorhaziEszozokAdd_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkoz_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkoz_getLocal" message="tns:IStMungoService_KorhaziEszkoz_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkoz_getLocalResponse" message="tns:IStMungoService_KorhaziEszkoz_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkoz_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkoz_getLoad" message="tns:IStMungoService_KorhaziEszkoz_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/KorhaziEszkoz_getLoadResponse" message="tns:IStMungoService_KorhaziEszkoz_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Gyogyszer_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Gyogyszer_getLocal" message="tns:IStMungoService_Gyogyszer_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Gyogyszer_getLocalResponse" message="tns:IStMungoService_Gyogyszer_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="gyogyszer_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/gyogyszer_getLoad" message="tns:IStMungoService_gyogyszer_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/gyogyszer_getLoadResponse" message="tns:IStMungoService_gyogyszer_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApoloMuszak_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/ApoloMuszak_getLocal" message="tns:IStMungoService_ApoloMuszak_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/ApoloMuszak_getLocalResponse" message="tns:IStMungoService_ApoloMuszak_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApoloMuszak_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/ApoloMuszak_getLoad" message="tns:IStMungoService_ApoloMuszak_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/ApoloMuszak_getLoadResponse" message="tns:IStMungoService_ApoloMuszak_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Lazlap_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Lazlap_getLocal" message="tns:IStMungoService_Lazlap_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Lazlap_getLocalResponse" message="tns:IStMungoService_Lazlap_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Lazlap_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Lazlap_getLoad" message="tns:IStMungoService_Lazlap_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Lazlap_getLoadResponse" message="tns:IStMungoService_Lazlap_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_fej_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_fej_getLocal" message="tns:IStMungoService_Kortortenet_fej_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_fej_getLocalResponse" message="tns:IStMungoService_Kortortenet_fej_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_fej_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_fej_getLoad" message="tns:IStMungoService_Kortortenet_fej_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_fej_getLoadResponse" message="tns:IStMungoService_Kortortenet_fej_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_tetel_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_tetel_getLocal" message="tns:IStMungoService_Kortortenet_tetel_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_tetel_getLocalResponse" message="tns:IStMungoService_Kortortenet_tetel_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_tetel_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_tetel_getLoad" message="tns:IStMungoService_Kortortenet_tetel_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Kortortenet_tetel_getLoadResponse" message="tns:IStMungoService_Kortortenet_tetel_getLoad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Lookups_getLocal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Lookups_getLocal" message="tns:IStMungoService_Lookups_getLocal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Lookups_getLocalResponse" message="tns:IStMungoService_Lookups_getLocal_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Lookups_getLoad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStMungoService/Lookups_getLoad" message="tns:IStMungoService_Lookups_getLoad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStMungoService/Lookups_getLoadResponse" message="tns:IStMungoService_Lookups_getLoad_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IStMungoService" type="tns:IStMungoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getKortortenetekByBetegId">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/getKortortenetekByBetegId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBetegAdatok">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/getBetegAdatok" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Beteg_SaveChanges">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Beteg_SaveChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIdopontokByBetegId">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/getIdopontokByBetegId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mungoSystem">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/mungoSystem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mungoSystemSave">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/mungoSystemSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="People_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/People_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="People_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/People_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Betegek_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Betegek_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Betegek_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Betegek_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IdoPontok_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/IdoPontok_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Idopontok_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Idopontok_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkozok_Fej_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/KorhaziEszkozok_Fej_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkozok_Fej_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/KorhaziEszkozok_Fej_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszozokAdd">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/KorhaziEszozokAdd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkoz_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/KorhaziEszkoz_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KorhaziEszkoz_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/KorhaziEszkoz_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Gyogyszer_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Gyogyszer_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gyogyszer_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/gyogyszer_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApoloMuszak_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/ApoloMuszak_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApoloMuszak_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/ApoloMuszak_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lazlap_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Lazlap_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lazlap_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Lazlap_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_fej_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Kortortenet_fej_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_fej_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Kortortenet_fej_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_tetel_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Kortortenet_tetel_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Kortortenet_tetel_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Kortortenet_tetel_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lookups_getLocal">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Lookups_getLocal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lookups_getLoad">
+      <soap:operation soapAction="http://tempuri.org/IStMungoService/Lookups_getLoad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StMungoService">
+    <wsdl:port name="BasicHttpBinding_IStMungoService" binding="tns:BasicHttpBinding_IStMungoService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/StMungoWCFService/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
