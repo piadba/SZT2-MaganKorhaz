@@ -46,21 +46,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Kortortenet_tetel">
-      <EntityTypeMapping TypeName="St_MungoModel.Kortortenet_tetel">
-        <MappingFragment StoreEntitySet="Kortortenet_tetel">
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          <ScalarProperty Name="Kezeles" ColumnName="Kezeles" />
-          <ScalarProperty Name="Orvos" ColumnName="Orvos" />
-          <ScalarProperty Name="Datum" ColumnName="Datum" />
-          <ScalarProperty Name="KortortenetFejID" ColumnName="KortortenetFejID" />
-          <ScalarProperty Name="KortortenetTetelID" ColumnName="KortortenetTetelID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Gyogyszer">
       <EntityTypeMapping TypeName="St_MungoModel.Gyogyszer">
         <MappingFragment StoreEntitySet="Gyogyszer">
+          <ScalarProperty Name="Threshold" ColumnName="Threshold" />
           <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           <ScalarProperty Name="EgysegMennyiseg" ColumnName="EgysegMennyiseg" />
           <ScalarProperty Name="Egyseg" ColumnName="Egyseg" />
@@ -121,6 +110,7 @@
     <EntitySetMapping Name="KiadottGyogyszer">
       <EntityTypeMapping TypeName="St_MungoModel.KiadottGyogyszer">
         <MappingFragment StoreEntitySet="KiadottGyogyszer">
+          <ScalarProperty Name="Hasznalt" ColumnName="Hasznalt" />
           <ScalarProperty Name="Deleted" ColumnName="Deleted" />
           <ScalarProperty Name="Datum" ColumnName="Datum" />
           <ScalarProperty Name="Statusz" ColumnName="Statusz" />
@@ -139,6 +129,18 @@
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="PeopleID" ColumnName="PeopleID" />
           <ScalarProperty Name="ApoloMuszakID" ColumnName="ApoloMuszakID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kortortenet_tetel">
+      <EntityTypeMapping TypeName="St_MungoModel.Kortortenet_tetel">
+        <MappingFragment StoreEntitySet="Kortortenet_tetel">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Kezeles" ColumnName="Kezeles" />
+          <ScalarProperty Name="Orvos" ColumnName="Orvos" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="KortortenetFejID" ColumnName="KortortenetFejID" />
+          <ScalarProperty Name="KortortenetTetelID" ColumnName="KortortenetTetelID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

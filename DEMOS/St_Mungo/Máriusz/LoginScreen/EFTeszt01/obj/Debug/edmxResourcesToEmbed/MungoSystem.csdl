@@ -20,7 +20,6 @@
     <EntitySet Name="LookUps" EntityType="St_MungoModel.LookUps" />
     <EntitySet Name="Betegek" EntityType="St_MungoModel.Betegek" />
     <EntitySet Name="Kortortenet_fej" EntityType="St_MungoModel.Kortortenet_fej" />
-    <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
     <EntitySet Name="Gyogyszer" EntityType="St_MungoModel.Gyogyszer" />
     <EntitySet Name="Lazlap" EntityType="St_MungoModel.Lazlap" />
     <EntitySet Name="Idopontok" EntityType="St_MungoModel.Idopontok" />
@@ -28,6 +27,7 @@
     <EntitySet Name="KorhaziEszkozok_Fej" EntityType="St_MungoModel.KorhaziEszkozok_Fej" />
     <EntitySet Name="KiadottGyogyszer" EntityType="St_MungoModel.KiadottGyogyszer" />
     <EntitySet Name="ApoloMuszak" EntityType="St_MungoModel.ApoloMuszak" />
+    <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
   </EntityContainer>
   <EntityType Name="LookUps">
     <Key>
@@ -55,17 +55,6 @@
     <Property Name="BetegID" Type="Int32" />
     <Property Name="Deleted" Type="Int16" />
   </EntityType>
-  <EntityType Name="Kortortenet_tetel">
-    <Key>
-      <PropertyRef Name="KortortenetTetelID" />
-    </Key>
-    <Property Name="KortortenetTetelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="KortortenetFejID" Type="Int32" />
-    <Property Name="Datum" Type="DateTime" Precision="0" />
-    <Property Name="Orvos" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Kezeles" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Deleted" Type="Int16" />
-  </EntityType>
   <EntityType Name="Gyogyszer">
     <Key>
       <PropertyRef Name="GyogyszerID" />
@@ -77,6 +66,7 @@
     <Property Name="Egyseg" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="EgysegMennyiseg" Type="Int32" />
     <Property Name="Deleted" Type="Byte" />
+    <Property Name="Threshold" Type="Int32" />
   </EntityType>
   <EntityType Name="Lazlap">
     <Key>
@@ -132,6 +122,7 @@
     <Property Name="Statusz" Type="Int32" />
     <Property Name="Datum" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Byte" />
+    <Property Name="Hasznalt" Type="Int32" />
   </EntityType>
   <EntityType Name="ApoloMuszak">
     <Key>
@@ -142,5 +133,16 @@
     <Property Name="StartDate" Type="DateTime" Precision="3" />
     <Property Name="EndDate" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Kortortenet_tetel">
+    <Key>
+      <PropertyRef Name="KortortenetTetelID" />
+    </Key>
+    <Property Name="KortortenetTetelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KortortenetFejID" Type="Int32" />
+    <Property Name="Datum" Type="DateTime" Precision="0" />
+    <Property Name="Orvos" Type="Int32" />
+    <Property Name="Kezeles" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Deleted" Type="Int16" />
   </EntityType>
 </Schema>

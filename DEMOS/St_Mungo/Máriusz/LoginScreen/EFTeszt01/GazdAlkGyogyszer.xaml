@@ -1,0 +1,32 @@
+﻿<Window x:Class="EFTeszt01.GazdAlkGyogyszer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="Gyógyszer szerkesztés" Height="300" Width="319.934" Icon="HOSPICON.png" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid ShowGridLines="True" x:Name="gyogyszerGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="193*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Megnevezés:*" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="Hatóanyag:* " HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="labelMennyiseg" Content="Aktuális mennyiség:*" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox x:Name="tbMennyiseg" HorizontalAlignment="Left" Height="26" Margin="135,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Mennyiseg, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="47" VerticalContentAlignment="Center" Grid.Row="1" PreviewKeyDown="OnlyNumeric"/>
+        <Label x:Name="labelRendeles" Content="Rendelés:" HorizontalAlignment="Left" Margin="187,14,0,0" VerticalAlignment="Top" Width="65" Grid.Row="1"/>
+        <Label x:Name="label_Copy3" Content="Egység: *" HorizontalAlignment="Left" Margin="37,45.346,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label x:Name="label_Copy4" Content="Egységmennyiség: *" HorizontalAlignment="Left" Margin="37,76.346,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label x:Name="label_Copy5" Content="Tartalék:*" HorizontalAlignment="Left" Margin="37,107.346,0,0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox x:Name="tbMegnevezes" HorizontalAlignment="Left" Height="26" Margin="157,10,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="147" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="tbHatoanyag" HorizontalAlignment="Left" Height="26" Margin="157,42,0,0" TextWrapping="Wrap" Text="{Binding Path=Hatoanyag, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="147" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="tbEgyseg" HorizontalAlignment="Left" Height="26" Margin="157,45,0,0" TextWrapping="Wrap" Text="{Binding Path=Egyseg, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="147" VerticalContentAlignment="Center" Grid.Row="1" />
+        <TextBox x:Name="tbEgyegmenny" HorizontalAlignment="Left" Height="26" Margin="157,76,0,0" TextWrapping="Wrap" Text="{Binding Path=EgysegMennyiseg,UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="147" VerticalContentAlignment="Center" Grid.Row="1" PreviewKeyDown="OnlyNumeric"/>
+        <TextBox x:Name="tbThreshold" HorizontalAlignment="Left" Height="26" Margin="157,107,0,0" TextWrapping="Wrap" Text="{Binding Path=Threshold, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="147" VerticalContentAlignment="Center" Grid.Row="1" PreviewKeyDown="OnlyNumeric"/>
+        <TextBox x:Name="tbRendeles" HorizontalAlignment="Left" Height="26" Margin="257,14,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="47" VerticalContentAlignment="Center" Grid.Row="1" PreviewKeyDown="OnlyNumeric"/>
+        <Button x:Name="buttonSave" Content="Mentés" HorizontalAlignment="Left" Height="28" Margin="10,155,0,0" Grid.Row="1" VerticalAlignment="Top" Width="147" Click="buttonSave_Click"/>
+        <Button x:Name="buttonCancel" Content="Mégsem" HorizontalAlignment="Left" Height="28" Margin="162,155,0,0" Grid.Row="1" VerticalAlignment="Top" Width="142" Click="buttonCancel_Click"/>
+
+    </Grid>
+</Window>

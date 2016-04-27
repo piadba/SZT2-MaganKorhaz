@@ -7,22 +7,12 @@ using System.Threading.Tasks;
 
 namespace EFTeszt01
 {
-    public class BetegAdatai
+    public class BetegTajIDNev
     {
-        public int PeopleID { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-
-        public string Nev { get; set; }
-        public string Cim { get; set; }
-        public string Nem { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-
         public string TAJ { get; set; }
-
+        public string Nev { get; set; }
+        public int PeopleID { get; set; }
         public int BetegID { get; set; }
-
     }
 
     public class IdopontIDBeteg
@@ -33,8 +23,6 @@ namespace EFTeszt01
       
         public string TAJ { get; set; }
         public string  Nev { get; set; }
-
-        public string OrvosNev { get; set; }
     }
 
     public class RecepciosViewModel
@@ -49,17 +37,13 @@ namespace EFTeszt01
 
         public ObservableCollection<People> Orvosok
         { get { return orvosok; } }
-        ObservableCollection<BetegAdatai> betegek;
-        public ObservableCollection<BetegAdatai> Betegek { get { return betegek; } }
-
-        BetegAdatai kivalasztottBeteg;
-        public BetegAdatai KivalasztottBeteg { get { return kivalasztottBeteg; } set { kivalasztottBeteg = value; } }
+        ObservableCollection<BetegTajIDNev> betegek;
+        public ObservableCollection<BetegTajIDNev> Betegek { get { return betegek; } }
         ObservableCollection<Idopontok> idopontok;
         public ObservableCollection<Idopontok> Idopontok { get { return idopontok; } }
 
         ObservableCollection<IdopontIDBeteg> idopontAdatok;
         public  ObservableCollection<IdopontIDBeteg> IdopontAdatok { get { return idopontAdatok; } }
-
 
         public RecepciosViewModel(MungoSystem mungoSystem, People sessionUser)
         {
@@ -67,7 +51,7 @@ namespace EFTeszt01
             this.sessionUser = sessionUser;
             orvosok = new ObservableCollection<People>();
             idopontok = new ObservableCollection<Idopontok>();
-            betegek = new ObservableCollection<BetegAdatai>();
+            betegek = new ObservableCollection<BetegTajIDNev>();
             idopontAdatok = new ObservableCollection<IdopontIDBeteg>();
         }
     }

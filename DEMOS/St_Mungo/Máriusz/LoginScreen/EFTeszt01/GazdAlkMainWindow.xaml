@@ -5,21 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="{Binding Path=Name}" Height="454.491" Icon="HOSPICON.png" Width="516.667" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="{Binding Path=Name}" Height="739.933" Icon="HOSPICON.png" Width="695.415" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
         <Grid.Resources>
             <local:EszkozBackgroundConverter x:Key="EszkozBackgroundConverter"/>
+            <local:getStateToColorConverter x:Key="getStateToColorConverter"/>
+            <local:ThresholdTocolorConverter x:Key="ThresholdTocolorConverter"/>
         </Grid.Resources>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="500">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Width="679" Margin="0,10,0,0">
             <TabItem Header="Gyógyszer készlet" x:Name="tabItemGyogyszer">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="347" Margin="7,50,0,0" VerticalAlignment="Top" Width="240"/>
-                    <ListBox x:Name="listBox_Copy" HorizontalAlignment="Left" Height="347" Margin="252,50,0,0" VerticalAlignment="Top" Width="240"/>
+                    <ListBox x:Name="listBoxGyogyszer" HorizontalAlignment="Left" Height="615" Margin="7,58,0,0" VerticalAlignment="Top" Width="357" SelectionChanged="listBoxGyogyszer_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel MinWidth="325" >
+                                    <StackPanel.Background>
+                                        <LinearGradientBrush >
+                                            <GradientStop Color="White" Offset="0.8"/>
+                                            <GradientStop Color="{Binding Path=ThresholdWarning, Converter={StaticResource ThresholdTocolorConverter}}" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </StackPanel.Background>
+                                    <Label Content="{Binding Path=GyogyszerString}"></Label>
+
+                                    <Label Content="{Binding Path=MennyisegString}"></Label>
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <ListBox x:Name="listBoxKiadottGyogyszer" HorizontalAlignment="Left" Height="615" Margin="369,58,0,0" VerticalAlignment="Top" Width="294">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel MinWidth="280" >
+                                    <StackPanel.Background>
+                                        <LinearGradientBrush >
+                                            <GradientStop Color="White" Offset="0.8"/>
+                                            <GradientStop Color="{Binding getState, Converter={StaticResource getStateToColorConverter}}" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </StackPanel.Background>
+                                    <Label Content="{Binding Path=getState}"/>
+                                    <Label Content="{Binding Path=getbetegNev}" ContentStringFormat="&#x09; Beteg: {0}"/>
+                                    <Label Content="{Binding Path=getOrvos}" ContentStringFormat="&#x09; Kezelőorvos: {0}"/>
+                                    <Label Content="{Binding Path=getMennyiseg}" ContentStringFormat="&#x09; Mennyiség/használt: : {0}"/>
+                                    <Label Content="{Binding Path=Datum}" ContentStringFormat="&#x09; Dátum: {0:yyyy/MM/dd}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button x:Name="buttonNewgyogyszer" Content="Új gyógyszer" HorizontalAlignment="Left" Height="21" Margin="7,32,0,0" VerticalAlignment="Top" Width="109" Click="buttonNewgyogyszer_Click"/>
+                    <Button x:Name="buttonRendMod" Content="Rendelés/Módosítás" HorizontalAlignment="Left" Height="21" Margin="121,32,0,0" VerticalAlignment="Top" Width="126" Click="buttonRendMod_Click"/>
+                    <Button x:Name="buttonGyogyszerdel" Content="Törlés" HorizontalAlignment="Left" Height="21" Margin="252,32,0,0" VerticalAlignment="Top" Width="112" Click="buttonGyogyszerdel_Click" RenderTransformOrigin="1.091,2.895"/>
+                    <Image x:Name="Image_Copy" HorizontalAlignment="Left" Height="43" Margin="622,10,0,0" VerticalAlignment="Top" Width="41" Source="bluecross.png"/>
+                    <Button x:Name="buttonLogoug" Content="Kijelentkezés" HorizontalAlignment="Left" Height="23" Margin="518,32,0,0" VerticalAlignment="Top" Width="99" Click="buttonLogoug_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Kórházi eszközök" x:Name="tabItemKorhaziEszkoz">
                 <Grid Background="#FFE5E5E5" Margin="0,1,0,-1">
-                    <ListBox x:Name="listBoxEszkozGroup" HorizontalAlignment="Left" Height="327" VerticalAlignment="Top" Width="240" Margin="0,58,0,0" SelectionChanged="listBoxEszkozGroup_SelectionChanged" >
+                    <ListBox x:Name="listBoxEszkozGroup" HorizontalAlignment="Left" Height="615" VerticalAlignment="Top" Width="240" Margin="0,58,0,0" SelectionChanged="listBoxEszkozGroup_SelectionChanged" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Name="groupStack" Background="{Binding Path=Statusz, Converter={StaticResource EszkozBackgroundConverter}, UpdateSourceTrigger=Explicit}"  Width="200">
@@ -30,7 +72,7 @@
                     </ListBox>
                     <Label x:Name="label" Content="Eszköz típusok" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="240" HorizontalContentAlignment="Center"/>
                     <Button x:Name="newEszkozGroup" Content="Új típus" HorizontalAlignment="Left" Height="21" Margin="0,32,0,0" VerticalAlignment="Top" Width="77" Click="newEszkozGroup_Click"/>
-                    <ListBox x:Name="listBoxEszkoz" HorizontalAlignment="Left" Height="327" Margin="251,58,0,0" VerticalAlignment="Top" Width="240">
+                    <ListBox x:Name="listBoxEszkoz" HorizontalAlignment="Left" Height="614" Margin="256,59,0,0" VerticalAlignment="Top" Width="407">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Background="{Binding Path=Statusz, Converter={StaticResource EszkozBackgroundConverter}}" Width="200">
@@ -46,14 +88,17 @@
                     <Border BorderBrush="Black" BorderThickness="1,0,0,0" HorizontalAlignment="Left" Height="395" Margin="245,0,0,0" VerticalAlignment="Top" Width="6"/>
                     <Button x:Name="GroupMod" Content="Módosítás" HorizontalAlignment="Left" Height="21" Margin="160,32,0,0" VerticalAlignment="Top" Width="80" Click="GroupMod_Click"/>
                     <Button x:Name="GroupMod_Copy" Content="Módosítás" HorizontalAlignment="Left" Height="21" Margin="414,33,0,0" VerticalAlignment="Top" Width="80" Click="GroupMod_Copy_Click"/>
+                    <Image x:Name="Image" HorizontalAlignment="Left" Height="43" Margin="622,10,0,0" VerticalAlignment="Top" Width="41" Source="bluecross.png"/>
+                    <Button x:Name="buttonLogoug_Copy" Content="Kijelentkezés" HorizontalAlignment="Left" Height="23" Margin="518,33,0,0" VerticalAlignment="Top" Width="99" Click="buttonLogoug_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="tesztigeny">
+            <TabItem Header="tesztigeny" Visibility="Hidden">
                 <Grid>
                     <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="179,103,0,0" VerticalAlignment="Top" Width="162" Height="108" Click="button_Click"/>
-
                 </Grid>
             </TabItem>
+
+
         </TabControl>
 
     </Grid>

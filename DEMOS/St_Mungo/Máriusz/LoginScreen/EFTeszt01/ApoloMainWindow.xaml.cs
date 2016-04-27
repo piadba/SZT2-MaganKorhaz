@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Threading;
 
 namespace EFTeszt01
 {
@@ -25,6 +26,7 @@ namespace EFTeszt01
         People sessionUser;
         ObservableCollection<Lazlap> lazlapok;
         ObservableCollection<Lazlap> felvettLazlapok;
+        Task refreshTask;
         public ApoloMainWindow(MungoSystem mungoSystem,People sessionUser)
         {
             InitializeComponent();
@@ -43,6 +45,8 @@ namespace EFTeszt01
                             lazlap => lazlap.Deleted == 0 && lazlap.Statusz == 8 
                             && lazlap.ApoloID == sessionUser.PeopleID));
             SelfLazlapListBox.ItemsSource = felvettLazlapok;
+            refreshTask = new Task(Refresh);
+            refreshTask.Start();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -126,6 +130,27 @@ namespace EFTeszt01
                 felvettLazlapok.Remove(selected);
             }
             mungoSystem.SaveChanges();
+        }
+
+        private void Refresh()
+        {
+            while (true)
+            {
+                Thread.Sleep(10000);
+                try
+                {
+                    lazlapok = new ObservableCollection<Lazlap>(mungoSystem.Lazlap.Where(
+                           lazlap => lazlap.Deleted == 0
+                           && lazlap.Statusz == 7));
+                    Dispatcher.Invoke(() => LazlapListBox.ItemsSource = lazlapok);
+                }
+                catch (Exception)
+                {
+
+                    return;
+                }
+                
+            }
         }
     }
 }

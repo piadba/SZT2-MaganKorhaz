@@ -30,12 +30,12 @@ namespace EFTeszt01
             if (addmod)
             {
                 datumDP.SelectedDate = ovm.SelectedKezeles.Datum;
-                orvosTB.Text = ovm.SelectedKezeles.Orvos;
+                orvosTB.Text = (ovm.SelectedKezeles.Orvos).ToString();
                 kezlesTB.Text = ovm.SelectedKezeles.Kezeles;
             }
             else {
                 datumDP.SelectedDate = DateTime.Now;
-                orvosTB.Text = "";
+                orvosTB.Text = null;
                 kezlesTB.Text = "";
             }
 
@@ -45,12 +45,12 @@ namespace EFTeszt01
         {
             if (AddMod)
             {
-                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = orvosTB.Text, Kezeles = kezlesTB.Text, Deleted = ovm.SelectedKezeles.Deleted, KortortenetFejID = ovm.SelectedKezeles.KortortenetFejID, KortortenetTetelID = ovm.SelectedKezeles.KortortenetTetelID };
+                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = int.Parse(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = ovm.SelectedKezeles.Deleted, KortortenetFejID = ovm.SelectedKezeles.KortortenetFejID, KortortenetTetelID = ovm.SelectedKezeles.KortortenetTetelID };
 
                 ovm.KezelesModositas(kt);
             }
             else{
-                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = orvosTB.Text, Kezeles = kezlesTB.Text, Deleted = 0};
+                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = int.Parse(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = 0};
                 ovm.KezelesLetrehozas(kt);
             }
             this.Close();

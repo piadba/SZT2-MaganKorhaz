@@ -26,20 +26,32 @@ namespace EFTeszt01
     {
         People sessionUser;
         MungoSystem mungoSystem;
+        
         ObservableCollection<Gyogyszer> gyogyszerek;
+        ObservableCollection<KiadottGyogyszer> kiadottGyogyszerek;
         ObservableCollection<KorhaziEszkozok_Fej> eszkozok_fej;
         ObservableCollection<KorhaziEszkoz> eszkozok;
+
         KorhaziEszkozok_Fej selectedGroup;
         KorhaziEszkoz selectedEszkoz;
+        Gyogyszer selectedGyogyszer;
+        //KiadottGyogyszer selectedKiadottGyogyszer;
+
         Task refreshTask;
         public GazdAlkMainWindow(MungoSystem mungoSystem,People sessionUser)
         {
             InitializeComponent();
             this.sessionUser = sessionUser;
             this.mungoSystem = mungoSystem;
+
             mungoSystem.Gyogyszer.Load();
+            mungoSystem.KiadottGyogyszer.Load();
             mungoSystem.KorhaziEszkoz.Load();
             mungoSystem.KorhaziEszkozok_Fej.Load();
+            mungoSystem.Kortortenet_fej.Load();
+            mungoSystem.Kortortenet_tetel.Load();
+            mungoSystem.Lazlap.Load();
+
             this.DataContext = sessionUser;
             refreshTask = new Task(Refresh);
             refreshTask.Start();
@@ -52,20 +64,36 @@ namespace EFTeszt01
             while (true)
             {
                 Thread.Sleep(10000);
-                gyogyszerek = new ObservableCollection<Gyogyszer>(mungoSystem.Gyogyszer.Where(gy => gy.Deleted == 0));
-                eszkozok_fej = new ObservableCollection<KorhaziEszkozok_Fej>(mungoSystem.KorhaziEszkozok_Fej.Where(kef => kef.Deleted == 0));
-                Dispatcher.Invoke(()=>listBoxEszkozGroup.ItemsSource = eszkozok_fej);
-                if (selectedGroup != null)
+                try
                 {
-                    eszkozok = new ObservableCollection<KorhaziEszkoz>
-                   (mungoSystem.KorhaziEszkoz.Where(ke => ke.Deleted == 0 && ke.Eszkoz_FejID == selectedGroup.Eszkoz_FejID));
-                    Dispatcher.Invoke(()=> listBoxEszkoz.ItemsSource = eszkozok);
+                    gyogyszerek = new ObservableCollection<Gyogyszer>(mungoSystem.Gyogyszer.Where(gy => gy.Deleted == 0));
+                    eszkozok_fej = new ObservableCollection<KorhaziEszkozok_Fej>(mungoSystem.KorhaziEszkozok_Fej.Where(kef => kef.Deleted == 0));
+                    Dispatcher.Invoke(() => listBoxEszkozGroup.ItemsSource = eszkozok_fej);
+                    Dispatcher.Invoke(() => listBoxGyogyszer.ItemsSource = gyogyszerek);
+                    if (selectedGroup != null)
+                    {
+                        eszkozok = new ObservableCollection<KorhaziEszkoz>
+                       (mungoSystem.KorhaziEszkoz.Where(ke => ke.Deleted == 0 && ke.Eszkoz_FejID == selectedGroup.Eszkoz_FejID));
+                        Dispatcher.Invoke(() => listBoxEszkoz.ItemsSource = eszkozok);
+                    }
+                    if (selectedGyogyszer != null)
+                    {
+                        kiadottGyogyszerek = new ObservableCollection<KiadottGyogyszer>(
+                        mungoSystem.KiadottGyogyszer.Where(
+                        x => x.GyogyszerID == selectedGyogyszer.GyogyszerID && x.Deleted == 0));
+                        Dispatcher.Invoke(() => listBoxKiadottGyogyszer.ItemsSource = kiadottGyogyszerek);
+                    }
+                }
+                catch (Exception)
+                {
+                    return;
                 }
             }
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             listBoxEszkozGroup.ItemsSource = eszkozok_fej;
+            listBoxGyogyszer.ItemsSource = gyogyszerek;
         }
 
         private void listBoxEszkozGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -81,7 +109,6 @@ namespace EFTeszt01
 
         private void newEszkozGroup_Click(object sender, RoutedEventArgs e)
         {
-            
             KorhaziEszkozok_Fej newFej = new KorhaziEszkozok_Fej() { Deleted = 2 ,Statusz=false};
             EszkozGroupAddWindow egaw = new EszkozGroupAddWindow(newFej);
             mungoSystem.KorhaziEszkozok_Fej.Add(newFej);
@@ -235,6 +262,83 @@ namespace EFTeszt01
         {
             IgenyMainWindow imw = new IgenyMainWindow(sessionUser, mungoSystem);
             imw.ShowDialog();
+        }
+        
+        private void listBoxGyogyszer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxGyogyszer.SelectedItem != null)
+            {
+                selectedGyogyszer = (Gyogyszer)listBoxGyogyszer.SelectedItem;
+                kiadottGyogyszerek = new ObservableCollection<KiadottGyogyszer>(
+                    mungoSystem.KiadottGyogyszer.Where(
+                    x => x.GyogyszerID == selectedGyogyszer.GyogyszerID && x.Deleted==0));
+                listBoxKiadottGyogyszer.ItemsSource = kiadottGyogyszerek;
+            }
+            
+        }
+
+        private void buttonRendMod_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedGyogyszer!=null)
+            {
+                GazdAlkGyogyszer gag = new GazdAlkGyogyszer(selectedGyogyszer);
+                if (gag.ShowDialog() == true)
+                {
+                    mungoSystem.SaveChanges();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincs kijelölve elem!");
+            }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+        }
+
+        private void buttonNewgyogyszer_Click(object sender, RoutedEventArgs e)
+        {
+            Gyogyszer ujGyogyszer = new Gyogyszer() {Deleted=2 };
+            GazdAlkGyogyszer gag = new GazdAlkGyogyszer(ujGyogyszer);
+            mungoSystem.Gyogyszer.Add(ujGyogyszer);
+            if (gag.ShowDialog()==true)
+            {
+                gyogyszerek.Add(ujGyogyszer);
+            }
+            mungoSystem.SaveChanges();
+
+         
+        }
+
+        private void buttonGyogyszerdel_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxGyogyszer.SelectedItem == null)
+            {
+                MessageBox.Show("Nincs kijelölt elem!");
+            }
+            else if (listBoxKiadottGyogyszer.Items.Count>0)
+            {
+                MessageBox.Show("A gyógyszer kiadásra vár, ezért nem törölhető!");
+            }
+            else
+            {
+                if (MessageBox.Show("Valóban törli?", "Törlés megerősítése", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    selectedGyogyszer = (Gyogyszer)listBoxGyogyszer.SelectedItem;
+                    selectedGyogyszer.Deleted = 1;
+                    gyogyszerek.Remove(selectedGyogyszer);
+                }
+                mungoSystem.SaveChanges();
+            }
+        }
+
+        private void buttonLogoug_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            this.Hide();
+            mw.ShowDialog();
         }
     }
 }

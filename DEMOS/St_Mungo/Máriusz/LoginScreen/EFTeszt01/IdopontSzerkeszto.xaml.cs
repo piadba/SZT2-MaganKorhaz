@@ -18,13 +18,13 @@ namespace EFTeszt01
     /// <summary>
     /// Interaction logic for IdopontSzerkeszto.xaml
     /// </summary>
-    public partial class RecepciosIdopontSzerkesztoWindow : Window
+    public partial class IdopontSzerkeszto : Window
     {
         Idopontok idopont;
         MungoSystem mungoSystem;
         RecepciosViewModel recepciosViewModel;
     
-        public RecepciosIdopontSzerkesztoWindow(RecepciosViewModel recepciosViewModel, Idopontok idopont )
+        public IdopontSzerkeszto(RecepciosViewModel recepciosViewModel, Idopontok idopont )
         {
             InitializeComponent();
             this.recepciosViewModel = recepciosViewModel;
@@ -45,7 +45,7 @@ namespace EFTeszt01
            
             foreach(var b in betegek)
             {
-                recepciosViewModel.Betegek.Add(new BetegAdatai { TAJ = b.TAJ, Nev = b.Nev, BetegID = b.BetegID, PeopleID = (int)b.PeopleID });
+                recepciosViewModel.Betegek.Add(new BetegTajIDNev { TAJ = b.TAJ, Nev = b.Nev, BetegID = b.BetegID, PeopleID = (int)b.PeopleID });
             }
 
             
@@ -54,7 +54,7 @@ namespace EFTeszt01
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int kivBetegID = (comboBox.SelectedItem as BetegAdatai).BetegID;
+            int kivBetegID = (comboBox.SelectedItem as BetegTajIDNev).BetegID;
             idopont.BetegID = kivBetegID;
 
             recepciosViewModel.MungoSystem.SaveChanges();
@@ -64,8 +64,7 @@ namespace EFTeszt01
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (idopont.BetegID != null)
-                comboBox.SelectedItem = recepciosViewModel.Betegek.Where(x => x.BetegID == idopont.BetegID).First();
+            comboBox.SelectedItem = recepciosViewModel.Betegek.Where(x => x.BetegID == idopont.BetegID).First();
           
         }
 

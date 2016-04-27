@@ -17,7 +17,7 @@ namespace EFTeszt01
         public int KortortenetTetelID { get; set; }
         public Nullable<int> KortortenetFejID { get; set; }
         public Nullable<System.DateTime> Datum { get; set; }
-        public string Orvos { get; set; }
+        public Nullable<int> Orvos { get; set; }
         public string Kezeles { get; set; }
         public Nullable<short> Deleted { get; set; }
     }

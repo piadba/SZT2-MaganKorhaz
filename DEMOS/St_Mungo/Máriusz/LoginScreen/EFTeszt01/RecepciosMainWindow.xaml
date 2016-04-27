@@ -8,8 +8,8 @@
         Title="Recepciós felület" Height="200" Width="218.215">
     <Grid>
         <Button x:Name="button" Content="Időpont kezelés" HorizontalAlignment="Left" Height="30" Margin="38,10,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
-        <Button x:Name="button1" Content="Kapcsolat kezelés" HorizontalAlignment="Left" Height="30" Margin="38,50,0,0" VerticalAlignment="Top" Width="147" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Beteg regisztráció kezelés" HorizontalAlignment="Left" Height="30" Margin="38,90,0,0" VerticalAlignment="Top" Width="147" Click="button2_Click"/>
+        <Button x:Name="button1" Content="Kapcsolat kezelés" HorizontalAlignment="Left" Height="30" Margin="38,50,0,0" VerticalAlignment="Top" Width="147"/>
+        <Button x:Name="button2" Content="Beteg regisztráció kezelés" HorizontalAlignment="Left" Height="30" Margin="38,90,0,0" VerticalAlignment="Top" Width="147"/>
         <Button x:Name="visszaButton" Content="Kilépés " HorizontalAlignment="Left" Height="30" Margin="38,130,0,0" VerticalAlignment="Top" Width="147" Click="button3_Click"/>
 
     </Grid>

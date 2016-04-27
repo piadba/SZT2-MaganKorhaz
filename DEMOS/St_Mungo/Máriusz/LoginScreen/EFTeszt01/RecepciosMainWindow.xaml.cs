@@ -29,7 +29,7 @@ namespace EFTeszt01
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            RecepciosIdopontKezeloWindow ik = new RecepciosIdopontKezeloWindow(recepciosViewModel);
+            IdopontKezelo ik = new IdopontKezelo(recepciosViewModel);
          
             ik.ShowDialog();
             
@@ -38,18 +38,6 @@ namespace EFTeszt01
         private void button3_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            RecepciosErtesitesWindow ert = new RecepciosErtesitesWindow(recepciosViewModel);
-            ert.ShowDialog();
-        }
-
-        private void button2_Click(object sender, RoutedEventArgs e)
-        {
-            RecepciosBetegRegisztracioMainWindow br = new RecepciosBetegRegisztracioMainWindow(recepciosViewModel);
-            br.ShowDialog();
         }
     }
 }

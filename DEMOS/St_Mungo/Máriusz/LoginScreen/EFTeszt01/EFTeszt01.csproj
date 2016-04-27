@@ -63,23 +63,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GazdAlkGyogyszer.xaml.cs">
+      <DependentUpon>GazdAlkGyogyszer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="getStateToColorConverter.cs" />
     <Compile Include="GyogyszerIDNevKonverter.cs" />
-    <Compile Include="RecepciosBetegModositoWindow.xaml.cs">
-      <DependentUpon>RecepciosBetegModositoWindow.xaml</DependentUpon>
+    <Compile Include="IdopontKezelo.xaml.cs">
+      <DependentUpon>IdopontKezelo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RecepciosBetegRegisztracioMainWindow.xaml.cs">
-      <DependentUpon>RecepciosBetegRegisztracioMainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RecepciosIdopontKezeloWindow.xaml.cs">
-      <DependentUpon>RecepciosIdopontKezeloWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RecepciosErtesitesWindow.xaml.cs">
-      <DependentUpon>RecepciosErtesitesWindow.xaml</DependentUpon>
+    <Compile Include="Kortortenet_tetel.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="RecepciosMainWindow.xaml.cs">
       <DependentUpon>RecepciosMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecepciosViewModel.cs" />
+    <Compile Include="ThresholdTocolorConverter.cs" />
     <Page Include="AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,23 +95,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GazdAlkGyogyszer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GazdAlkMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RecepciosBetegModositoWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RecepciosBetegRegisztracioMainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="RecepciosIdopontKezeloWindow.xaml">
+    <Page Include="IdopontKezelo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="RecepciosIdopontSzerkesztoWindow.xaml">
+    <Page Include="IdopontSzerkeszto.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -161,8 +156,8 @@
     <Compile Include="Idopontok.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
-    <Compile Include="RecepciosIdopontSzerkesztoWindow.xaml.cs">
-      <DependentUpon>RecepciosIdopontSzerkesztoWindow.xaml</DependentUpon>
+    <Compile Include="IdopontSzerkeszto.xaml.cs">
+      <DependentUpon>IdopontSzerkeszto.xaml</DependentUpon>
     </Compile>
     <Compile Include="IgenyMainWindow.xaml.cs">
       <DependentUpon>IgenyMainWindow.xaml</DependentUpon>
@@ -178,9 +173,6 @@
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Kortortenet_fej.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Kortortenet_tetel.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Lazlap.cs">
@@ -216,10 +208,6 @@
     <Page Include="OrvosAsszisztensWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="RecepciosErtesitesWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RecepciosMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -294,6 +282,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="HOSPICON.png" />
+    <Resource Include="bluecross.png" />
     <Content Include="MungoSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MungoSystem.edmx</DependentUpon>

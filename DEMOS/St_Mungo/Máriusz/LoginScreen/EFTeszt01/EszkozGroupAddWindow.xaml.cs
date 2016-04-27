@@ -20,13 +20,10 @@ namespace EFTeszt01
     /// </summary>
     public partial class EszkozGroupAddWindow : Window
     {
-        string originalMegnevezes;
-
         public EszkozGroupAddWindow(KorhaziEszkozok_Fej elem)
         {
             InitializeComponent();
             this.DataContext = elem;
-            originalMegnevezes = elem.Megnevezes;            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -46,7 +43,6 @@ namespace EFTeszt01
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            ((KorhaziEszkozok_Fej)DataContext).Megnevezes = originalMegnevezes;
             Close();
         }
     }
