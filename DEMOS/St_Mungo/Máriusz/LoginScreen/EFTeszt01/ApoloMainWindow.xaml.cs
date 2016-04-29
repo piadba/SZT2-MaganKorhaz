@@ -82,7 +82,9 @@ namespace EFTeszt01
             }
             else
             {
-                
+                ApoloLazlapWindow alw = new ApoloLazlapWindow
+                     ((Lazlap)LazlapListBox.SelectedItem, sessionUser, mungoSystem);
+                alw.ShowDialog();
             }
             mungoSystem.SaveChanges();
         }

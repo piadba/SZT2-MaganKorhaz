@@ -22,6 +22,7 @@ namespace EFTeszt01
         public Nullable<System.DateTime> Datum { get; set; }
         public Nullable<byte> Deleted { get; set; }
         public Nullable<int> Hasznalt { get; set; }
+
         public string getState
         {
             get
@@ -29,6 +30,7 @@ namespace EFTeszt01
                 string stateName = "";
                 using (MungoSystem mungoSystem = new MungoSystem())
                 {
+
                     stateName = mungoSystem.LookUps.Where(x => x.LookupID == Statusz && x.Deleted == 0).Single().Value;
                     if (stateName == "Lázlap felhasználás")
                     {
@@ -71,6 +73,7 @@ namespace EFTeszt01
                 return betegNev;
             }
         }
+
         public string getOrvos
         {
             get

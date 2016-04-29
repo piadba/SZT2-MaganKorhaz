@@ -16,11 +16,11 @@ namespace EFTeszt01
             bool? statusz = (bool?)value;
             if (statusz==true)
             {
-                return Brushes.Aqua;
+                return Colors.OrangeRed;
             }
             else
             {
-                return Brushes.White;
+                return Colors.Orange;
             }
         }
 

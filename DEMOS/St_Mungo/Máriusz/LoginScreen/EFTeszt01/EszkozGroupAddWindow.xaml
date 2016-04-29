@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="EszkozGroupAddWindow" Height="108.683" Icon="HOSPICON.png" Width="315.269" WindowStartupLocation="CenterScreen">
+        Title="Csoport szerkesztése" Height="108.683" Icon="HOSPICON.png" Width="315.269" WindowStartupLocation="CenterScreen"
+        FocusManager.FocusedElement="{Binding ElementName=textBox}">
+    
     <Grid>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="21" Margin="116,14,0,0" TextWrapping="Wrap" Text="{Binding Path=Megnevezes, UpdateSourceTrigger=Explicit}"  VerticalAlignment="Top" Width="168"/>
         <Label x:Name="label" Content="Megnevezés: " HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>

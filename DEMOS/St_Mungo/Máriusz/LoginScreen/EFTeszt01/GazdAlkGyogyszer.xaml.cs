@@ -49,7 +49,11 @@ namespace EFTeszt01
             if (!((e.Key>=Key.D0 && e.Key<=Key.D9) || 
                 (e.Key>=Key.NumPad0 && e.Key<=Key.NumPad9)))
             {
-                e.Handled = true;
+                if (!(e.Key == Key.Back || e.Key == Key.Home || e.Key == Key.End || e.Key == Key.Left || e.Key == Key.Right || e.Key==Key.Delete || e.Key==Key.Tab))
+                {
+                    e.Handled = true;
+                }
+                
             }
         }
 

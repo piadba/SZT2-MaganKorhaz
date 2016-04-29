@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApoloLazlapWindow.xaml.cs">
+      <DependentUpon>ApoloLazlapWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GazdAlkGyogyszer.xaml.cs">
       <DependentUpon>GazdAlkGyogyszer.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
     <Page Include="AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ApoloLazlapWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ApoloMainWindow.xaml">
       <SubType>Designer</SubType>

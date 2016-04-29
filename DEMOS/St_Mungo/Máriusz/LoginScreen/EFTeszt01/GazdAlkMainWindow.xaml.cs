@@ -86,7 +86,8 @@ namespace EFTeszt01
                 }
                 catch (Exception)
                 {
-                    return;
+                    refreshTask = new Task(Refresh);
+                    refreshTask.Start();
                 }
             }
         }
@@ -98,7 +99,7 @@ namespace EFTeszt01
 
         private void listBoxEszkozGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((KorhaziEszkozok_Fej)listBoxEszkozGroup.SelectedItem!=null)
+            if ((KorhaziEszkozok_Fej)listBoxEszkozGroup.SelectedItem != null)
             {
                 selectedGroup = (KorhaziEszkozok_Fej)listBoxEszkozGroup.SelectedItem;
                 eszkozok = new ObservableCollection<KorhaziEszkoz>
@@ -226,8 +227,6 @@ namespace EFTeszt01
                 if (eamw.ShowDialog() == true)
                 {
                     //int? fejID = selectedEszkoz.Eszkoz_FejID;
-
-                   
                     if (selectedEszkoz.Eszkoz_FejID!=selectedGroup.Eszkoz_FejID)
                     {
                         eszkozok.Remove(selectedEszkoz);
@@ -237,10 +236,11 @@ namespace EFTeszt01
                     //        .Statusz = getgroupIgenyState(fejID);
 
                     mungoSystem.SaveChanges();
-                    foreach (KorhaziEszkozok_Fej item in mungoSystem.KorhaziEszkozok_Fej.Where(x=>x.Deleted==0))
+                    foreach (KorhaziEszkozok_Fej item in eszkozok_fej)
                     {
                         item.Statusz = getgroupIgenyState(item.Eszkoz_FejID);
                     }
+                    mungoSystem.SaveChanges();
                     eszkozok_fej = new ObservableCollection<KorhaziEszkozok_Fej>(mungoSystem.KorhaziEszkozok_Fej.Where(kef => kef.Deleted == 0));
                     listBoxEszkozGroup.ItemsSource = eszkozok_fej;
                 }
@@ -263,7 +263,9 @@ namespace EFTeszt01
             IgenyMainWindow imw = new IgenyMainWindow(sessionUser, mungoSystem);
             imw.ShowDialog();
         }
-        
+
+    
+
         private void listBoxGyogyszer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (listBoxGyogyszer.SelectedItem != null)
@@ -271,10 +273,10 @@ namespace EFTeszt01
                 selectedGyogyszer = (Gyogyszer)listBoxGyogyszer.SelectedItem;
                 kiadottGyogyszerek = new ObservableCollection<KiadottGyogyszer>(
                     mungoSystem.KiadottGyogyszer.Where(
-                    x => x.GyogyszerID == selectedGyogyszer.GyogyszerID && x.Deleted==0));
+                    x => x.GyogyszerID == selectedGyogyszer.GyogyszerID && x.Deleted == 0));
                 listBoxKiadottGyogyszer.ItemsSource = kiadottGyogyszerek;
             }
-            
+
         }
 
         private void buttonRendMod_Click(object sender, RoutedEventArgs e)
