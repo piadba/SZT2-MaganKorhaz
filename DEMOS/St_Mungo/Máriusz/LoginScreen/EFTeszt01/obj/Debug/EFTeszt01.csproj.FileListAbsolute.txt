@@ -304,3 +304,7 @@ e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Deb
 e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.csproj.GenerateResource.Cache
 e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloLazlapWindow.g.cs
 e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloLazlapWindow.baml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloLazlapWindow.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkGyogyszer.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloLazlapWindow.baml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkGyogyszer.baml

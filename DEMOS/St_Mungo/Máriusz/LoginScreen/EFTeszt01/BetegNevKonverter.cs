@@ -13,10 +13,11 @@ namespace EFTeszt01
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            
             ObservableCollection<People> betegek= value as ObservableCollection<People>;
             ObservableCollection<string> betegekNevei = new ObservableCollection<string>();
             foreach (var b in betegek) {
-                betegekNevei.Add(b.UserName);
+                betegekNevei.Add(b.Name);
             }
             return betegekNevei;
         }

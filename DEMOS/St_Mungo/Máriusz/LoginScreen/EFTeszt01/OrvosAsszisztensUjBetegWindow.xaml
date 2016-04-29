@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Új beteg hozzáadása" Height="400" Icon="HOSPICON.png" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Új beteg hozzáadása" Height="400" Icon="HOSPICON.png" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="label" Content="Felhasználó név:" HorizontalAlignment="Left" Margin="30,34,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Jelszó:" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top"/>

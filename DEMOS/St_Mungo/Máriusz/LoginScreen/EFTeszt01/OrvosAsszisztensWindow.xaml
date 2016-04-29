@@ -6,7 +6,7 @@
         xmlns:current="clr-namespace:EFTeszt01"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Orvos és Asszisztens kezelőfelület" Icon="HOSPICON.png" Height="350" Width="700" WindowStartupLocation="CenterScreen">
+        Title="Orvos és Asszisztens kezelőfelület" Icon="HOSPICON.png" Height="350" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <current:BetegNevKonverter x:Key="BetegNevKonverter"/>

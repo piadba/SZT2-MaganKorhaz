@@ -56,10 +56,14 @@ namespace EFTeszt01
 
         private void kezelesFelBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ovm.SelectedKezeles != null)
+            if (ovm.SelectedBeteg != null)
             {
                 OrvosAsszisztensKezelesWindow oak = new OrvosAsszisztensKezelesWindow(false);
                 oak.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nincs kijelölt beteg!");
             }
         }
 
@@ -75,6 +79,10 @@ namespace EFTeszt01
                 OrvosAsszisztensKezelesWindow oak = new OrvosAsszisztensKezelesWindow(true);
                 oak.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Nincs kijelölt kezelés!");
+            }
         }
 
         private void lazlapFelBtn_Click(object sender, RoutedEventArgs e)
@@ -83,6 +91,10 @@ namespace EFTeszt01
             {
                 OrvosAsszisztensLazlapWindow oal = new OrvosAsszisztensLazlapWindow();
                 oal.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nincs kijelölt beteg!");
             }
         }
 

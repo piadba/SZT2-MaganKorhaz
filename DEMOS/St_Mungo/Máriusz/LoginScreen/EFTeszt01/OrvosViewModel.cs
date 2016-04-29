@@ -20,6 +20,8 @@ namespace EFTeszt01
         Kortortenet_fej selectedKorlapFej;
         ObservableCollection<Kortortenet_tetel> selectedKorlapTetel;
         Kortortenet_tetel selectedKezeles;
+        //KiadottGyogyszer selectedGyogyszer;
+        ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat> kiad_gyogy;
 
         Lazlap betegLazlapja;
         ObservableCollection<KiadottGyogyszer> betegGyogyszerei;
@@ -32,7 +34,7 @@ namespace EFTeszt01
         ObservableCollection<Kortortenet_fej> kortortenetFej;
         ObservableCollection<Kortortenet_tetel> kortortenetTetel;
         ObservableCollection<Lazlap> lazlapok;
-        ObservableCollection<KiadottGyogyszer> gyogyszerek;
+        ObservableCollection<Gyogyszer> gyogyszerek;
         MungoSystem ms;
         //------------------------------------------------------------------------------------
 
@@ -159,7 +161,7 @@ namespace EFTeszt01
             }
         }
 
-        public ObservableCollection<KiadottGyogyszer> Gyogyszerek
+        public ObservableCollection<Gyogyszer> Gyogyszerek
         {
             get
             {
@@ -199,6 +201,33 @@ namespace EFTeszt01
             }
         }
 
+        //public KiadottGyogyszer SelectedGyogyszer
+        //{
+        //    get
+        //    {
+        //        return selectedGyogyszer;
+        //    }
+
+        //    set
+        //    {
+        //        selectedGyogyszer = value;
+        //    }
+        //}
+
+        internal ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat> Kiad_gyogy
+        {
+            get
+            {
+                return kiad_gyogy;
+            }
+
+            set
+            {
+                kiad_gyogy = value;
+            }
+        }
+
+
         //------------------------------------------------------------------------------------
         public void MungoSystemInitial(MungoSystem ms) {
             this.ms = ms;
@@ -207,7 +236,7 @@ namespace EFTeszt01
             this.kortortenetTetel = new ObservableCollection<Kortortenet_tetel>(ms.Kortortenet_tetel);
             this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl =>ppl.Deleted == 0 && ppl.Group == 1));
             this.lazlapok = new ObservableCollection<Lazlap>(ms.Lazlap);
-            this.gyogyszerek = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer);
+            this.gyogyszerek = new ObservableCollection<Gyogyszer>(ms.Gyogyszer);
             pID = ms.People.Max(p => p.PeopleID);
             bID = ms.Betegek.Max(p => p.BetegID);
             kfID = ms.Kortortenet_fej.Max(p => p.KortortenetFejID);
@@ -232,26 +261,38 @@ namespace EFTeszt01
             }
         }
         void SelectionChanged() {
+
+            selectedBeteg = BetegTabla.Where(b => b.Deleted == 0 && b.PeopleID == selectedPeopleBeteg.PeopleID).First();
             try
             {
-                selectedBeteg = BetegTabla.Where(b => b.Deleted == 0 && b.PeopleID == selectedPeopleBeteg.PeopleID).First();
                 selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
                 SelectedKorlapTetel = new ObservableCollection<Kortortenet_tetel>(KortortenetTetel.Where(kt => kt.Deleted == 0 && kt.KortortenetFejID == selectedKorlapFej.KortortenetFejID));
                 OnPropChanged("selectedKorlapTetel");
                 
             }
-            catch { }
+            catch {
+                //ms.Kortortenet_fej.Add(new Kortortenet_fej() { BetegID = selectedBeteg.BetegID, Deleted = 0 });
+
+                //Mentes();
+                //MungoSystemInitial(ms);
+                selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
+                OnPropChanged("selectedKorlapTetel");
+            }
         }
         public void Ujbeteg(People beteg, string taj) {
             ++pID;
             ms.People.Local.Add(beteg);
             ms.Betegek.Local.Add(new Betegek() {TAJ=taj, Deleted=0 , PeopleID=pID});
-            
+            //ms.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = ms.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == pID).First().BetegID });
+
             Mentes();
             ms.People.Load();
             ms.Betegek.Load();
+            ms.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = ms.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == pID).First().BetegID });
+            ms.Kortortenet_fej.Load();
             MungoSystemInitial(this.ms);
-        }
+            kortortenetFej = ms.Kortortenet_fej.Local;
+              }
 
         public void KezelesModositas(Kortortenet_tetel kt) {
             Kortortenet_tetel kt2 = ms.Kortortenet_tetel.Where(x => x.Deleted == 0 && x.KortortenetTetelID == kt.KortortenetTetelID).First();
@@ -382,6 +423,37 @@ namespace EFTeszt01
             Mentes();
             OnPropChanged("betegGyogyszerei");
         }
+        public bool GyogyszerMennyisegMod(int mennyiseg, int id)
+        {
+            try
+            {
+                Gyogyszer gyogy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.GyogyszerID == id && x.Mennyiseg >= mennyiseg).First();
+                gyogy.Mennyiseg -= mennyiseg;
 
+
+                
+                //var kapcsolt = from gy in ms.KiadottGyogyszer
+                //               join b in ms.Gyogyszer on gy.GyogyszerID equals b.GyogyszerID
+                //               where gy.Deleted == 0 && b.Deleted == 0 && gy.Mennyiseg > 0
+                //               select new {Megnevezes = b.Megnevezes, Id = b.GyogyszerID};
+                //kiad_gyogy = new ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat>();
+                //kiad_gyogy = (ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat>)kapcsolt;
+
+              //  kiad_gyogy = kapcsolt as OrvosAsszisztensGyogyszerKapcsolat;
+                //var kapcsolt2 = from g in gy
+                //               join b in ms.KiadottGyogyszer on g.GyogyszerID equals gy.GyogyszerID
+                //               where i.Deleted == 0 && b.Deleted == 0 && p.Deleted == 0
+                //               select new { Nev = p.Name, IdopontID = i.IdopontID, Datum = i.Datum, TAJ = b.TAJ };
+
+                Mentes();
+
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

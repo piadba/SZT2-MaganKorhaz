@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="OrvosAsszisztensGyogyszerWindow" Icon="HOSPICON.png" Height="300" Width="300">
+        Title="Gyógyszer hozzáadás" Icon="HOSPICON.png" Height="200" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="gyogyszerIDTB" HorizontalAlignment="Left" Height="23" Margin="114,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        <!--<TextBox x:Name="gyogyszerIDTB" HorizontalAlignment="Left" Height="23" Margin="127,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>-->
         <TextBox x:Name="mennyTB" HorizontalAlignment="Left" Height="23" Margin="114,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label" Content="Gyógyszer:" HorizontalAlignment="Left" Margin="22,28,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Mennyiség:" HorizontalAlignment="Left" Margin="22,59,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="mentesBTN" Content="Mentés" HorizontalAlignment="Left" Margin="34,239,0,0" VerticalAlignment="Top" Width="75" Click="mentesBTN_Click"/>
-        <Button x:Name="megseBTN" Content="Mégse" HorizontalAlignment="Left" Margin="172,239,0,0" VerticalAlignment="Top" Width="75" Click="megseBTN_Click"/>
+        <Button x:Name="mentesBTN" Content="Mentés" HorizontalAlignment="Left" Margin="33,126,0,0" VerticalAlignment="Top" Width="75" Click="mentesBTN_Click"/>
+        <Button x:Name="megseBTN" Content="Mégse" HorizontalAlignment="Left" Margin="170,126,0,0" VerticalAlignment="Top" Width="75" Click="megseBTN_Click"/>
+        <ComboBox x:Name="gyogyszerCMB" SelectedValue="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="114,28,0,0"/>
 
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,16 +26,28 @@ namespace EFTeszt01
             InitializeComponent();
             this.ovm = OrvosViewModel.Get();
             this.DataContext = ovm;
+            ObservableCollection<Gyogyszer> comboSource = new ObservableCollection<Gyogyszer>(ovm.Gyogyszerek.Where(x => x.Deleted == 0));
+            gyogyszerCMB.ItemsSource = comboSource;
+            // itt kell folytatnom 
+
+            gyogyszerCMB.DisplayMemberPath = "Megnevezes";
+            // comboCsoport.SelectedValuePath = "Eszkoz_FejID";
         }
 
         private void mentesBTN_Click(object sender, RoutedEventArgs e)
         {
-            int id = ovm.LetezoGyogyszerVizsgalat(gyogyszerIDTB.Text);
+            int id = ovm.LetezoGyogyszerVizsgalat((gyogyszerCMB.SelectedItem as Gyogyszer).Megnevezes);
 
             if (id != 0)
             {
-                ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = int.Parse(mennyTB.Text), Deleted = 0, Statusz = 11 });
-                ovm.GyogyszerBeszurasTortent();
+                int mennyiseg = int.Parse(mennyTB.Text);
+                if (ovm.GyogyszerMennyisegMod(mennyiseg, id))
+                {
+
+                    ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
+                    ovm.GyogyszerBeszurasTortent();
+                }
+                else { MessageBox.Show("Nincs elegendő, vagy nem létezik a gyógyszer!"); }
             }
             this.Close();
         }
@@ -43,5 +56,11 @@ namespace EFTeszt01
         {
             this.Close();
         }
+
+        //private void gyogySelChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    OrvosAsszisztensGyogyszerKapcsolat gy = gyogyszerCMB.SelectedItem as OrvosAsszisztensGyogyszerKapcsolat;
+        //    ovm.SelectedGyogyszer = 
+        //}
     }
 }

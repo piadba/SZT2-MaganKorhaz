@@ -35,7 +35,7 @@ namespace EFTeszt01
             }
             else {
                 datumDP.SelectedDate = DateTime.Now;
-                orvosTB.Text = null;
+                orvosTB.Text = (ovm.Orvos.PeopleID).ToString();
                 kezlesTB.Text = "";
             }
 
@@ -45,6 +45,7 @@ namespace EFTeszt01
         {
             if (AddMod)
             {
+
                 Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = int.Parse(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = ovm.SelectedKezeles.Deleted, KortortenetFejID = ovm.SelectedKezeles.KortortenetFejID, KortortenetTetelID = ovm.SelectedKezeles.KortortenetTetelID };
 
                 ovm.KezelesModositas(kt);

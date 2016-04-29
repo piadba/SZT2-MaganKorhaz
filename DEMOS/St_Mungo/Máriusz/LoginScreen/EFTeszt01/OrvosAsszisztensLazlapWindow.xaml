@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Lázlap kezelése" Height="470" Icon="HOSPICON.png" Width="300">
+        Title="Lázlap kezelése" Height="470" Icon="HOSPICON.png" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.Resources>
             <local:GyogyszerIDNevKonverter x:Key="GyogyszerIDNevKonverter"/>
