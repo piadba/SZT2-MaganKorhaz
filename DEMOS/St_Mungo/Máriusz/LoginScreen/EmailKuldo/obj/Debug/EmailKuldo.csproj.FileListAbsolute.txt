@@ -3,3 +3,7 @@ C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKul
 C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.csprojResolveAssemblyReference.cache
 C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.dll
 C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.pdb
+C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\bin\Debug\EmailKuldo.dll
+C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\bin\Debug\EmailKuldo.pdb
+C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.dll
+C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.pdb

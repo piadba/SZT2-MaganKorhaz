@@ -123,7 +123,7 @@ namespace EFTeszt01.Controllers
             {
                 //if ((SelectedIdopont = getSelectedIdopont()) != null)
                 //{
-                return betegId == SelectedIdopont?.betegID;
+                return betegId == SelectedIdopont.betegID;
                 //}
                 // return false;
             }

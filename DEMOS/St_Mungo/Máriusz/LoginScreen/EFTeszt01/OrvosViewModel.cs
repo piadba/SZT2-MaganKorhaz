@@ -15,6 +15,7 @@ namespace EFTeszt01
         static OrvosViewModel vm;
 
         //----------------------------Listboxhoz szükséges selected itemek----------------------
+        
         People selectedPeopleBeteg;
         Betegek selectedBeteg;
         Kortortenet_fej selectedKorlapFej;
@@ -289,6 +290,7 @@ namespace EFTeszt01
             ms.People.Load();
             ms.Betegek.Load();
             ms.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = ms.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == pID).First().BetegID });
+            Mentes();
             ms.Kortortenet_fej.Load();
             MungoSystemInitial(this.ms);
             kortortenetFej = ms.Kortortenet_fej.Local;
@@ -384,6 +386,9 @@ namespace EFTeszt01
                 if (ki.GyogyszerID == del.GyogyszerID)
                     ki.Deleted = 1;
             }
+            Gyogyszer gy = ms.Gyogyszer.Local.Where(x => x.Deleted == 0 && x.GyogyszerID == del.GyogyszerID).First();
+            gy.Mennyiseg += del.Mennyiseg;
+
             Mentes();
             betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID));
             OnPropChanged("betegGyogyszerei");
