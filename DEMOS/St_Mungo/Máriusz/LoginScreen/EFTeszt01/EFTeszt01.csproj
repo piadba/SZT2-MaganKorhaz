@@ -45,6 +45,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -83,17 +84,34 @@
     </Compile>
     <Compile Include="getStateToColorConverter.cs" />
     <Compile Include="GyogyszerIDNevKonverter.cs" />
-    <Compile Include="IdopontKezelo.xaml.cs">
-      <DependentUpon>IdopontKezelo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Kortortenet_tetel.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="OrvosAsszisztensGyogyszerKapcsolat.cs" />
+    <Compile Include="RecepciosBetegModositoWindow.xaml.cs">
+      <DependentUpon>RecepciosBetegModositoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosBetegRegisztracioMainWindow.xaml.cs">
+      <DependentUpon>RecepciosBetegRegisztracioMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosErtesitesWindow.xaml.cs">
+      <DependentUpon>RecepciosErtesitesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosIdopontKezeloWindow.xaml.cs">
+      <DependentUpon>RecepciosIdopontKezeloWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosIdopontSzerkesztoWindow.xaml.cs">
+      <DependentUpon>RecepciosIdopontSzerkesztoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RecepciosMainWindow.xaml.cs">
       <DependentUpon>RecepciosMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecepciosViewModel.cs" />
+    <Compile Include="Service References\EmailKuldoServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ThresholdTocolorConverter.cs" />
     <Page Include="AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -134,14 +152,6 @@
     <Page Include="GazdAlkMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="IdopontKezelo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IdopontSzerkeszto.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="IgenyMainWindow.xaml">
       <SubType>Designer</SubType>
@@ -187,9 +197,6 @@
     </Compile>
     <Compile Include="Idopontok.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IdopontSzerkeszto.xaml.cs">
-      <DependentUpon>IdopontSzerkeszto.xaml</DependentUpon>
     </Compile>
     <Compile Include="IgenyMainWindow.xaml.cs">
       <DependentUpon>IgenyMainWindow.xaml</DependentUpon>
@@ -238,6 +245,26 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="OrvosAsszisztensWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosBetegModositoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosBetegRegisztracioMainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosErtesitesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosIdopontKezeloWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosIdopontSzerkesztoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -308,11 +335,25 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\EmailKuldoServiceReference\EmailKuldoService.wsdl" />
+    <None Include="Service References\EmailKuldoServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailKuldoServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\EmailKuldoServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EmailKuldoServiceReference\configuration.svcinfo" />
+    <None Include="Service References\EmailKuldoServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\EmailKuldoServiceReference\item.disco" />
     <Resource Include="HOSPICON.png" />
     <Resource Include="bluecross.png" />
     <Resource Include="Beteg\View\icon-user-default.png" />
@@ -330,7 +371,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EmailKuldoServiceReference\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,11 @@
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldoHost.exe.config
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldoHost.exe
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldoHost.pdb
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldo.dll
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldo.pdb
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.csprojResolveAssemblyReference.cache
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.exe
+C:\Users\andras\Documents\GitHub\work0502\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.pdb
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldoHost.exe.config
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.exe
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.pdb
