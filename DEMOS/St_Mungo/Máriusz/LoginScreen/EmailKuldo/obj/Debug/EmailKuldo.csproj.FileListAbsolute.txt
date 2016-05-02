@@ -7,3 +7,7 @@ C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginS
 C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\bin\Debug\EmailKuldo.pdb
 C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.dll
 C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.pdb
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\bin\Debug\EmailKuldo.dll
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\bin\Debug\EmailKuldo.pdb
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.dll
+C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldo\obj\Debug\EmailKuldo.pdb

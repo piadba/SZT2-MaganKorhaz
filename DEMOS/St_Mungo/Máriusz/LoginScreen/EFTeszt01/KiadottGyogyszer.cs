@@ -11,7 +11,7 @@ namespace EFTeszt01
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
     public partial class KiadottGyogyszer
     {
         public int KiadottGyogyszer1 { get; set; }
@@ -22,5 +22,118 @@ namespace EFTeszt01
         public Nullable<System.DateTime> Datum { get; set; }
         public Nullable<byte> Deleted { get; set; }
         public Nullable<int> Hasznalt { get; set; }
+
+        public string getState
+        {
+            get
+            {
+                string stateName = "";
+                using (MungoSystem mungoSystem = new MungoSystem())
+                {
+
+                    stateName = mungoSystem.LookUps.Where(x => x.LookupID == Statusz && x.Deleted == 0).Single().Value;
+                    if (stateName == "Lázlap felhasználás")
+                    {
+                        stateName += " / Lapszám: " +
+                            mungoSystem.Lazlap.Where(x => x.LazlapID == ForrasID && x.Deleted == 0).Single().LazlapID;
+                    }
+                    if (string.IsNullOrEmpty(stateName))
+                    {
+                        stateName = "N/A";
+                    }
+                }
+                return stateName;
+            }
+        }
+        public string getbetegNev
+        {
+            get
+            {
+                string betegNev = null;
+                using (MungoSystem mungoSystem = new MungoSystem())
+                {
+                    int? PeopleID = -1;
+                    if (getState.Contains("Lázlap felhasználás"))
+                    {
+                        PeopleID = mungoSystem.Betegek.Where
+                            (x => x.Deleted == 0 && x.BetegID == ForrasID).Single().PeopleID;
+                    }
+                    else if (getState.Contains("Orvosi felhasználás")) //mert ha fakap van ne írjon ki baromságot
+                    {
+                        int? fejID = mungoSystem.Kortortenet_tetel.Where(x => x.Deleted == 0 && x.KortortenetTetelID == ForrasID).Single().KortortenetFejID;
+                        int? BetegID = mungoSystem.Kortortenet_fej.Where(x => x.Deleted == 0 && x.KortortenetFejID == fejID).Single().BetegID;
+                        PeopleID = mungoSystem.Betegek.Where(x => x.Deleted == 0 && x.BetegID == BetegID).Single().PeopleID;
+                    }
+                    betegNev = mungoSystem.People.Where(x => x.Deleted == 0 && x.PeopleID == PeopleID).Single().Name;
+                    if (string.IsNullOrEmpty(betegNev))
+                    {
+                        betegNev = "N/A";
+                    }
+                }
+                return betegNev;
+            }
+        }
+
+        public string getOrvos
+        {
+            get
+            {
+                string orvosNev = null;
+                string apoloNev = null;
+                using (MungoSystem mungoSystem = new MungoSystem())
+                {
+                    int? PeopleID = -1;
+                    int? ApoloID = -1;
+                    if (getState.Contains("Lázlap felhasználás"))
+                    {
+                        PeopleID = mungoSystem.Lazlap.Where
+                            (x => x.Deleted == 0 && x.LazlapID == ForrasID).Single().OrvosID;
+                        if (mungoSystem.Lazlap.Where
+                            (x => x.Deleted == 0 && x.LazlapID == ForrasID).Count() > 0)
+                        {
+                            ApoloID = mungoSystem.Lazlap.Where
+                            (x => x.Deleted == 0 && x.LazlapID == ForrasID).Single().ApoloID;
+                        }
+                        if (ApoloID == -1 || ApoloID == null)
+                        {
+                            apoloNev = " - ";
+                        }
+                        else
+                        {
+                            apoloNev = mungoSystem.People.Where(x => x.Deleted == 0 && x.PeopleID == ApoloID).Single().Name;
+                        }
+                    }
+
+                    else if (getState.Contains("Orvosi felhasználás")) //mert ha fakap van ne írjon ki baromságot
+                    {
+                        PeopleID = mungoSystem.Kortortenet_tetel.Where(x => x.Deleted == 0 && x.KortortenetTetelID == ForrasID).Single().Orvos;
+                    }
+
+                    orvosNev = mungoSystem.People.Where(x => x.Deleted == 0 && x.PeopleID == PeopleID).Single().Name;
+                    if (!string.IsNullOrEmpty(apoloNev))
+                    {
+                        orvosNev += "\n\t Felelõs ápoló: " + apoloNev;
+                    }
+
+                    if (string.IsNullOrEmpty(orvosNev))
+                    {
+                        orvosNev = "N/A";
+                    }
+                }
+                return orvosNev;
+            }
+        }
+        public string getMennyiseg
+        {
+            get
+            {
+                string mennyiseg = null;
+                using (MungoSystem mungoSystem = new MungoSystem())
+                {
+                    mennyiseg = Mennyiseg + "/" + Hasznalt;
+                }
+                return mennyiseg;
+            }
+        }
     }
 }

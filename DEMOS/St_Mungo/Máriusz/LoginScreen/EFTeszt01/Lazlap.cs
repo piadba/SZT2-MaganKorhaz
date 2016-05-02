@@ -11,7 +11,8 @@ namespace EFTeszt01
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Data.Entity;
+    using System.Linq;
     public partial class Lazlap
     {
         public int LazlapID { get; set; }
@@ -23,5 +24,33 @@ namespace EFTeszt01
         public Nullable<System.DateTime> UtolsoFelvetelDatum { get; set; }
         public Nullable<int> Statusz { get; set; }
         public Nullable<byte> Deleted { get; set; }
+        public string GetorvosNev
+        {
+            get
+            {
+                string orvosNev = "";
+                using (MungoSystem ms = new MungoSystem())
+                {
+                    ms.People.Load();
+                    orvosNev = ms.People.Where(x => x.Deleted == 0 && x.PeopleID == OrvosID).Single().Name;
+                }
+                return orvosNev;
+            }
+        }
+        public string GetBetegNev
+        {
+            get
+            {
+                string betegNev = "";
+                using (MungoSystem ms = new MungoSystem())
+                {
+                    ms.Betegek.Load();
+                    ms.People.Load();
+                    int? PeopleID = ms.Betegek.Where(x => x.BetegID == BetegID && x.Deleted == 0).Single().PeopleID;
+                    betegNev = ms.People.Where(x => x.Deleted == 0 && x.PeopleID == PeopleID).Single().Name;
+                }
+                return betegNev;
+            }
+        }
     }
 }

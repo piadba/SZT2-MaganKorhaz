@@ -13,7 +13,7 @@ namespace EFTeszt01
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
-    public partial class Gyogyszer : INotifyPropertyChanged
+    public partial class Gyogyszer:INotifyPropertyChanged
     {
         public int GyogyszerID { get; set; }
         public string Megnevezes { get; set; }
@@ -21,9 +21,11 @@ namespace EFTeszt01
         public Nullable<int> Mennyiseg { get; set; }
         public string Egyseg { get; set; }
         public Nullable<int> EgysegMennyiseg { get; set; }
-        public Nullable<byte> Deleted { get; set; }
+        public Nullable<byte> Deleted
+        {
+            get;set;
+        }
         public Nullable<int> Threshold { get; set; }
-
         public void UpdateThisBitch()
         {
             OnPropertyChanged("GyogyszerString");
@@ -35,7 +37,7 @@ namespace EFTeszt01
             get
             {
                 return
-                String.Format("{0} ({1})", Megnevezes, Hatoanyag);
+                String.Format("{0} ({1})",Megnevezes,Hatoanyag);
             }
         }
         public string MennyisegString
@@ -56,10 +58,10 @@ namespace EFTeszt01
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged([CallerMemberName] string name = "")
+        private void OnPropertyChanged([CallerMemberName] string name="")
         {
             PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
+            if (handler!=null)
             {
                 handler(this, new PropertyChangedEventArgs(name));
             }
