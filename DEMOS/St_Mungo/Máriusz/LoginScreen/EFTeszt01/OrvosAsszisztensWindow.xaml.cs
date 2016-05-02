@@ -103,5 +103,12 @@ namespace EFTeszt01
             IgenyMainWindow imw = ovm.IgenyNyito();
             imw.ShowDialog();
         }
+
+        private void kijelentkezesBTN_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            this.Hide();
+            mw.ShowDialog();
+        }
     }
 }
