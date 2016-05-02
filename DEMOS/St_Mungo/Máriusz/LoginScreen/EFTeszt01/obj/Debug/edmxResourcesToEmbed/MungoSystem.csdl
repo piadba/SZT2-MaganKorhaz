@@ -44,7 +44,7 @@
     </Key>
     <Property Name="BetegID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PeopleID" Type="Int32" />
-    <Property Name="TAJ" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="TAJ" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="Deleted" Type="Int16" />
   </EntityType>
   <EntityType Name="Kortortenet_fej">

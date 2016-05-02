@@ -11,8 +11,9 @@ namespace EFTeszt01
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Gyogyszer
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+    public partial class Gyogyszer : INotifyPropertyChanged
     {
         public int GyogyszerID { get; set; }
         public string Megnevezes { get; set; }
@@ -22,5 +23,46 @@ namespace EFTeszt01
         public Nullable<int> EgysegMennyiseg { get; set; }
         public Nullable<byte> Deleted { get; set; }
         public Nullable<int> Threshold { get; set; }
+
+        public void UpdateThisBitch()
+        {
+            OnPropertyChanged("GyogyszerString");
+            OnPropertyChanged("MennyisegString");
+            OnPropertyChanged("ThresholdWarning");
+        }
+        public string GyogyszerString
+        {
+            get
+            {
+                return
+                String.Format("{0} ({1})", Megnevezes, Hatoanyag);
+            }
+        }
+        public string MennyisegString
+        {
+            get
+            {
+                return
+                String.Format("\tKiszerelés db: {0}\n\t({1}*{2} / kiszerelés)", Mennyiseg, EgysegMennyiseg, Egyseg);
+            }
+        }
+
+        public int? ThresholdWarning
+        {
+            get
+            {
+                return Mennyiseg - Threshold;
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string name = "")
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

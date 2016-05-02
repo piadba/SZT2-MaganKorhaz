@@ -16,7 +16,7 @@
     </Key>
     <Property Name="BetegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PeopleID" Type="int" />
-    <Property Name="TAJ" Type="varchar" MaxLength="7" />
+    <Property Name="TAJ" Type="varchar" MaxLength="9" />
     <Property Name="Deleted" Type="smallint" />
   </EntityType>
   <EntityType Name="Gyogyszer">
