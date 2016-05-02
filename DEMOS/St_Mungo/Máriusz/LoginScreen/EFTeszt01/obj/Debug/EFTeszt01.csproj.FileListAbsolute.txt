@@ -308,3 +308,9 @@ C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScr
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkGyogyszer.g.cs
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\ApoloLazlapWindow.baml
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkGyogyszer.baml
+e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\Beteg\View\AdatMod_View.g.cs
+e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\Beteg\View\BetegWindow.g.cs
+e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\Beteg\View\Idopont_View.g.cs
+e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\Beteg\View\AdatMod_View.baml
+e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\Beteg\View\BetegWindow.baml
+e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\Beteg\View\Idopont_View.baml

@@ -66,6 +66,18 @@
     <Compile Include="ApoloLazlapWindow.xaml.cs">
       <DependentUpon>ApoloLazlapWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Beteg\Controller\BetegMainController.cs" />
+    <Compile Include="Beteg\Controller\DBController.cs" />
+    <Compile Include="Beteg\Model\BetegAdatok.cs" />
+    <Compile Include="Beteg\View\AdatMod_View.xaml.cs">
+      <DependentUpon>AdatMod_View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beteg\View\BetegWindow.xaml.cs">
+      <DependentUpon>BetegWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beteg\View\Idopont_View.xaml.cs">
+      <DependentUpon>Idopont_View.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GazdAlkGyogyszer.xaml.cs">
       <DependentUpon>GazdAlkGyogyszer.xaml</DependentUpon>
     </Compile>
@@ -94,6 +106,18 @@
     <Page Include="ApoloMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beteg\View\AdatMod_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beteg\View\BetegWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Beteg\View\Idopont_View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="EszkozAddModWindow.xaml">
       <SubType>Designer</SubType>
@@ -291,6 +315,7 @@
   <ItemGroup>
     <Resource Include="HOSPICON.png" />
     <Resource Include="bluecross.png" />
+    <Resource Include="Beteg\View\icon-user-default.png" />
     <Content Include="MungoSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MungoSystem.edmx</DependentUpon>
@@ -305,6 +330,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,35 @@
+﻿<Window x:Class="EFTeszt01.BetegWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EFTeszt01"
+        mc:Ignorable="d"
+        Title="St.Mungo Magánkórház" Height="400" Width="525"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Loaded="Window_Loaded" Icon="/EFTeszt01;component/HOSPICON.png">
+    <Grid Background="#FFEAE8E8" Height="369">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.RowSpan="2" Background="Transparent">
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem Header="_Időpont Foglalás"  Click="IdopontMenuItem_Click"/>
+            <MenuItem Header="_Adatok Módosítása" Click="AdatmodositasMenuItem_Click"/>
+            <MenuItem Header="_Kijelentkezés" Click="LogoutMenuItem_Click"/>
+            <!--<MenuItem Header="_Bezárás" />-->
+        </Menu>
+        <Grid Grid.Row="1">
+            <Label x:Name="label" Content="{Binding Path=betegAdatok.Name}" HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Top"/>
+            <Image x:Name="image" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="62" Source="icon-user-default.png" Stretch="UniformToFill"/>
+            <Label x:Name="label1" Content="Beteg" HorizontalAlignment="Left" Margin="67,26,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <ContentControl Grid.Row="2" Content="{Binding view}"/>
+    </Grid>
+</Window>

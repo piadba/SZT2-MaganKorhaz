@@ -35,6 +35,7 @@ namespace EFTeszt01
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.DataContext = sessionUser;
             mungoSystem.Lazlap.Load();
             lazlapok = new ObservableCollection<Lazlap>(mungoSystem.Lazlap.Where(
                             lazlap => lazlap.Deleted == 0

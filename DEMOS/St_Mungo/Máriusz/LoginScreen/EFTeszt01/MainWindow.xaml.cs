@@ -54,21 +54,19 @@ namespace EFTeszt01
                 switch (sessionUser.Group)
                 {
                     case 1:
-                        //Beteg
+                        showWindow = new BetegWindow(mungoSystem, sessionUser);
                         break;
                     case 2:
                         showWindow = new OrvosAsszisztensWindow(mungoSystem, sessionUser);
                         break;
                     case 3:
                         showWindow = new ApoloMainWindow(mungoSystem, sessionUser);
-                        showWindow.DataContext = sessionUser;
                         break;
                     case 4:
                         showWindow = new GazdAlkMainWindow(mungoSystem, sessionUser);
                         break;
                     case 5:
                         showWindow = new RecepciosMainWindow(mungoSystem, sessionUser);
-                        //Recepciós
                         break;
                     case 6:
                         showWindow = new AdminWindow(mungoSystem);
