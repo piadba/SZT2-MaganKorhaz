@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Recepciós felület" Height="200" Width="218.215">
+        Title="Recepciós felület" Height="200" Width="218.215" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="button" Content="Időpont kezelés" HorizontalAlignment="Left" Height="30" Margin="38,10,0,0" VerticalAlignment="Top" Width="147" Click="button_Click"/>
         <Button x:Name="button1" Content="Kapcsolat kezelés" HorizontalAlignment="Left" Height="30" Margin="38,50,0,0" VerticalAlignment="Top" Width="147" Click="button1_Click"/>

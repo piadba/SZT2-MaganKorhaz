@@ -65,11 +65,16 @@ namespace EFTeszt01
 
         private void modositasButton_Click(object sender, RoutedEventArgs e)
         {
-            BetegAdatai kiv = (listBox.SelectedItem) as BetegAdatai;
-            Betegek b = mungoSystem.Betegek.Local.Where(x => x.PeopleID == kiv.PeopleID).First();
-            RecepciosBetegModositoWindow bm = new RecepciosBetegModositoWindow(recepciosViewModel, b);
-            bm.ShowDialog();
-            initWindow();
+            if (listBox.SelectedIndex != -1)
+            {
+                BetegAdatai kiv = (listBox.SelectedItem) as BetegAdatai;
+                Betegek b = mungoSystem.Betegek.Local.Where(x => x.PeopleID == kiv.PeopleID).First();
+                RecepciosBetegModositoWindow bm = new RecepciosBetegModositoWindow(recepciosViewModel, b);
+                bm.ShowDialog();
+                initWindow();
+            }
+            else
+                MessageBox.Show("Nincs kiválasztott beteg");
         }
     }
 }

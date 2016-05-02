@@ -62,7 +62,7 @@ namespace EFTeszt01
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             mungoSystem.People.Load();
-
+            datePicker.SelectedDate = DateTime.Now;
             this.DataContext = recepciosViewModel;
             recepciosViewModel.IdopontAdatok.Clear();
 

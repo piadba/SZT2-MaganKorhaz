@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="RecepciosBetegModositoWindow" Height="400" Width="300">
+        Title="RecepciosBetegModositoWindow" Height="400" Width="300" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="label" Content="Felhasználó név:" HorizontalAlignment="Left" Margin="30,34,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Jelszó:" HorizontalAlignment="Left" Margin="30,65,0,0" VerticalAlignment="Top"/>
@@ -23,7 +23,8 @@
         <TextBox x:Name="lakcimTB" HorizontalAlignment="Left" Height="23" Margin="152,193,0,0" TextWrapping="Wrap" Text="{Binding Cim}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="nemTB" HorizontalAlignment="Left" Height="23" Margin="152,224,0,0" TextWrapping="Wrap" Text="{Binding Nem}" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tajTB" HorizontalAlignment="Left" Height="23" Margin="152,255,0,0" TextWrapping="Wrap" Text="{Binding TAJ}" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="mentesBTN" Content="Mentés" HorizontalAlignment="Left" Margin="51,319,0,0" VerticalAlignment="Top" Width="75" Click="mentesBTN_Click"/>
-        <Button x:Name="megsemBTN" Content="Mégsem" HorizontalAlignment="Left" Margin="159,319,0,0" VerticalAlignment="Top" Width="75" Click="megsemBTN_Click"/>
+        <Button x:Name="mentesBTN" Content="Mentés" HorizontalAlignment="Left" Margin="115,329,0,0" VerticalAlignment="Top" Width="75" Click="mentesBTN_Click"/>
+        <Button x:Name="megsemBTN" Content="Mégsem" HorizontalAlignment="Left" Margin="18,329,0,0" VerticalAlignment="Top" Width="75" Click="megsemBTN_Click"/>
+        <Button x:Name="torlesBTN" Content="Törlés" HorizontalAlignment="Left" Height="20" Margin="206,329,0,0" VerticalAlignment="Top" Width="66" Click="torlesBTN_Click"/>
     </Grid>
 </Window>

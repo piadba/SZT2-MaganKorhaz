@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="IdopontSzerkeszto" Height="217.178" Width="402.147" Loaded="Window_Loaded">
+        Title="IdopontSzerkeszto" Height="217.178" Width="402.147" Loaded="Window_Loaded" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Label x:Name="label" Content="Orvos: " HorizontalAlignment="Left" Height="35" Margin="25,10,0,0" VerticalAlignment="Top" Width="85"/>
         <Label x:Name="label1" Content="Dátum: " HorizontalAlignment="Left" Height="32" Margin="25,50,0,0" VerticalAlignment="Top" Width="85"/>

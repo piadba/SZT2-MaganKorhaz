@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
         Title="IdopontKezelo" Height="326" Width="407"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
 
         <Label x:Name="label" Content="Orvos:" HorizontalAlignment="Left" Height="27" Margin="23,10,0,0" VerticalAlignment="Top" Width="48"/>
@@ -25,9 +25,9 @@
                 <DataTemplate>
                     <DockPanel>
 
-                        <Label Content="{Binding Datum}" />
-                        <Label Content="{Binding TAJ}" />
-                        <Label Content="{Binding Nev}" />
+                        <Label Content="{Binding Datum}" ContentStringFormat="Idő: {0:hh24:mm}" />
+                        <Label Content="{Binding TAJ}" ContentStringFormat="TAJ: {0}" />
+                        <Label Content="{Binding Nev}" ContentStringFormat="Beteg neve: {0}" />
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

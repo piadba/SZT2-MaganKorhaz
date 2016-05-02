@@ -113,5 +113,15 @@ namespace EFTeszt01
         {
             DialogResult = false;
         }
+
+        private void torlesBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (kivbet != null && kivpeo !=null)
+            {
+                kivbet.Deleted = 1;
+                kivpeo.Deleted = 1;
+                DialogResult = true;
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Beteg regisztráció / adatmódosítás felület" Height="300" Width="361.111" Loaded="Window_Loaded">
+        Title="Beteg regisztráció / adatmódosítás felület" Height="300" Width="361.111" Loaded="Window_Loaded" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="212" Margin="10,10,0,0" VerticalAlignment="Top" Width="333" ItemsSource="{Binding Betegek}">
             <ListBox.ItemTemplate>
