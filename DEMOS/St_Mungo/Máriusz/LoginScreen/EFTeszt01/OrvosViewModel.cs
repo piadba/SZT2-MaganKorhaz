@@ -26,6 +26,8 @@ namespace EFTeszt01
 
         Lazlap betegLazlapja;
         ObservableCollection<KiadottGyogyszer> betegGyogyszerei;
+
+        ObservableCollection<KiadottGyogyszer> orvosBetegGyogyszerei;
         //------------------------------------------------------------------------------------
 
         //-----------------------------Összes szükséges lekért adat a táblákból----------------
@@ -201,19 +203,17 @@ namespace EFTeszt01
                 OnPropChanged("betegekGyogyszerei");
             }
         }
-
-        //public KiadottGyogyszer SelectedGyogyszer
-        //{
-        //    get
-        //    {
-        //        return selectedGyogyszer;
-        //    }
-
-        //    set
-        //    {
-        //        selectedGyogyszer = value;
-        //    }
-        //}
+        public ObservableCollection<KiadottGyogyszer> OrvosBetegGyogyszerei
+        {
+            get
+            {
+                return orvosBetegGyogyszerei;
+            }
+            set {
+                orvosBetegGyogyszerei = value;
+                OnPropChanged("orvosBetegGyogyszerei");
+            }
+        }
 
         internal ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat> Kiad_gyogy
         {
@@ -391,7 +391,7 @@ namespace EFTeszt01
             gy.Mennyiseg += del.Mennyiseg;
 
             Mentes();
-            betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID));
+            betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID && x.Statusz == 11));
             OnPropChanged("betegGyogyszerei");
         }
 
@@ -453,5 +453,45 @@ namespace EFTeszt01
             string nev = ms.People.Where(x => x.Deleted == 0 && x.PeopleID == id).First().Name;
             return nev;
         }
+        public int OrvosName2Id(string name)
+        {
+            int id = ms.People.Where(x => x.Deleted == 0 && x.Name == name).First().PeopleID;
+            return id;
+        }
+
+        public void OrvosGyogyszerKiadas() {
+            //try
+            //{
+                ms.KiadottGyogyszer.Load();
+                Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
+                Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
+                OrvosBetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.Statusz == 10 && x.ForrasID == laz.LazlapID));
+                
+            //}
+            //catch { }
+        }
+        public void OrvosGyogyszerBeszuras(KiadottGyogyszer kgy) {
+            Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
+            Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
+            kgy.ForrasID = laz.LazlapID;
+            ms.KiadottGyogyszer.Local.Add(kgy);
+            Mentes();
+            ms.KiadottGyogyszer.Load();
+            OrvosGyogyszerKiadas();
+        }
+        public void OrvosGyogyszerTorles(KiadottGyogyszer kgy) {
+            try
+            {
+                KiadottGyogyszer del = ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.KiadottGyogyszer1 == kgy.KiadottGyogyszer1).First();
+                del.Deleted = 1;
+                Gyogyszer gy = ms.Gyogyszer.Local.Where(x=> x.Deleted == 0 && x.GyogyszerID == kgy.GyogyszerID).First();
+                gy.Mennyiseg += kgy.Mennyiseg;
+                Mentes();
+                ms.KiadottGyogyszer.Load();
+                OrvosGyogyszerKiadas();
+            }
+            catch { }
+        }
+
     }
 }
