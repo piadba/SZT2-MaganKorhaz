@@ -430,21 +430,6 @@ namespace EFTeszt01
                 Gyogyszer gyogy = ms.Gyogyszer.Where(x => x.Deleted == 0 && x.GyogyszerID == id && x.Mennyiseg >= mennyiseg).First();
                 gyogy.Mennyiseg -= mennyiseg;
 
-
-                
-                //var kapcsolt = from gy in ms.KiadottGyogyszer
-                //               join b in ms.Gyogyszer on gy.GyogyszerID equals b.GyogyszerID
-                //               where gy.Deleted == 0 && b.Deleted == 0 && gy.Mennyiseg > 0
-                //               select new {Megnevezes = b.Megnevezes, Id = b.GyogyszerID};
-                //kiad_gyogy = new ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat>();
-                //kiad_gyogy = (ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat>)kapcsolt;
-
-              //  kiad_gyogy = kapcsolt as OrvosAsszisztensGyogyszerKapcsolat;
-                //var kapcsolt2 = from g in gy
-                //               join b in ms.KiadottGyogyszer on g.GyogyszerID equals gy.GyogyszerID
-                //               where i.Deleted == 0 && b.Deleted == 0 && p.Deleted == 0
-                //               select new { Nev = p.Name, IdopontID = i.IdopontID, Datum = i.Datum, TAJ = b.TAJ };
-
                 Mentes();
 
 
@@ -454,6 +439,11 @@ namespace EFTeszt01
             {
                 return false;
             }
+        }
+
+        public string OrvosID2Name(int id) {
+            string nev = ms.People.Where(x => x.Deleted == 0 && x.PeopleID == id).First().Name;
+            return nev;
         }
     }
 }

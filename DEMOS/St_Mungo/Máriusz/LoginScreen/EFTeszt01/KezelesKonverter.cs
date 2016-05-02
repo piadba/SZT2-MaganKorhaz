@@ -13,13 +13,14 @@ namespace EFTeszt01
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            OrvosViewModel ovm = OrvosViewModel.Get();
             ObservableCollection<Kortortenet_tetel> kt = value as ObservableCollection<Kortortenet_tetel>;
             if (kt != null)
             {
                 ObservableCollection<string> s = new ObservableCollection<string>();
                 foreach (var e in kt)
                 {
-                    s.Add("Dátum: " + e.Datum + "\tOrvos: " + e.Orvos + "\tKezelés: " + e.Kezeles);
+                    s.Add("Dátum: " + e.Datum + "\tOrvos: " + ovm.OrvosID2Name((int)e.Orvos) + "\tKezelés: " + e.Kezeles);
                 }
                 return s;
             }

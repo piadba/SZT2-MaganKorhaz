@@ -39,9 +39,15 @@ namespace EFTeszt01
             //ovm.Ms.Betegek.Load();
 
             //ovm.MungoSystemInitial(ovm.Ms);
-            ovm.Ujbeteg(new People() { Name = nevTB.Text, Address = lakcimTB.Text, Gender = nemTB.Text, Email = emailTB.Text, Password = jszTB.Text, Phone = telTB.Text, Deleted = 0, Group = 1, UserName = felhTB.Text }, tajTB.Text);
-
-            this.Close();
+            if (nevTB.Text != "" && emailTB.Text != "" && tajTB.Text != "" && felhTB.Text != "" && jszTB.Text != "" && telTB.Text != "" && lakcimTB.Text != "")
+            {
+                ovm.Ujbeteg(new People() { Name = nevTB.Text, Address = lakcimTB.Text, Gender = nemTB.Text, Email = emailTB.Text, Password = jszTB.Text, Phone = telTB.Text, Deleted = 0, Group = 1, UserName = felhTB.Text }, tajTB.Text);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("HIBA: a következők közül legalább egy nincs megadva:\n\tNév\n\tFelhasználó név\n\tJelszó\n\tEmail cím\n\tTelefonszám\n\tLakcím");
+            }
         }
 
         private void megsemBTN_Click(object sender, RoutedEventArgs e)

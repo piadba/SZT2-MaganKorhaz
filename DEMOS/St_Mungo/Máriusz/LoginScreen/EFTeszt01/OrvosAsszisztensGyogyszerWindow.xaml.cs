@@ -36,20 +36,35 @@ namespace EFTeszt01
 
         private void mentesBTN_Click(object sender, RoutedEventArgs e)
         {
-            int id = ovm.LetezoGyogyszerVizsgalat((gyogyszerCMB.SelectedItem as Gyogyszer).Megnevezes);
-
-            if (id != 0)
+            if (mennyTB.Text != "")
             {
-                int mennyiseg = int.Parse(mennyTB.Text);
-                if (ovm.GyogyszerMennyisegMod(mennyiseg, id))
+                try
                 {
+                    int.Parse(mennyTB.Text);
+                    int id = ovm.LetezoGyogyszerVizsgalat((gyogyszerCMB.SelectedItem as Gyogyszer).Megnevezes);
 
-                    ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
-                    ovm.GyogyszerBeszurasTortent();
+                    if (id != 0)
+                    {
+                        int mennyiseg = int.Parse(mennyTB.Text);
+                        if (ovm.GyogyszerMennyisegMod(mennyiseg, id))
+                        {
+
+                            ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
+                            ovm.GyogyszerBeszurasTortent();
+                        }
+                        else { MessageBox.Show("Nincs elegendő, vagy nem létezik a gyógyszer!"); }
+                    }
+                    this.Close();
+
                 }
-                else { MessageBox.Show("Nincs elegendő, vagy nem létezik a gyógyszer!"); }
+                catch {
+                    MessageBox.Show("HIBA: nem megfelelő a mennyiség formátuma!");
+                }
             }
-            this.Close();
+            else {
+                MessageBox.Show("HIBA: nem lett mennyiség megadva!");
+            } 
+            
         }
 
         private void megseBTN_Click(object sender, RoutedEventArgs e)

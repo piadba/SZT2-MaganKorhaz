@@ -30,12 +30,12 @@ namespace EFTeszt01
             if (addmod)
             {
                 datumDP.SelectedDate = ovm.SelectedKezeles.Datum;
-                orvosTB.Text = (ovm.SelectedKezeles.Orvos).ToString();
+                orvosTB.Text = (ovm.OrvosID2Name((int)(ovm.SelectedKezeles.Orvos)));
                 kezlesTB.Text = ovm.SelectedKezeles.Kezeles;
             }
             else {
                 datumDP.SelectedDate = DateTime.Now;
-                orvosTB.Text = (ovm.Orvos.PeopleID).ToString();
+                orvosTB.Text = ovm.OrvosID2Name((int)ovm.Orvos.PeopleID);
                 kezlesTB.Text = "";
             }
 
