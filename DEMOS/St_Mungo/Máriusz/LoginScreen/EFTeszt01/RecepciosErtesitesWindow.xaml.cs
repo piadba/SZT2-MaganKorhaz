@@ -98,5 +98,10 @@ namespace EFTeszt01
             NotifyBeteg(ia,textBox.Text);
             DialogResult = true;
         }
+
+        private void visszaButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }
