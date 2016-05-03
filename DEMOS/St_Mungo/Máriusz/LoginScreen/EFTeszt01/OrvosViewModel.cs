@@ -486,16 +486,16 @@ namespace EFTeszt01
             }
             catch { }
         }
-        public void OrvosGyogyszerBeszuras(KiadottGyogyszer kgy) {
+        public void OrvosGyogyszerBeszuras(KiadottGyogyszer kgy,int? orvosID) {
             Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
-            Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
-            int? kt_fejID = ms.Kortortenet_fej.Where(x => x.Deleted == 0 && x.BetegID == laz.BetegID).Single().KortortenetFejID;
-
-            Kortortenet_tetel kt = new Kortortenet_tetel() {Datum=DateTime.Now, Deleted=0, Kezeles="Gyógyszeres kezelés", Orvos=laz.OrvosID, KortortenetFejID= kt_fejID};
+            //Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
+            int? kt_fejID = ms.Kortortenet_fej.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).Single().KortortenetFejID;
+            
+            Kortortenet_tetel kt = new Kortortenet_tetel() {Datum=DateTime.Now, Deleted=0, Kezeles="Gyógyszeres kezelés", Orvos= orvosID, KortortenetFejID= kt_fejID};
             ms.Kortortenet_tetel.Local.Add(kt);
             Mentes();
 
-            kgy.ForrasID = ms.Kortortenet_tetel.OrderByDescending(x => x.KortortenetTetelID).Where(x => x.Deleted == 0).Single().KortortenetTetelID;
+            kgy.ForrasID = ms.Kortortenet_tetel.OrderByDescending(x => x.KortortenetTetelID).Where(x => x.Deleted == 0).FirstOrDefault().KortortenetTetelID;
             kgy.Hasznalt = kgy.Mennyiseg;
             ms.KiadottGyogyszer.Local.Add(kgy);
             Mentes();

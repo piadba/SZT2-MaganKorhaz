@@ -21,9 +21,11 @@ namespace EFTeszt01
     public partial class OrvosAsszisztensLazlapWindow : Window
     {
         OrvosViewModel ovm;
-        
-        public OrvosAsszisztensLazlapWindow()
+        People sessionUser;
+
+        public OrvosAsszisztensLazlapWindow(People sessionUser)
         {
+            this.sessionUser = sessionUser;
             ovm = OrvosViewModel.Get();
             InitializeComponent();
             ovm.SelectedBetegLazlapja();
@@ -46,7 +48,7 @@ namespace EFTeszt01
 
         private void gyogyBTN_Click(object sender, RoutedEventArgs e)
         {
-            OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(true);
+            OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(true,sessionUser);
             ogyw.ShowDialog();
         }
 

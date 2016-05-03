@@ -22,12 +22,15 @@ namespace EFTeszt01
     {
         OrvosViewModel ovm;
         bool LazlapVagyOrvos;
-        public OrvosAsszisztensGyogyszerWindow(bool lvo)
+        People sessionuser;
+        public OrvosAsszisztensGyogyszerWindow(bool lvo,People sessionuser)
         {
 
             InitializeComponent();
             this.ovm = OrvosViewModel.Get();
             LazlapVagyOrvos = lvo;
+
+            this.sessionuser = sessionuser;
 
             this.DataContext = ovm;
             ObservableCollection<Gyogyszer> comboSource = new ObservableCollection<Gyogyszer>(ovm.Gyogyszerek.Where(x => x.Deleted == 0));
@@ -61,7 +64,7 @@ namespace EFTeszt01
                             }
                             else
                             {
-                                ovm.OrvosGyogyszerBeszuras(new KiadottGyogyszer() { GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 10});
+                                ovm.OrvosGyogyszerBeszuras(new KiadottGyogyszer() { GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 10},sessionuser.PeopleID);
                             }
                             this.Close();
                         }

@@ -90,7 +90,7 @@ namespace EFTeszt01
         {
             if(ovm.SelectedBeteg != null)
             {
-                OrvosAsszisztensLazlapWindow oal = new OrvosAsszisztensLazlapWindow();
+                OrvosAsszisztensLazlapWindow oal = new OrvosAsszisztensLazlapWindow(ovm.Orvos);
                 oal.ShowDialog();
             }
             else
@@ -117,7 +117,7 @@ namespace EFTeszt01
         {
             if (ovm.SelectedBeteg != null)
             {
-                OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(false);
+                OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(false,ovm.Orvos);
                 ogyw.ShowDialog();
             }
             else
