@@ -46,7 +46,7 @@ namespace EFTeszt01
 
         private void gyogyBTN_Click(object sender, RoutedEventArgs e)
         {
-            OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(true);
+            OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow();
             ogyw.ShowDialog();
         }
 

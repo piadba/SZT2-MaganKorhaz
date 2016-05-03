@@ -116,7 +116,7 @@ namespace EFTeszt01
         {
             if (ovm.SelectedBeteg != null)
             {
-                OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(false);
+                OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow();
                 ogyw.ShowDialog();
             }
         }
