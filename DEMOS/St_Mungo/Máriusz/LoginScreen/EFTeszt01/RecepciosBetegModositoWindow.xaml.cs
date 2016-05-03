@@ -83,18 +83,25 @@ namespace EFTeszt01
             }
             else
             {
-         
-                People p = new People() { Address = beteg.Cim, Deleted = 0, Email = beteg.Email, Gender = beteg.Nem, Group = 1, Name = beteg.Nev, Password = beteg.Password, Phone = beteg.Phone, UserName = beteg.UserName };
-                mungoSystem.People.Local.Add(p);
-                Console.WriteLine(mungoSystem.SaveChanges());
+                try
+                {
+                    People p = new People() { Address = beteg.Cim, Deleted = 0, Email = beteg.Email, Gender = beteg.Nem, Group = 1, Name = beteg.Nev, Password = beteg.Password, Phone = beteg.Phone, UserName = beteg.UserName };
+                    mungoSystem.People.Local.Add(p);
+                    Console.WriteLine(mungoSystem.SaveChanges());
 
-                mungoSystem.People.Load();
-            
-                mungoSystem.Betegek.Local.Add(new Betegek() { Deleted = 0, PeopleID = p.PeopleID, TAJ = beteg.TAJ });
+                    mungoSystem.People.Load();
 
-                mungoSystem.Kortortenet_fej.Load();
-                mungoSystem.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = mungoSystem.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == p.PeopleID).First().BetegID });
+                    mungoSystem.Betegek.Load();
+                    mungoSystem.Betegek.Local.Add(new Betegek() { Deleted = 0, PeopleID = p.PeopleID, TAJ = beteg.TAJ });
 
+                    Console.WriteLine(mungoSystem.SaveChanges());
+
+                    mungoSystem.Kortortenet_fej.Load();
+                    mungoSystem.Betegek.Load();
+
+                    mungoSystem.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = mungoSystem.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == p.PeopleID).First().BetegID });
+                }
+                catch (Exception ex2) { Console.WriteLine(ex2.Message); }
             }
 
             try
@@ -123,6 +130,7 @@ namespace EFTeszt01
             {
                 kivbet.Deleted = 1;
                 kivpeo.Deleted = 1;
+                mungoSystem.SaveChanges();
                 DialogResult = true;
             }
         }

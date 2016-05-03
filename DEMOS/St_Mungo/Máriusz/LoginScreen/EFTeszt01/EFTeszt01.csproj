@@ -385,10 +385,10 @@
     <Resource Include="bluecross.png" />
     <Resource Include="Beteg\View\icon-user-default.png" />
     <Content Include="MungoDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="MungoDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>MungoDatabase.mdf</DependentUpon>
     </Content>
   </ItemGroup>

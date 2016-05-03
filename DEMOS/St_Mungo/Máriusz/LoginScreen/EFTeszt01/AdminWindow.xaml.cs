@@ -26,7 +26,7 @@ namespace EFTeszt01
             InitializeComponent();
             this.mungoSystem = mungoSystem;
             this.DataContext = this.mungoSystem;
-            comboBox.ItemsSource = new List<string> { "People", "LookUps", "Betegek", "Kórtörténet Fej", "Kórtörténet Tétel" };
+            comboBox.ItemsSource = new List<string> { "People", "Betegek", "Időpontok", "Kórtörténet Fej", "Kórtörténet Tétel", "Gyógyszer" };
         }
 
         private void modositasButton_Click(object sender, RoutedEventArgs e)
@@ -44,15 +44,17 @@ namespace EFTeszt01
 
                     // dataGrid.Columns.First().IsReadOnly = true;
                     break;
-
+         
                 case 1:
-                    mungoSystem.LookUps.Load();
-                    dataGrid.ItemsSource = mungoSystem.LookUps.Local;
-                    break;
-                case 2:
                     mungoSystem.Betegek.Load();
                     dataGrid.ItemsSource = mungoSystem.Betegek.Local;
                     break;
+
+                case 2:
+                    mungoSystem.Idopontok.Load();
+                    dataGrid.ItemsSource = mungoSystem.Idopontok.Local;
+                    break;
+
                 case 3:
                     mungoSystem.Kortortenet_fej.Load();
                     dataGrid.ItemsSource = mungoSystem.Kortortenet_fej.Local;
@@ -61,6 +63,12 @@ namespace EFTeszt01
                     mungoSystem.Kortortenet_tetel.Load();
                     dataGrid.ItemsSource = mungoSystem.Kortortenet_tetel.Local;
                     break;
+
+                case 5:
+                    mungoSystem.Gyogyszer.Load();
+                    dataGrid.ItemsSource = mungoSystem.Gyogyszer.Local;
+                    break;
+
             }
  
         }
@@ -71,6 +79,14 @@ namespace EFTeszt01
             
             Console.WriteLine(mungoSystem.SaveChanges());
 
+        }
+
+        private void visszaButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            this.Close();
+
+            mw.ShowDialog();
         }
     }
 }
