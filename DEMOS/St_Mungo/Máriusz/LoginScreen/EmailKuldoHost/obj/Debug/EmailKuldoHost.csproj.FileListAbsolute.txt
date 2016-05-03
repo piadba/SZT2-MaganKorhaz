@@ -38,3 +38,6 @@ e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bi
 e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldo.dll
 e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldo.pdb
 e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.csprojResolveAssemblyReference.cache
+C:\Users\andras\Documents\GitHub\estirepo\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\bin\Debug\EmailKuldoHost.exe.config
+C:\Users\andras\Documents\GitHub\estirepo\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.exe
+C:\Users\andras\Documents\GitHub\estirepo\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EmailKuldoHost\obj\Debug\EmailKuldoHost.pdb

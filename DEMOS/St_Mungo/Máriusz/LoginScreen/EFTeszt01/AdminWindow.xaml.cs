@@ -29,12 +29,9 @@ namespace EFTeszt01
             comboBox.ItemsSource = new List<string> { "People", "Betegek", "Időpontok", "Kórtörténet Fej", "Kórtörténet Tétel", "Gyógyszer" };
         }
 
-        private void modositasButton_Click(object sender, RoutedEventArgs e)
+        void modositas(int selectedIndex)
         {
-
-            
-
-            switch (comboBox.SelectedIndex)
+            switch (selectedIndex)
             {
                 case 0:
 
@@ -42,42 +39,57 @@ namespace EFTeszt01
                     mungoSystem.People.Load();
                     dataGrid.ItemsSource = mungoSystem.People.Local;
 
-                    // dataGrid.Columns.First().IsReadOnly = true;
+                    dataGrid.Columns.First().IsReadOnly = true;
                     break;
-         
+
                 case 1:
                     mungoSystem.Betegek.Load();
                     dataGrid.ItemsSource = mungoSystem.Betegek.Local;
+                    dataGrid.Columns.First().IsReadOnly = true;
                     break;
 
                 case 2:
                     mungoSystem.Idopontok.Load();
                     dataGrid.ItemsSource = mungoSystem.Idopontok.Local;
+                    dataGrid.Columns.First().IsReadOnly = true;
                     break;
 
                 case 3:
                     mungoSystem.Kortortenet_fej.Load();
                     dataGrid.ItemsSource = mungoSystem.Kortortenet_fej.Local;
+                    dataGrid.Columns.First().IsReadOnly = true;
                     break;
                 case 4:
                     mungoSystem.Kortortenet_tetel.Load();
                     dataGrid.ItemsSource = mungoSystem.Kortortenet_tetel.Local;
+                    dataGrid.Columns.First().IsReadOnly = true;
                     break;
 
                 case 5:
                     mungoSystem.Gyogyszer.Load();
                     dataGrid.ItemsSource = mungoSystem.Gyogyszer.Local;
+                    dataGrid.Columns.First().IsReadOnly = true;
                     break;
 
             }
- 
+
+        }
+
+        private void modositasButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            modositas(comboBox.SelectedIndex);
+
         }
 
         private void mentesButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (comboBox.SelectedIndex != -1)
+            {
+                Console.WriteLine(mungoSystem.SaveChanges());
+                modositas(comboBox.SelectedIndex);
+            }
             
-            Console.WriteLine(mungoSystem.SaveChanges());
 
         }
 

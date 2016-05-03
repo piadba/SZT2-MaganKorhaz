@@ -26,8 +26,9 @@
                     <DockPanel>
 
                         <Label Content="{Binding Datum}" ContentStringFormat="Idő: {0:HH:mm}" />
-                        <Label Content="{Binding TAJ}" ContentStringFormat="TAJ: {0}" />
-                        <Label Content="{Binding Nev}" ContentStringFormat="Beteg neve: {0}" />
+                        <Label Content="{Binding Nev}" />
+                        <Label Content="{Binding TAJ}" />
+                        
                     </DockPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

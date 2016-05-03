@@ -133,6 +133,8 @@ namespace EFTeszt01
                 mungoSystem.SaveChanges();
                 DialogResult = true;
             }
+
+            DialogResult = false;
         }
     }
 }

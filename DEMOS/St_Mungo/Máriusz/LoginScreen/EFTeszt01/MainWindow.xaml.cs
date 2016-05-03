@@ -75,7 +75,7 @@ namespace EFTeszt01
                         break;
                 }
                 showWindow.ShowDialog();
-                App.Current.Shutdown();
+ //               App.Current.Shutdown();
             }
             else
             {
