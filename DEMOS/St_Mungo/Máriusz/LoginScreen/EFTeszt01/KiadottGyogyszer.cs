@@ -55,8 +55,10 @@ namespace EFTeszt01
                     int? PeopleID = -1;
                     if (getState.Contains("Lázlap felhasználás"))
                     {
-                        PeopleID = mungoSystem.Betegek.Where
-                            (x => x.Deleted == 0 && x.BetegID == ForrasID).Single().PeopleID;
+                        int? BetegID = mungoSystem.Lazlap.Where
+                            (x => x.Deleted == 0 && x.LazlapID == ForrasID).Single().BetegID;
+                        PeopleID = mungoSystem.Betegek.Where(x => x.Deleted == 0 && x.BetegID == BetegID).Single().PeopleID;
+
                     }
                     else if (getState.Contains("Orvosi felhasználás")) //mert ha fakap van ne írjon ki baromságot
                     {
@@ -134,6 +136,19 @@ namespace EFTeszt01
                 }
                 return mennyiseg;
             }
+        }
+        public string getGyogyszernev
+        {
+            get
+            {
+                string gyogyszerNev = null;
+                using (MungoSystem mungoSystem=new MungoSystem())
+                {
+                    gyogyszerNev = mungoSystem.Gyogyszer.Where(x => x.Deleted == 0 && x.GyogyszerID == GyogyszerID).Single().Megnevezes;
+                }
+                return gyogyszerNev;
+            }
+            
         }
     }
 }

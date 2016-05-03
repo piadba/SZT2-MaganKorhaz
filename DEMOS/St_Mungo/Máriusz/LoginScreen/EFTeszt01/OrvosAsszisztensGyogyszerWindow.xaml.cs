@@ -48,8 +48,7 @@ namespace EFTeszt01
                         int mennyiseg = int.Parse(mennyTB.Text);
                         if (ovm.GyogyszerMennyisegMod(mennyiseg, id))
                         {
-
-                            ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
+                            ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 ,Hasznalt=0});
                             ovm.GyogyszerBeszurasTortent();
                         }
                         else { MessageBox.Show("Nincs elegendő, vagy nem létezik a gyógyszer!"); }
