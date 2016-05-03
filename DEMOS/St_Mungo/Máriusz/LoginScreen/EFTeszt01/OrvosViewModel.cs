@@ -231,6 +231,7 @@ namespace EFTeszt01
 
         //------------------------------------------------------------------------------------
         public void MungoSystemInitial(MungoSystem ms) {
+            
             this.ms = ms;
             this.betegTabla = new ObservableCollection<Betegek>(ms.Betegek);
             this.kortortenetFej = new ObservableCollection<Kortortenet_fej>(ms.Kortortenet_fej);
@@ -238,11 +239,16 @@ namespace EFTeszt01
             this.betegek = new ObservableCollection<People>(ms.People.Local.Where(ppl =>ppl.Deleted == 0 && ppl.Group == 1));
             this.lazlapok = new ObservableCollection<Lazlap>(ms.Lazlap);
             this.gyogyszerek = new ObservableCollection<Gyogyszer>(ms.Gyogyszer);
-            pID = ms.People.Max(p => p.PeopleID);
-            bID = ms.Betegek.Max(p => p.BetegID);
-            kfID = ms.Kortortenet_fej.Max(p => p.KortortenetFejID);
-            ktID = ms.Kortortenet_tetel.Max(p => p.KortortenetTetelID);
-            OnPropChanged("betegek");
+            try
+            {
+                pID = ms.People.Max(p => p.PeopleID);
+                bID = ms.Betegek.Max(p => p.BetegID);
+                OnPropChanged("betegek");
+                kfID = ms.Kortortenet_fej.Max(p => p.KortortenetFejID);
+                ktID = ms.Kortortenet_tetel.Max(p => p.KortortenetTetelID);
+                
+            }
+            catch { }
         }
         public static OrvosViewModel Get() {
             if (vm == null)
