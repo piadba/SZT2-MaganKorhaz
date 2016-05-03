@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="RecepciosErtesitesWindow" Height="329.63" Width="413.889" Loaded="Window_Loaded">
+        Title="RecepciosErtesitesWindow" Height="329.63" Width="413.889" Loaded="Window_Loaded" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Height="29" Margin="111,36,0,0" VerticalAlignment="Top" Width="132"/>
         <Label x:Name="label" Content="Dátum" HorizontalAlignment="Left" Height="29" Margin="58,36,0,0" VerticalAlignment="Top" Width="53"/>

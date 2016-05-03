@@ -1,0 +1,15 @@
+- 3. ábrán a kapcsolatok ne jelenjenek meg adattagként is   (ANDRÁS)
+
+- a szekvenciadiagramokon egyszerre csak egy funkció mûködését ábrázolják (Ádám rész done, többi talán rendben van)
+
+- az osztálydiagramokon az aggregáció/kompozíció iránya nem jó (Ádám rész done, Máriusznál 2 még van (20.,13. 19. ábra))
+
+- az osztálydiagramokon a szerepnevek nem jó helyen vannak (?? ilyen nálam szerintem nincs -Ádám)
+
+- a szekvencia diagramokon az interfész nem jó helyen van (Ádám done, Máriusznál 18. ábra)
+
+- a use case diagramoknál az extend kapcsolatok esetén kell kiterjesztési pont, és feltétel (
+
+- 36. ábrán az extend kapcsolat fordítva van (Máriusz)
+
+- 37. ábrán az öröklési kapcsolat nem jó (Máriusz)

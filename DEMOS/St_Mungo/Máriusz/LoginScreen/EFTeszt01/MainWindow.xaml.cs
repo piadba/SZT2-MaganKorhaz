@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
 
+
 namespace EFTeszt01
 {
     /// <summary>
@@ -24,6 +25,7 @@ namespace EFTeszt01
         public MainWindow()
         {
             InitializeComponent();
+            
         }
         MungoSystem mungoSystem;
         private void Window_Loaded(object sender, RoutedEventArgs e)

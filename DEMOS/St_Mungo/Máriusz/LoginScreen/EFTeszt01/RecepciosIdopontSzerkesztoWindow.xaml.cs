@@ -54,12 +54,17 @@ namespace EFTeszt01
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            int kivBetegID = (comboBox.SelectedItem as BetegAdatai).BetegID;
-            idopont.BetegID = kivBetegID;
+            if (comboBox.SelectedIndex != -1)
+            {
+                int kivBetegID = (comboBox.SelectedItem as BetegAdatai).BetegID;
+                idopont.BetegID = kivBetegID;
 
-            recepciosViewModel.MungoSystem.SaveChanges();
+                recepciosViewModel.MungoSystem.SaveChanges();
 
-            statusz.Content = "Mentés sikerült";
+                statusz.Content = "Mentés sikerült";
+            }
+            else
+                statusz.Content = "Nincs kiválasztott beteg!";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

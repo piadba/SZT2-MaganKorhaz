@@ -15,6 +15,7 @@ namespace EFTeszt01
         static OrvosViewModel vm;
 
         //----------------------------Listboxhoz szükséges selected itemek----------------------
+        
         People selectedPeopleBeteg;
         Betegek selectedBeteg;
         Kortortenet_fej selectedKorlapFej;
@@ -25,6 +26,8 @@ namespace EFTeszt01
 
         Lazlap betegLazlapja;
         ObservableCollection<KiadottGyogyszer> betegGyogyszerei;
+
+        ObservableCollection<KiadottGyogyszer> orvosBetegGyogyszerei;
         //------------------------------------------------------------------------------------
 
         //-----------------------------Összes szükséges lekért adat a táblákból----------------
@@ -200,19 +203,17 @@ namespace EFTeszt01
                 OnPropChanged("betegekGyogyszerei");
             }
         }
-
-        //public KiadottGyogyszer SelectedGyogyszer
-        //{
-        //    get
-        //    {
-        //        return selectedGyogyszer;
-        //    }
-
-        //    set
-        //    {
-        //        selectedGyogyszer = value;
-        //    }
-        //}
+        public ObservableCollection<KiadottGyogyszer> OrvosBetegGyogyszerei
+        {
+            get
+            {
+                return orvosBetegGyogyszerei;
+            }
+            set {
+                orvosBetegGyogyszerei = value;
+                OnPropChanged("orvosBetegGyogyszerei");
+            }
+        }
 
         internal ObservableCollection<OrvosAsszisztensGyogyszerKapcsolat> Kiad_gyogy
         {
@@ -289,6 +290,7 @@ namespace EFTeszt01
             ms.People.Load();
             ms.Betegek.Load();
             ms.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = ms.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == pID).First().BetegID });
+            Mentes();
             ms.Kortortenet_fej.Load();
             MungoSystemInitial(this.ms);
             kortortenetFej = ms.Kortortenet_fej.Local;
@@ -377,15 +379,19 @@ namespace EFTeszt01
         }
         public void SelectedGyogyszerTorles(KiadottGyogyszer del) {
             //ms.KiadottGyogyszer.Where(x => x.KiadottGyogyszer1 == del.KiadottGyogyszer1).Single().Deleted = 1;
-            
-            foreach (var i in ms.KiadottGyogyszer)
-            {
-                KiadottGyogyszer ki = i;
-                if (ki.GyogyszerID == del.GyogyszerID)
-                    ki.Deleted = 1;
-            }
+            KiadottGyogyszer ki1 = ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.KiadottGyogyszer1 == del.KiadottGyogyszer1).First();
+            ki1.Deleted = 1;
+            //foreach (var i in ms.KiadottGyogyszer)
+            //{
+            //    KiadottGyogyszer ki = i;
+            //    if (ki.KiadottGyogyszer1 == del.KiadottGyogyszer1)
+            //        ki.Deleted = 1;
+            //}
+            Gyogyszer gy = ms.Gyogyszer.Local.Where(x => x.Deleted == 0 && x.GyogyszerID == del.GyogyszerID).First();
+            gy.Mennyiseg += del.Mennyiseg;
+
             Mentes();
-            betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID));
+            betegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && betegLazlapja.LazlapID == x.ForrasID && x.Statusz == 11));
             OnPropChanged("betegGyogyszerei");
         }
 
@@ -416,9 +422,11 @@ namespace EFTeszt01
                 KiadottGyogyszer kgy = i;
                 try
                 {
-                    KiadottGyogyszer tmp = ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.ForrasID == betegLazlapja.LazlapID && x.GyogyszerID == kgy.GyogyszerID).First();
+                    KiadottGyogyszer tmp = ms.KiadottGyogyszer.Where(x => x.Deleted == 0 && x.ForrasID == betegLazlapja.LazlapID && x.KiadottGyogyszer1 == kgy.KiadottGyogyszer1).First();
                 }
                 catch { ms.KiadottGyogyszer.Add(i); }
+
+                //ms.KiadottGyogyszer.Add(i); 
             }
             Mentes();
             OnPropChanged("betegGyogyszerei");
@@ -445,5 +453,45 @@ namespace EFTeszt01
             string nev = ms.People.Where(x => x.Deleted == 0 && x.PeopleID == id).First().Name;
             return nev;
         }
+        public int OrvosName2Id(string name)
+        {
+            int id = ms.People.Where(x => x.Deleted == 0 && x.Name == name).First().PeopleID;
+            return id;
+        }
+
+        public void OrvosGyogyszerKiadas() {
+            //try
+            //{
+                ms.KiadottGyogyszer.Load();
+                Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
+                Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
+                OrvosBetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.Statusz == 10 && x.ForrasID == laz.LazlapID));
+                
+            //}
+            //catch { }
+        }
+        public void OrvosGyogyszerBeszuras(KiadottGyogyszer kgy) {
+            Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
+            Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
+            kgy.ForrasID = laz.LazlapID;
+            ms.KiadottGyogyszer.Local.Add(kgy);
+            Mentes();
+            ms.KiadottGyogyszer.Load();
+            OrvosGyogyszerKiadas();
+        }
+        public void OrvosGyogyszerTorles(KiadottGyogyszer kgy) {
+            try
+            {
+                KiadottGyogyszer del = ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.KiadottGyogyszer1 == kgy.KiadottGyogyszer1).First();
+                del.Deleted = 1;
+                Gyogyszer gy = ms.Gyogyszer.Local.Where(x=> x.Deleted == 0 && x.GyogyszerID == kgy.GyogyszerID).First();
+                gy.Mennyiseg += kgy.Mennyiseg;
+                Mentes();
+                ms.KiadottGyogyszer.Load();
+                OrvosGyogyszerKiadas();
+            }
+            catch { }
+        }
+
     }
 }

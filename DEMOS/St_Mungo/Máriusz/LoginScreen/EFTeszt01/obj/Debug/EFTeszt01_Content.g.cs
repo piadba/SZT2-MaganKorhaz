@@ -10,5 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mungosystem.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mungosystem.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mungodatabase.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("mungodatabase_log.ldf")]
 
 

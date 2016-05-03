@@ -91,7 +91,10 @@ namespace EFTeszt01
                 mungoSystem.People.Load();
             
                 mungoSystem.Betegek.Local.Add(new Betegek() { Deleted = 0, PeopleID = p.PeopleID, TAJ = beteg.TAJ });
-                              
+
+                mungoSystem.Kortortenet_fej.Load();
+                mungoSystem.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = mungoSystem.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == p.PeopleID).First().BetegID });
+
             }
 
             try
@@ -112,6 +115,16 @@ namespace EFTeszt01
         private void megsemBTN_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
+        }
+
+        private void torlesBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (kivbet != null && kivpeo !=null)
+            {
+                kivbet.Deleted = 1;
+                kivpeo.Deleted = 1;
+                DialogResult = true;
+            }
         }
     }
 }

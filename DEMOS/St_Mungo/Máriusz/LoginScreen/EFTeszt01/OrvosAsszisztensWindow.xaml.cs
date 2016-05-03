@@ -27,6 +27,7 @@ namespace EFTeszt01
             ovm = OrvosViewModel.Get();
             ovm.Orvos = orvos;
             ovm.MungoSystemInitial(ms);
+
             InitializeComponent();
             this.DataContext = ovm;
         }
@@ -45,7 +46,7 @@ namespace EFTeszt01
         private void selChanged(object sender, SelectionChangedEventArgs e)
         {
             ovm.SelectedBeteg = ovm.Betegek.ElementAt(betegLst.SelectedIndex);
-           
+            ovm.OrvosGyogyszerKiadas();
         }
 
         private void ujBetegBtn_Click(object sender, RoutedEventArgs e)
@@ -109,6 +110,23 @@ namespace EFTeszt01
             MainWindow mw = new MainWindow();
             this.Hide();
             mw.ShowDialog();
+        }
+
+        private void gyogyadBTN_Click(object sender, RoutedEventArgs e)
+        {
+            if (ovm.SelectedBeteg != null)
+            {
+                OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(false);
+                ogyw.ShowDialog();
+            }
+        }
+
+        private void gyogydelBTN_Click(object sender, RoutedEventArgs e)
+        { 
+            if (ovm.SelectedBeteg != null)
+            {
+                ovm.OrvosGyogyszerTorles(orvosGyogyLST.SelectedItem as KiadottGyogyszer);
+            }
         }
     }
 }

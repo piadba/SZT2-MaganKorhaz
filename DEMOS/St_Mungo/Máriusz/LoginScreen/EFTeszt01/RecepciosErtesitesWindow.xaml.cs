@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net.Mail;
 using System.Net;
+using EFTeszt01.EmailKuldoServiceReference;
 
 namespace EFTeszt01
 {
@@ -61,7 +62,7 @@ namespace EFTeszt01
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             mungoSystem.People.Load();
-
+            datePicker.SelectedDate = DateTime.Now;
             this.DataContext = recepciosViewModel;
             recepciosViewModel.IdopontAdatok.Clear();
 
@@ -73,31 +74,21 @@ namespace EFTeszt01
 
             Console.WriteLine();   //  TODO  WCF meghívása, formázott email küldése
 
-            var fromAddress = new MailAddress("szt2mungo@gmail.com", recepciosViewModel.SessionUser.Name);
-            var toAddress = new MailAddress("szt2mungo@gmail.com", idopontadatok.Nev);
-            const string fromPassword = "SZTMungo";
+            var fromName = recepciosViewModel.SessionUser.Name;
+            var toName = idopontadatok.Nev;
+
+            var fromAddress = "szt2mungo@gmail.com";
+            var toAddress = "szt2mungo@gmail.com";
+         
             string subject = "Értesítés időpontról";
             string body = "Tisztelt "+ idopontadatok.Nev + "!\nÖnnek foglalt időpontja van kórházunkban: "
                 + idopontadatok.Datum + "\nKezelőorvos neve: " +  idopontadatok.OrvosNev + "\n"+ megjegyzes
                 +"\n\nKöszönjük, hogy minket választott!\t Tisztelettel: "+ recepciosViewModel.SessionUser.Name;
 
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
-                Timeout = 20000
-            };
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body
-            })
-            {
-                smtp.Send(message);
-            }
+            EmailClient client = new EmailClient();
+            client.EmailKuldes(fromAddress, fromName, toAddress, toName, subject, body);
+
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

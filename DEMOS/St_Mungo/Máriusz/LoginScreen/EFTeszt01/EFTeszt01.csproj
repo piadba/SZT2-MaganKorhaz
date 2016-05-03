@@ -14,6 +14,21 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +60,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,6 +82,12 @@
     <Compile Include="ApoloLazlapWindow.xaml.cs">
       <DependentUpon>ApoloLazlapWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ApoloMuszak.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Betegek.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="Beteg\Controller\BetegMainController.cs" />
     <Compile Include="Beteg\Controller\DBController.cs" />
     <Compile Include="Beteg\Model\BetegAdatok.cs" />
@@ -82,18 +104,77 @@
       <DependentUpon>GazdAlkGyogyszer.xaml</DependentUpon>
     </Compile>
     <Compile Include="getStateToColorConverter.cs" />
+    <Compile Include="Gyogyszer.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
     <Compile Include="GyogyszerIDNevKonverter.cs" />
-    <Compile Include="IdopontKezelo.xaml.cs">
-      <DependentUpon>IdopontKezelo.xaml</DependentUpon>
+    <Compile Include="Idopontok.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KiadottGyogyszer.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KorhaziEszkoz.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KorhaziEszkozok_Fej.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kortortenet_fej.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="Kortortenet_tetel.cs">
       <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
+    <Compile Include="Lazlap.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookUps.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MungoSystem.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MungoSystem.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MungoSystem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MungoSystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MungoSystem.edmx</DependentUpon>
+    </Compile>
     <Compile Include="OrvosAsszisztensGyogyszerKapcsolat.cs" />
+    <Compile Include="People.cs">
+      <DependentUpon>MungoSystem.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosBetegModositoWindow.xaml.cs">
+      <DependentUpon>RecepciosBetegModositoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosBetegRegisztracioMainWindow.xaml.cs">
+      <DependentUpon>RecepciosBetegRegisztracioMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosErtesitesWindow.xaml.cs">
+      <DependentUpon>RecepciosErtesitesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosIdopontKezeloWindow.xaml.cs">
+      <DependentUpon>RecepciosIdopontKezeloWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecepciosIdopontSzerkesztoWindow.xaml.cs">
+      <DependentUpon>RecepciosIdopontSzerkesztoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RecepciosMainWindow.xaml.cs">
       <DependentUpon>RecepciosMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RecepciosViewModel.cs" />
+    <Compile Include="Service References\EmailKuldoServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ThresholdTocolorConverter.cs" />
     <Page Include="AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -135,14 +216,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IdopontKezelo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IdopontSzerkeszto.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="IgenyMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,9 +226,6 @@
     </Page>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ApoloMuszak.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
     </Compile>
     <Compile Include="ApoloMuszakButtonConverter.cs" />
     <Compile Include="ApoloMainWindow.xaml.cs">
@@ -168,9 +238,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Betegek.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
     <Compile Include="BetegNevKonverter.cs" />
     <Compile Include="EszkozAddModWindow.xaml.cs">
       <DependentUpon>EszkozAddModWindow.xaml</DependentUpon>
@@ -182,37 +249,10 @@
     <Compile Include="GazdAlkMainWindow.xaml.cs">
       <DependentUpon>GazdAlkMainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gyogyszer.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Idopontok.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="IdopontSzerkeszto.xaml.cs">
-      <DependentUpon>IdopontSzerkeszto.xaml</DependentUpon>
-    </Compile>
     <Compile Include="IgenyMainWindow.xaml.cs">
       <DependentUpon>IgenyMainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="KezelesKonverter.cs" />
-    <Compile Include="KiadottGyogyszer.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KorhaziEszkoz.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="KorhaziEszkozok_Fej.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Kortortenet_fej.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Lazlap.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="LookUps.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -241,27 +281,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="RecepciosBetegModositoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosBetegRegisztracioMainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosErtesitesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosIdopontKezeloWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RecepciosIdopontSzerkesztoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="RecepciosMainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MungoSystem.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MungoSystem.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MungoSystem.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MungoSystem.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MungoSystem.edmx</DependentUpon>
-    </Compile>
     <Compile Include="OrvosAsszisztensFelhModWindow.xaml.cs" />
     <Compile Include="OrvosAsszisztensGyogyszerWindow.xaml.cs">
       <DependentUpon>OrvosAsszisztensGyogyszerWindow.xaml</DependentUpon>
@@ -275,9 +320,6 @@
     <Compile Include="OrvosAsszisztensUjBetegWindow.xaml.cs" />
     <Compile Include="OrvosAsszisztensWindow.xaml.cs" />
     <Compile Include="OrvosViewModel.cs" />
-    <Compile Include="People.cs">
-      <DependentUpon>MungoSystem.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -308,14 +350,18 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\EmailKuldoServiceReference\EmailKuldoService.wsdl" />
+    <None Include="Service References\EmailKuldoServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmailKuldoServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="HOSPICON.png" />
-    <Resource Include="bluecross.png" />
-    <Resource Include="Beteg\View\icon-user-default.png" />
     <Content Include="MungoSystem.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MungoSystem.edmx</DependentUpon>
@@ -326,11 +372,45 @@
       <DependentUpon>MungoSystem.edmx</DependentUpon>
       <LastGenOutput>MungoSystem.cs</LastGenOutput>
     </Content>
+    <None Include="Service References\EmailKuldoServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EmailKuldoServiceReference\configuration.svcinfo" />
+    <None Include="Service References\EmailKuldoServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\EmailKuldoServiceReference\item.disco" />
+    <Resource Include="HOSPICON.png" />
+    <Resource Include="bluecross.png" />
+    <Resource Include="Beteg\View\icon-user-default.png" />
+    <Content Include="MungoDatabase.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MungoDatabase_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>MungoDatabase.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EmailKuldoServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

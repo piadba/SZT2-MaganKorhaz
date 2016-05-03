@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFTeszt01", "EFTeszt01\EFTeszt01.csproj", "{BDFE513E-615D-4617-844B-81420988C89D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailKuldo", "EmailKuldo\EmailKuldo.csproj", "{E75DCD52-15E5-4970-87E5-AE58FB708FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailKuldoHost", "EmailKuldoHost\EmailKuldoHost.csproj", "{E2DBF3D8-707D-4938-B834-2082DEB6F942}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BDFE513E-615D-4617-844B-81420988C89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDFE513E-615D-4617-844B-81420988C89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDFE513E-615D-4617-844B-81420988C89D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E75DCD52-15E5-4970-87E5-AE58FB708FB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E75DCD52-15E5-4970-87E5-AE58FB708FB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E75DCD52-15E5-4970-87E5-AE58FB708FB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E75DCD52-15E5-4970-87E5-AE58FB708FB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2DBF3D8-707D-4938-B834-2082DEB6F942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DBF3D8-707D-4938-B834-2082DEB6F942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DBF3D8-707D-4938-B834-2082DEB6F942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DBF3D8-707D-4938-B834-2082DEB6F942}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
