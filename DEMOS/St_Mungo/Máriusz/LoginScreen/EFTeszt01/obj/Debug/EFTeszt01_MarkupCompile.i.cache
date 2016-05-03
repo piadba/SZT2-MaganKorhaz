@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\
 EFTeszt01
 none
 false
 DEBUG;TRACE
-e:\M\SZT2\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\App.xaml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\App.xaml
 211092019082
 2-1380222792
-6030981415
-181400246811
+60-526216768
+181045603422
 AdminWindow.xaml;ApoloLazlapWindow.xaml;ApoloMainWindow.xaml;Beteg\View\AdatMod_View.xaml;Beteg\View\BetegWindow.xaml;Beteg\View\Idopont_View.xaml;EszkozAddModWindow.xaml;EszkozGroupAddWindow.xaml;GazdAlkGyogyszer.xaml;GazdAlkMainWindow.xaml;IdopontKezelo.xaml;IdopontSzerkeszto.xaml;IgenyMainWindow.xaml;MainWindow.xaml;OrvosAsszisztensFelhModWindow.xaml;OrvosAsszisztensGyogyszerWindow.xaml;OrvosAsszisztensKezelesWindow.xaml;OrvosAsszisztensLazlapWindow.xaml;OrvosAsszisztensUjBetegWindow.xaml;OrvosAsszisztensWindow.xaml;RecepciosMainWindow.xaml;
 
 True
