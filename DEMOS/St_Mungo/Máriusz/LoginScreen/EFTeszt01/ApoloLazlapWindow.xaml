@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="{Binding Path=LazlapID, StringFormat=Lapszám: {0}}"  Height="519.913" Width="451.068" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Icon="HOSPICON.png" Loaded="Window_Loaded" Closed="Window_Closed">
+        Title="{Binding Path=LazlapID, StringFormat=Lapszám: {0}}"  Height="553.753" Width="451.068" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="HOSPICON.png" Loaded="Window_Loaded">
     <Grid>
         <Label x:Name="label" Content="Kiíró orvos:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="102"/>
         <TextBox x:Name="textBox" VerticalContentAlignment="Center" IsEnabled="False"  HorizontalAlignment="Left" Height="26" Margin="199,25,0,0" TextWrapping="Wrap" Text="{Binding Path=GetorvosNev, Mode=OneWay}" VerticalAlignment="Top" Width="184"/>
@@ -25,11 +25,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox x:Name="textboxApoloMegjegyzes" HorizontalAlignment="Left" Height="123" Margin="199,87,-20,0" TextWrapping="Wrap" Text="{Binding ApoloMegjegyzes}" VerticalAlignment="Top" Width="184"/>
+        <TextBox x:Name="textboxApoloMegjegyzes" HorizontalAlignment="Left" Height="123" Margin="199,87,-20,0" TextWrapping="Wrap" Text="{Binding ApoloMegjegyzes, UpdateSourceTrigger=Explicit}" VerticalAlignment="Top" Width="184"/>
         <Label x:Name="label1_Copy" Content="Ápolói megjegyzés: " HorizontalAlignment="Left" Margin="269,56,0,0" VerticalAlignment="Top" Width="114"/>
         <Button x:Name="moreGyogyszer" Content="+" HorizontalAlignment="Left" Height="25" Margin="388,246,0,0" VerticalAlignment="Top" Width="27" Click="moreGyogyszer_Click"/>
         <Button x:Name="lessGyogyszer" Content="-" HorizontalAlignment="Left" Height="25" Margin="388,276,0,0" VerticalAlignment="Top" Width="27" Click="lessGyogyszer_Click"/>
         <CheckBox HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="lezartCheckbox" Content="Lezárt?" HorizontalAlignment="Left" Margin="199,430,0,0" VerticalAlignment="Top" Height="28" Width="89"/>
+        <Button x:Name="button" Content="Mentés" HorizontalAlignment="Left" Margin="26,469,0,0" VerticalAlignment="Top" Width="168" Height="23" Click="button_Click"/>
+        <Button x:Name="button1" Content="Mégsem" HorizontalAlignment="Left" Margin="231,469,0,0" VerticalAlignment="Top" Width="152" Click="button1_Click"/>
 
 
     </Grid>

@@ -60,9 +60,12 @@ namespace EFTeszt01
                 LazlapListBox.IsEnabled = false;
                 foreach (Lazlap item in felvettLazlapok.ToList())
                 {
-                    item.ApoloID = null;
-                    item.Statusz = 7;
-                    lazlapok.Add(item);
+                    if (item.Statusz!=9)
+                    {
+                        item.ApoloID = null;
+                        item.Statusz = 7;
+                        lazlapok.Add(item);
+                    }
                     felvettLazlapok.Remove(item);
                 }
             }
@@ -128,8 +131,12 @@ namespace EFTeszt01
             {
                 Lazlap selected = (Lazlap)SelfLazlapListBox.SelectedItem;
                 selected.ApoloID = null;
-                selected.Statusz = 7;
-                lazlapok.Add(selected);
+
+                if (selected.Statusz!=9)
+                {
+                    selected.Statusz = 7;
+                    lazlapok.Add(selected);
+                }
                 felvettLazlapok.Remove(selected);
             }
             mungoSystem.SaveChanges();

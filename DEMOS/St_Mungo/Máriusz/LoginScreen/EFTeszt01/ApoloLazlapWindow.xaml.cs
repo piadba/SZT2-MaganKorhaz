@@ -25,6 +25,8 @@ namespace EFTeszt01
         Lazlap lazlap;
         People sessionUser;
         ObservableCollection<KiadottGyogyszer> lazlapGyogyszer;
+        string originalMegjegyzes;
+
         public ApoloLazlapWindow(Lazlap lazlap,People sessionUser,MungoSystem ms)
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace EFTeszt01
             this.sessionUser = sessionUser;
             this.ms = ms;
             this.DataContext = lazlap;
+            this.originalMegjegyzes = lazlap.ApoloMegjegyzes;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -98,13 +101,35 @@ namespace EFTeszt01
             }
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+      
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            if (lezartCheckbox.IsChecked==true)
+            if (lezartCheckbox.IsChecked == true)
             {
-                lazlap.Statusz = 9;
-                ms.SaveChanges();
+                foreach (var item in listboxGyogyszerek.ItemsSource)
+                {
+                    KiadottGyogyszer kgy = (KiadottGyogyszer)item;
+                    if (kgy.Hasznalt==null || kgy.Hasznalt<kgy.Mennyiseg)
+                    {
+                        MessageBox.Show("Nem adott ki minden gyógyszert!");
+                        return;
+                    }
+                }
+                lazlap.Statusz = 9;           
             }
+            else
+            {
+                lazlap.Statusz = 8;
+            }
+            textboxApoloMegjegyzes.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            //ms.SaveChanges();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            lazlap.ApoloMegjegyzes = originalMegjegyzes;
+            this.Close();
         }
     }
 }
