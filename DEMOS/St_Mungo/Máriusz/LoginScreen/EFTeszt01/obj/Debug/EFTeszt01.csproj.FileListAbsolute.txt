@@ -532,5 +532,3 @@ C:\Users\andras\Documents\GitHub\work0503LOCAL\SZT2-MaganKorhaz\DEMOS\St_Mungo\M
 C:\Users\andras\Documents\GitHub\work0503LOCAL\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.g.resources
 C:\Users\andras\Documents\GitHub\work0503LOCAL\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.Properties.Resources.resources
 C:\Users\andras\Documents\GitHub\work0503LOCAL\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.csproj.GenerateResource.Cache
-C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\bin\Debug\MungoDatabase.mdf
-C:\Users\andras\Documents\GitHub\ujclone\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\bin\Debug\MungoDatabase_log.ldf
