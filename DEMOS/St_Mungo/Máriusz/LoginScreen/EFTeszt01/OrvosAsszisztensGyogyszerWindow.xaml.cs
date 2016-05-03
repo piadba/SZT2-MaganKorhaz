@@ -54,7 +54,9 @@ namespace EFTeszt01
                         {
                             if (LazlapVagyOrvos)
                             {
-                                ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
+                                
+                                int megfeleloForrasid = ovm.GetLazlapID(ovm.SelectedBeteg.PeopleID);
+                                ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = megfeleloForrasid, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
                                 ovm.GyogyszerBeszurasTortent();
                             }
                             else

@@ -108,7 +108,8 @@ namespace EFTeszt01
         private void kijelentkezesBTN_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mw = new MainWindow();
-            this.Hide();
+            this.Close();
+            ovm.SelectedBeteg = null;
             mw.ShowDialog();
         }
 
@@ -119,6 +120,8 @@ namespace EFTeszt01
                 OrvosAsszisztensGyogyszerWindow ogyw = new OrvosAsszisztensGyogyszerWindow(false);
                 ogyw.ShowDialog();
             }
+            else
+                MessageBox.Show("Nincs kijelölt beteg!");
         }
 
         private void gyogydelBTN_Click(object sender, RoutedEventArgs e)
@@ -127,6 +130,8 @@ namespace EFTeszt01
             {
                 ovm.OrvosGyogyszerTorles(orvosGyogyLST.SelectedItem as KiadottGyogyszer);
             }
+            else
+                MessageBox.Show("Nincs kijelölt beteg!");
         }
     }
 }

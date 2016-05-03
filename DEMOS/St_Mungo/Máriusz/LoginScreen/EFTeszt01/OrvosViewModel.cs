@@ -269,9 +269,10 @@ namespace EFTeszt01
         }
         void SelectionChanged() {
 
-            selectedBeteg = BetegTabla.Where(b => b.Deleted == 0 && b.PeopleID == selectedPeopleBeteg.PeopleID).First();
             try
             {
+                selectedBeteg = BetegTabla.Where(b => b.Deleted == 0 && b.PeopleID == selectedPeopleBeteg.PeopleID).First();
+
                 selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
                 SelectedKorlapTetel = new ObservableCollection<Kortortenet_tetel>(KortortenetTetel.Where(kt => kt.Deleted == 0 && kt.KortortenetFejID == selectedKorlapFej.KortortenetFejID));
                 OnPropChanged("selectedKorlapTetel");
@@ -282,8 +283,12 @@ namespace EFTeszt01
 
                 //Mentes();
                 //MungoSystemInitial(ms);
+                try
+                {
                     selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
-                OnPropChanged("selectedKorlapTetel");
+                    OnPropChanged("selectedKorlapTetel");
+                }
+                catch { }
             }
         }
         public void Ujbeteg(People beteg, string taj) {
@@ -332,6 +337,9 @@ namespace EFTeszt01
                 catch
                 {
                     betegLazlapja = new Lazlap() { BetegID = selectedBeteg.BetegID, Deleted = 0, OrvosID = orvos.PeopleID, OrvosMegjegyzes = "Nincs megjegyzés.", ApoloMegjegyzes = "Nincs megjegyzés." };
+                    ms.Lazlap.Add(betegLazlapja);
+                    Mentes();
+                    ms.Lazlap.Load();
                 }
                 finally { OnPropChanged("betegLazlapja"); }
             }
@@ -497,6 +505,12 @@ namespace EFTeszt01
                 OrvosGyogyszerKiadas();
             }
             catch { }
+        }
+
+        public int GetLazlapID(int betegid) {
+            betegid = ms.Betegek.Local.Where(x => x.Deleted == 0 && x.PeopleID == betegid).First().BetegID;
+            int lazlapid = ms.Lazlap.Local.Where(x=> x.Deleted == 0 && x.BetegID == betegid).First().LazlapID;
+            return lazlapid;
         }
 
     }
