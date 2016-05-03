@@ -1,0 +1,22 @@
+~15 perc    
+
+Prezentáció ppt / prezi / akármi
+Mit csináltunk? Szoftverfejlesztés folyamat, tervezés, implementációnál,
+Milyen technológiák? Fejlesztõeszközök?
+Milyen problémákba ütköztünk tervezés / implementáció?
+Milyen megoldási lehetõségeket tártunk fel?
+Melyiket választottuk?
+
+Mérnöki szemlélet  (probléma, megoládsok, mit választ, azért mert…)
+Tesztelés
+Milyen tesztek? Milyen sikerességgel?
+
+Formai rész:
+Normális kinézet
+Ergonómia alapelvek
+Jól olvasható, kontrasztarány
+Ne legyen nagyon csicsás
+Ne írjunk hosszú körmondatokat, elõadás alátámasztása (beszéd)
+Ábra + kép + diagram (vizuális dolgok)
+
+Elkészült szoftver bemutatása mûködés közben
