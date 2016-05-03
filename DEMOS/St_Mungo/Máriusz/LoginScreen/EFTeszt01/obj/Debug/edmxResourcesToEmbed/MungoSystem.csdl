@@ -1,42 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="St_MungoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="People">
+<Schema Namespace="MungoDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ApoloMuszak">
     <Key>
-      <PropertyRef Name="PeopleID" />
+      <PropertyRef Name="ApoloMuszakID" />
     </Key>
-    <Property Name="PeopleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Group" Type="Int32" />
+    <Property Name="ApoloMuszakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PeopleID" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Byte" />
-    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Gender" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityContainer Name="MungoSystem" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="People" EntityType="Self.People" />
-    <EntitySet Name="LookUps" EntityType="St_MungoModel.LookUps" />
-    <EntitySet Name="Betegek" EntityType="St_MungoModel.Betegek" />
-    <EntitySet Name="Kortortenet_fej" EntityType="St_MungoModel.Kortortenet_fej" />
-    <EntitySet Name="Gyogyszer" EntityType="St_MungoModel.Gyogyszer" />
-    <EntitySet Name="Lazlap" EntityType="St_MungoModel.Lazlap" />
-    <EntitySet Name="Idopontok" EntityType="St_MungoModel.Idopontok" />
-    <EntitySet Name="KorhaziEszkoz" EntityType="St_MungoModel.KorhaziEszkoz" />
-    <EntitySet Name="KorhaziEszkozok_Fej" EntityType="St_MungoModel.KorhaziEszkozok_Fej" />
-    <EntitySet Name="KiadottGyogyszer" EntityType="St_MungoModel.KiadottGyogyszer" />
-    <EntitySet Name="ApoloMuszak" EntityType="St_MungoModel.ApoloMuszak" />
-    <EntitySet Name="Kortortenet_tetel" EntityType="St_MungoModel.Kortortenet_tetel" />
-  </EntityContainer>
-  <EntityType Name="LookUps">
-    <Key>
-      <PropertyRef Name="LookupID" />
-    </Key>
-    <Property Name="LookupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Deleted" Type="Byte" />
-    <Property Name="ObjectType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Betegek">
     <Key>
@@ -45,14 +17,6 @@
     <Property Name="BetegID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PeopleID" Type="Int32" />
     <Property Name="TAJ" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
-    <Property Name="Deleted" Type="Int16" />
-  </EntityType>
-  <EntityType Name="Kortortenet_fej">
-    <Key>
-      <PropertyRef Name="KortortenetFejID" />
-    </Key>
-    <Property Name="KortortenetFejID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BetegID" Type="Int32" />
     <Property Name="Deleted" Type="Int16" />
   </EntityType>
   <EntityType Name="Gyogyszer">
@@ -68,20 +32,6 @@
     <Property Name="Deleted" Type="Byte" />
     <Property Name="Threshold" Type="Int32" />
   </EntityType>
-  <EntityType Name="Lazlap">
-    <Key>
-      <PropertyRef Name="LazlapID" />
-    </Key>
-    <Property Name="LazlapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="BetegID" Type="Int32" />
-    <Property Name="OrvosID" Type="Int32" />
-    <Property Name="ApoloID" Type="Int32" />
-    <Property Name="OrvosMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ApoloMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="UtolsoFelvetelDatum" Type="DateTime" Precision="3" />
-    <Property Name="Statusz" Type="Int32" />
-    <Property Name="Deleted" Type="Byte" />
-  </EntityType>
   <EntityType Name="Idopontok">
     <Key>
       <PropertyRef Name="IdopontID" />
@@ -91,6 +41,19 @@
     <Property Name="OrvosID" Type="Int32" />
     <Property Name="Datum" Type="DateTime" Precision="3" />
     <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="KiadottGyogyszer">
+    <Key>
+      <PropertyRef Name="KiadottGyogyszer1" />
+    </Key>
+    <Property Name="KiadottGyogyszer1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ForrasID" Type="Int32" />
+    <Property Name="GyogyszerID" Type="Int32" />
+    <Property Name="Mennyiseg" Type="Int32" />
+    <Property Name="Statusz" Type="Int32" />
+    <Property Name="Datum" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Byte" />
+    <Property Name="Hasznalt" Type="Int32" />
   </EntityType>
   <EntityType Name="KorhaziEszkoz">
     <Key>
@@ -111,28 +74,13 @@
     <Property Name="Deleted" Type="Byte" />
     <Property Name="Statusz" Type="Boolean" />
   </EntityType>
-  <EntityType Name="KiadottGyogyszer">
+  <EntityType Name="Kortortenet_fej">
     <Key>
-      <PropertyRef Name="KiadottGyogyszer1" />
+      <PropertyRef Name="KortortenetFejID" />
     </Key>
-    <Property Name="KiadottGyogyszer1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ForrasID" Type="Int32" />
-    <Property Name="GyogyszerID" Type="Int32" />
-    <Property Name="Mennyiseg" Type="Int32" />
-    <Property Name="Statusz" Type="Int32" />
-    <Property Name="Datum" Type="DateTime" Precision="3" />
-    <Property Name="Deleted" Type="Byte" />
-    <Property Name="Hasznalt" Type="Int32" />
-  </EntityType>
-  <EntityType Name="ApoloMuszak">
-    <Key>
-      <PropertyRef Name="ApoloMuszakID" />
-    </Key>
-    <Property Name="ApoloMuszakID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PeopleID" Type="Int32" />
-    <Property Name="StartDate" Type="DateTime" Precision="3" />
-    <Property Name="EndDate" Type="DateTime" Precision="3" />
-    <Property Name="Deleted" Type="Byte" />
+    <Property Name="KortortenetFejID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BetegID" Type="Int32" />
+    <Property Name="Deleted" Type="Int16" />
   </EntityType>
   <EntityType Name="Kortortenet_tetel">
     <Key>
@@ -145,4 +93,56 @@
     <Property Name="Kezeles" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Deleted" Type="Int16" />
   </EntityType>
+  <EntityType Name="Lazlap">
+    <Key>
+      <PropertyRef Name="LazlapID" />
+    </Key>
+    <Property Name="LazlapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BetegID" Type="Int32" />
+    <Property Name="OrvosID" Type="Int32" />
+    <Property Name="ApoloID" Type="Int32" />
+    <Property Name="OrvosMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApoloMegjegyzes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UtolsoFelvetelDatum" Type="DateTime" Precision="3" />
+    <Property Name="Statusz" Type="Int32" />
+    <Property Name="Deleted" Type="Byte" />
+  </EntityType>
+  <EntityType Name="LookUps">
+    <Key>
+      <PropertyRef Name="LookupID" />
+    </Key>
+    <Property Name="LookupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="Byte" />
+    <Property Name="ObjectType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PeopleID" />
+    </Key>
+    <Property Name="PeopleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Group" Type="Int32" />
+    <Property Name="Deleted" Type="Byte" />
+    <Property Name="Name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="MungoDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ApoloMuszak" EntityType="Self.ApoloMuszak" />
+    <EntitySet Name="Betegek" EntityType="Self.Betegek" />
+    <EntitySet Name="Gyogyszer" EntityType="Self.Gyogyszer" />
+    <EntitySet Name="Idopontok" EntityType="Self.Idopontok" />
+    <EntitySet Name="KiadottGyogyszer" EntityType="Self.KiadottGyogyszer" />
+    <EntitySet Name="KorhaziEszkoz" EntityType="Self.KorhaziEszkoz" />
+    <EntitySet Name="KorhaziEszkozok_Fej" EntityType="Self.KorhaziEszkozok_Fej" />
+    <EntitySet Name="Kortortenet_fej" EntityType="Self.Kortortenet_fej" />
+    <EntitySet Name="Kortortenet_tetel" EntityType="Self.Kortortenet_tetel" />
+    <EntitySet Name="Lazlap" EntityType="Self.Lazlap" />
+    <EntitySet Name="LookUps" EntityType="Self.LookUps" />
+    <EntitySet Name="People" EntityType="Self.People" />
+  </EntityContainer>
 </Schema>

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\
+C:\Users\andras\Documents\GitHub\work0503\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\
 EFTeszt01
 none
 false
 DEBUG;TRACE
-C:\Users\Ádám\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\App.xaml
+C:\Users\andras\Documents\GitHub\work0503\St_Mungo\Máriusz\LoginScreen\EFTeszt01\App.xaml
 241742572132
-2-1380222792
-64187423844
-19-567885295
+41451891006
+64-704810217
+19526297474
 AdminWindow.xaml;ApoloLazlapWindow.xaml;ApoloMainWindow.xaml;Beteg\View\AdatMod_View.xaml;Beteg\View\BetegWindow.xaml;Beteg\View\Idopont_View.xaml;EszkozAddModWindow.xaml;EszkozGroupAddWindow.xaml;GazdAlkGyogyszer.xaml;GazdAlkMainWindow.xaml;IgenyMainWindow.xaml;MainWindow.xaml;OrvosAsszisztensFelhModWindow.xaml;OrvosAsszisztensGyogyszerWindow.xaml;OrvosAsszisztensKezelesWindow.xaml;OrvosAsszisztensLazlapWindow.xaml;OrvosAsszisztensUjBetegWindow.xaml;OrvosAsszisztensWindow.xaml;RecepciosBetegModositoWindow.xaml;RecepciosBetegRegisztracioMainWindow.xaml;RecepciosErtesitesWindow.xaml;RecepciosIdopontKezeloWindow.xaml;RecepciosIdopontSzerkesztoWindow.xaml;RecepciosMainWindow.xaml;
 
-True
+False
 
