@@ -23,7 +23,6 @@ namespace EFTeszt01
         bool AddMod;
         public OrvosAsszisztensKezelesWindow(bool addmod)
         {
-          
             this.AddMod = addmod;
             ovm = OrvosViewModel.Get();
             InitializeComponent();
@@ -47,12 +46,12 @@ namespace EFTeszt01
             if (AddMod)
             {
 
-                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = ovm.OrvosName2Id(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = ovm.SelectedKezeles.Deleted, KortortenetFejID = ovm.SelectedKezeles.KortortenetFejID, KortortenetTetelID = ovm.SelectedKezeles.KortortenetTetelID };
+                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = int.Parse(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = ovm.SelectedKezeles.Deleted, KortortenetFejID = ovm.SelectedKezeles.KortortenetFejID, KortortenetTetelID = ovm.SelectedKezeles.KortortenetTetelID };
 
                 ovm.KezelesModositas(kt);
             }
             else{
-                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = ovm.OrvosName2Id(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = 0};
+                Kortortenet_tetel kt = new Kortortenet_tetel() { Datum = datumDP.SelectedDate, Orvos = int.Parse(orvosTB.Text), Kezeles = kezlesTB.Text, Deleted = 0};
                 ovm.KezelesLetrehozas(kt);
             }
             this.Close();
@@ -62,13 +61,6 @@ namespace EFTeszt01
         {
             this.Close();
         }
-
-        private void orvosGyogyLST_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-       
 
     }
 }

@@ -21,11 +21,9 @@ namespace EFTeszt01
     public partial class OrvosAsszisztensGyogyszerWindow : Window
     {
         OrvosViewModel ovm;
-        bool LazlapVagyOrvos;
-        public OrvosAsszisztensGyogyszerWindow(bool lvo)
+        public OrvosAsszisztensGyogyszerWindow()
         {
             InitializeComponent();
-            LazlapVagyOrvos = lvo;
             this.ovm = OrvosViewModel.Get();
             this.DataContext = ovm;
             ObservableCollection<Gyogyszer> comboSource = new ObservableCollection<Gyogyszer>(ovm.Gyogyszerek.Where(x => x.Deleted == 0));
@@ -50,19 +48,14 @@ namespace EFTeszt01
                         int mennyiseg = int.Parse(mennyTB.Text);
                         if (ovm.GyogyszerMennyisegMod(mennyiseg, id))
                         {
-                            if (LazlapVagyOrvos)
-                            {
-                                ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
-                                ovm.GyogyszerBeszurasTortent();
-                            }
-                            else
-                            {
-                                ovm.OrvosGyogyszerBeszuras(new KiadottGyogyszer() {GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 10 });
-                            }
-                            this.Close();
+
+                            ovm.BetegGyogyszerei.Add(new KiadottGyogyszer() { ForrasID = ovm.BetegLazlapja.LazlapID, GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 11 });
+                            ovm.GyogyszerBeszurasTortent();
                         }
                         else { MessageBox.Show("Nincs elegendő, vagy nem létezik a gyógyszer!"); }
-                    }                    
+                    }
+                    this.Close();
+
                 }
                 catch {
                     MessageBox.Show("HIBA: nem megfelelő a mennyiség formátuma!");
