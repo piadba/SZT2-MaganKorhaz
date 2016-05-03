@@ -155,5 +155,20 @@ namespace EFTeszt01
                 
             }
         }
+
+        private void buttonLazlapMod_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelfLazlapListBox.SelectedItem==null)
+            {
+                MessageBox.Show("Nincs kijelölt lázlap!");
+            }
+            else
+            {
+                ApoloLazlapWindow alw = new ApoloLazlapWindow
+                     ((Lazlap)SelfLazlapListBox.SelectedItem, sessionUser, mungoSystem);
+                alw.ShowDialog();
+            }
+            mungoSystem.SaveChanges();
+        }
     }
 }
