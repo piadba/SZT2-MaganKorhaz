@@ -24,6 +24,7 @@
         <Button x:Name="button" Content="Értesítés" HorizontalAlignment="Left" Height="21" Margin="232,268,0,0" VerticalAlignment="Top" Width="92" Click="button_Click"/>
         <Button x:Name="button1" Content="Listázás" HorizontalAlignment="Left" Margin="248,45,0,0" VerticalAlignment="Top" Width="63" Click="button1_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="78" Margin="10,185,0,0" TextWrapping="Wrap" Text="Megjegyzés..." VerticalAlignment="Top" Width="386"/>
+        <Button x:Name="visszaButton" Content="Vissza" HorizontalAlignment="Left" Height="23" Margin="58,268,0,0" VerticalAlignment="Top" Width="86"/>
 
     </Grid>
 </Window>

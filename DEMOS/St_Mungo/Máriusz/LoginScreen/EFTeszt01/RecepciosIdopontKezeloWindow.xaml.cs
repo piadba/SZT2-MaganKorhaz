@@ -32,20 +32,25 @@ namespace EFTeszt01
             mungoSystem = recepciosViewModel.MungoSystem;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        void initWindow()
         {
-           
             mungoSystem.People.Load();
             datePicker.SelectedDate = DateTime.Now;
             this.DataContext = recepciosViewModel;
             recepciosViewModel.Orvosok.Clear();
-            var orvosadatok = mungoSystem.People.Local.Where(x => x.Group == 2 && x.Deleted==0);
-            
+            var orvosadatok = mungoSystem.People.Local.Where(x => x.Group == 2 && x.Deleted == 0);
+
             foreach (var p in orvosadatok)
             {
                 recepciosViewModel.Orvosok.Add(p);
             }
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            initWindow();
            
             
         }
@@ -92,10 +97,15 @@ namespace EFTeszt01
             RecepciosIdopontSzerkesztoWindow isz = new RecepciosIdopontSzerkesztoWindow(recepciosViewModel, ip);
            
             isz.ShowDialog();
+            initWindow();
+
  
         }
 
-
+        private void visszaButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 
 

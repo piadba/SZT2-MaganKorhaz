@@ -76,5 +76,10 @@ namespace EFTeszt01
             else
                 MessageBox.Show("Nincs kiválasztott beteg");
         }
+
+        private void visszaButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 }

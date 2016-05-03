@@ -25,7 +25,7 @@
                 <DataTemplate>
                     <DockPanel>
 
-                        <Label Content="{Binding Datum}" ContentStringFormat="Idő: {0:hh24:mm}" />
+                        <Label Content="{Binding Datum}" ContentStringFormat="Idő: {0:HH:mm}" />
                         <Label Content="{Binding TAJ}" ContentStringFormat="TAJ: {0}" />
                         <Label Content="{Binding Nev}" ContentStringFormat="Beteg neve: {0}" />
                     </DockPanel>
@@ -33,6 +33,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="button1" Content="Időpont foglalás / módosítás" HorizontalAlignment="Left" Height="25" Margin="220,260,0,0" VerticalAlignment="Top" Width="169" Click="button1_Click"/>
+        <Button x:Name="visszaButton" Content="Vissza" HorizontalAlignment="Left" Height="23" Margin="24,264,0,0" VerticalAlignment="Top" Width="75" Click="visszaButton_Click"/>
 
     </Grid>
 </Window>

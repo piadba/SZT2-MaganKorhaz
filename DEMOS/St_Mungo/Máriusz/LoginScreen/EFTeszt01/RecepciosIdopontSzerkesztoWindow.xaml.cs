@@ -74,7 +74,10 @@ namespace EFTeszt01
           
         }
 
-  
+        private void visszaButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
     }
 
 

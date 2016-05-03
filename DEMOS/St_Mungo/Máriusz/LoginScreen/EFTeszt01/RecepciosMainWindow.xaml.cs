@@ -37,7 +37,10 @@ namespace EFTeszt01
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            MainWindow mw = new MainWindow();
+            this.Close();
+         
+            mw.ShowDialog();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

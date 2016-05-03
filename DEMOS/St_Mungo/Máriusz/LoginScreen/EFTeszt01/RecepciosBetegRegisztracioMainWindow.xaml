@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="Beteg regisztráció / adatmódosítás felület" Height="300" Width="361.111" Loaded="Window_Loaded" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Beteg regisztráció / adatmódosítás felület" Height="300" Width="413.437" Loaded="Window_Loaded" Icon="HOSPICON.png" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="212" Margin="10,10,0,0" VerticalAlignment="Top" Width="333" ItemsSource="{Binding Betegek}">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="212" Margin="10,10,0,0" VerticalAlignment="Top" Width="387" ItemsSource="{Binding Betegek}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>
@@ -17,8 +17,9 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="modositasButton" Content="Kiválasztott módosítása" HorizontalAlignment="Left" Height="32" Margin="189,227,0,0" VerticalAlignment="Top" Width="145" Click="modositasButton_Click"/>
-        <Button x:Name="ujButton" Content="Új beteg regisztráció" HorizontalAlignment="Left" Height="32" Margin="24,227,0,0" VerticalAlignment="Top" Width="143" Click="ujButton_Click"/>
+        <Button x:Name="modositasButton" Content="Kiválasztott módosítása" HorizontalAlignment="Left" Height="32" Margin="263,227,0,0" VerticalAlignment="Top" Width="134" Click="modositasButton_Click"/>
+        <Button x:Name="ujButton" Content="Új beteg regisztráció" HorizontalAlignment="Left" Height="32" Margin="107,229,0,0" VerticalAlignment="Top" Width="143" Click="ujButton_Click"/>
+        <Button x:Name="visszaButton" Content="Vissza" HorizontalAlignment="Left" Height="30" Margin="10,229,0,0" VerticalAlignment="Top" Width="76" Click="visszaButton_Click"/>
 
     </Grid>
 </Window>
