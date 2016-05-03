@@ -276,7 +276,7 @@ namespace EFTeszt01
 
                 //Mentes();
                 //MungoSystemInitial(ms);
-                selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
+                    selectedKorlapFej = KortortenetFej.Where(k => k.Deleted == 0 && k.BetegID == selectedBeteg.BetegID).First();
                 OnPropChanged("selectedKorlapTetel");
             }
         }
@@ -460,15 +460,15 @@ namespace EFTeszt01
         }
 
         public void OrvosGyogyszerKiadas() {
-            //try
-            //{
+            try
+            {
                 ms.KiadottGyogyszer.Load();
                 Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
                 Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
                 OrvosBetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.Statusz == 10 && x.ForrasID == laz.LazlapID));
                 
-            //}
-            //catch { }
+            }
+            catch { }
         }
         public void OrvosGyogyszerBeszuras(KiadottGyogyszer kgy) {
             Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();

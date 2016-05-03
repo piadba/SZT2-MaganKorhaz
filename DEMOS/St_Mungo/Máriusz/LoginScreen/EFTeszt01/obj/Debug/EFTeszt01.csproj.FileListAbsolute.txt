@@ -157,8 +157,6 @@ C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScr
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozAddModWindow.g.cs
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozGroupAddWindow.g.cs
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkMainWindow.g.cs
-C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IdopontKezelo.g.cs
-C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IdopontSzerkeszto.g.cs
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IgenyMainWindow.g.cs
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\MainWindow.g.cs
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensFelhModWindow.g.cs
@@ -185,8 +183,6 @@ C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScr
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozAddModWindow.baml
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EszkozGroupAddWindow.baml
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\GazdAlkMainWindow.baml
-C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IdopontKezelo.baml
-C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IdopontSzerkeszto.baml
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\IgenyMainWindow.baml
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\MainWindow.baml
 C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\OrvosAsszisztensFelhModWindow.baml
@@ -466,3 +462,15 @@ C:\Users\andras\Documents\GitHub\work0503\St_Mungo\Máriusz\LoginScreen\EFTeszt0
 C:\Users\andras\Documents\GitHub\work0503\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.g.resources
 C:\Users\andras\Documents\GitHub\work0503\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.Properties.Resources.resources
 C:\Users\andras\Documents\GitHub\work0503\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\EFTeszt01.csproj.GenerateResource.Cache
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\bin\Debug\MungoDatabase.mdf
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\bin\Debug\MungoDatabase_log.ldf
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosBetegModositoWindow.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosBetegRegisztracioMainWindow.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosErtesitesWindow.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosIdopontKezeloWindow.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosIdopontSzerkesztoWindow.g.cs
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosBetegModositoWindow.baml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosBetegRegisztracioMainWindow.baml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosErtesitesWindow.baml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosIdopontKezeloWindow.baml
+C:\Users\adam\Documents\GitHub\SZT2-MaganKorhaz\DEMOS\St_Mungo\Máriusz\LoginScreen\EFTeszt01\obj\Debug\RecepciosIdopontSzerkesztoWindow.baml
