@@ -5,17 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="{Binding Path=LazlapID, StringFormat=Lapszám: {0}}"  Height="390.698" Width="353.821" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
-        Icon="HOSPICON.png">
+        Title="{Binding Path=LazlapID, StringFormat=Lapszám: {0}}"  Height="476.235" Width="411.617" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="HOSPICON.png" Loaded="Window_Loaded">
     <Grid>
         <Label x:Name="label" Content="Kiíró orvos:" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="102"/>
-        <TextBox x:Name="textBox" VerticalContentAlignment="Center" IsEnabled="False"  HorizontalAlignment="Left" Height="26" Margin="213,25,0,0" TextWrapping="Wrap" Text="{Binding Path=GetorvosNev, Mode=OneWay}" VerticalAlignment="Top" Width="125"/>
-        <Label x:Name="label_Copy" Content="Kezelendő beteg:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="102"/>
-        <TextBox VerticalContentAlignment="Center"  x:Name="textBox_Copy" IsEnabled="False"  HorizontalAlignment="Left" Height="26" Margin="213,132,0,0" TextWrapping="Wrap" Text="{Binding GetBetegNev, Mode=OneWay}" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.531,2.025"/>
+        <TextBox x:Name="textBox" VerticalContentAlignment="Center" IsEnabled="False"  HorizontalAlignment="Left" Height="26" Margin="199,25,0,0" TextWrapping="Wrap" Text="{Binding Path=GetorvosNev, Mode=OneWay}" VerticalAlignment="Top" Width="184"/>
+        <Label x:Name="label_Copy" Content="Kezelendő beteg:" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="102"/>
+        <TextBox VerticalContentAlignment="Center"  x:Name="textBox_Copy" IsEnabled="False"  HorizontalAlignment="Left" Height="26" Margin="199,215,0,0" TextWrapping="Wrap" Text="{Binding GetBetegNev, Mode=OneWay}" VerticalAlignment="Top" Width="184" RenderTransformOrigin="0.531,2.025"/>
         <Label x:Name="label1" Content="Orvos megjegyzés: " HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="114"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="71" Margin="213,56,0,0" TextWrapping="Wrap" Text="{Binding Path=OrvosMegjegyzes}" IsEnabled="False" VerticalAlignment="Top" Width="125"/>
-        <Label x:Name="label2" Content="Felírt gyógyszerek" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top" Width="126"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="179" Margin="172,163,0,0" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="123" Margin="10,87,0,0" TextWrapping="Wrap" Text="{Binding Path=OrvosMegjegyzes}" IsEnabled="False" VerticalAlignment="Top" Width="184"/>
+        <Label x:Name="label2" Content="Felírt gyógyszerek" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top" Width="126"/>
+        <ListBox x:Name="listboxGyogyszerek" HorizontalAlignment="Left" Height="179" Margin="199,246,0,0" VerticalAlignment="Top" Width="184">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Label Content="{Binding Path=getGyogyszernev}"/>
+                        <Label Content="{Binding Path=getMennyiseg}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox x:Name="textboxApoloMegjegyzes" HorizontalAlignment="Left" Height="123" Margin="199,87,-20,0" TextWrapping="Wrap" Text="{Binding ApoloMegjegyzes}" IsEnabled="False" VerticalAlignment="Top" Width="184"/>
+        <Label x:Name="label1_Copy" Content="Ápolói megjegyzés: " HorizontalAlignment="Left" Margin="269,56,0,0" VerticalAlignment="Top" Width="114"/>
 
 
     </Grid>

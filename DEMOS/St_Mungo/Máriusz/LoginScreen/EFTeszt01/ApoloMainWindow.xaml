@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EFTeszt01"
         mc:Ignorable="d"
-        Title="{Binding Path=Name}" Height="648" Width="686.287" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="HOSPICON.png">
+        Title="{Binding Path=Name}" Height="648" Width="686.287" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="HOSPICON.png" ResizeMode="NoResize">
     <Window.Resources>
         <local:ApoloWindowOrvosID x:Key="ApoloWindowOrvosID"/>
         <local:ApoloWindowConverterBetegID x:Key="ApoloWindowConverterBetegID"/>
@@ -18,7 +18,7 @@
             <local:ApoloMuszakButtonConverter x:Key="ApoloMuszakButtonConverter"/>
             <local:ApoloWindowLazlapListboxisEnabledConverter x:Key="ApoloWindowLazlapListboxisEnabledConverter"/>
         </Grid.Resources>
-        <Button x:Name="button" Content="{Binding Path=PeopleID, Converter={StaticResource ApoloMuszakButtonConverter}}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="123" Click="button_Click"/>
+        <Button x:Name="button" Content="{Binding Path=PeopleID, Converter={StaticResource ApoloMuszakButtonConverter}}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="123" Click="button_Click"/>
         <ListBox x:Name="LazlapListBox" HorizontalAlignment="Left" Height="572" Margin="10,35,0,0" VerticalAlignment="Top" Width="272" IsEnabled="{Binding Path=PeopleID, Converter={StaticResource ApoloWindowLazlapListboxisEnabledConverter}}" ToolTip="{Binding Path=MegjegyzesTT}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -48,5 +48,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="buttonLazlapMod" Content="Lázlap módosítás" HorizontalAlignment="Left" Height="20" Margin="393,10,0,0" VerticalAlignment="Top" Width="149" Click="buttonLazlapMod_Click"/>
     </Grid>
 </Window>
