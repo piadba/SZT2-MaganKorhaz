@@ -38,6 +38,10 @@ namespace EFTeszt01
             datePicker.SelectedDate = DateTime.Now;
             this.DataContext = recepciosViewModel;
             recepciosViewModel.Orvosok.Clear();
+            recepciosViewModel.Idopontok.Clear();
+
+            recepciosViewModel.IdopontAdatok.Clear();
+
             var orvosadatok = mungoSystem.People.Local.Where(x => x.Group == 2 && x.Deleted == 0);
 
             foreach (var p in orvosadatok)
@@ -58,6 +62,8 @@ namespace EFTeszt01
         private void button_Click(object sender, RoutedEventArgs e)
         {
             mungoSystem.Idopontok.Load();
+
+  
 
             if (comboBox.SelectedIndex != -1)
             {

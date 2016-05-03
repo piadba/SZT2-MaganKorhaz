@@ -36,14 +36,16 @@ namespace EFTeszt01
             datumLbl.Content = idopont.Datum.Value.ToShortDateString() +" " + idopont.Datum.Value.ToShortTimeString();
             this.DataContext = recepciosViewModel;
 
+           
+
             mungoSystem.Betegek.Load();
 
             var betegek = from b in mungoSystem.Betegek
                           join p in mungoSystem.People on b.PeopleID equals p.PeopleID
                           where b.Deleted == 0 && p.Deleted==0
                           select new { TAJ = b.TAJ, Nev = p.Name, BetegID = b.BetegID, PeopleID = b.PeopleID };
-           
-            foreach(var b in betegek)
+            recepciosViewModel.Betegek.Clear();
+            foreach (var b in betegek)
             {
                 recepciosViewModel.Betegek.Add(new BetegAdatai { TAJ = b.TAJ, Nev = b.Nev, BetegID = b.BetegID, PeopleID = (int)b.PeopleID });
             }
