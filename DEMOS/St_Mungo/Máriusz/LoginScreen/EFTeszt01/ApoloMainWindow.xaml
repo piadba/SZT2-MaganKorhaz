@@ -49,5 +49,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button x:Name="buttonLazlapMod" Content="Lázlap módosítás" HorizontalAlignment="Left" Height="20" Margin="393,10,0,0" VerticalAlignment="Top" Width="149" Click="buttonLazlapMod_Click"/>
+        <Button x:Name="btnLogout" Content="Kijelentkezés" HorizontalAlignment="Left" Margin="556,10,0,0" VerticalAlignment="Top" Width="109" Click="btnLogout_Click"/>
     </Grid>
 </Window>

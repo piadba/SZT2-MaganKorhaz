@@ -61,7 +61,7 @@ namespace EFTeszt01
                             }
                             else
                             {
-                                ovm.OrvosGyogyszerBeszuras(new KiadottGyogyszer() { GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 10 });
+                                ovm.OrvosGyogyszerBeszuras(new KiadottGyogyszer() { GyogyszerID = id, Mennyiseg = mennyiseg, Deleted = 0, Statusz = 10});
                             }
                             this.Close();
                         }

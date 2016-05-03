@@ -292,8 +292,10 @@ namespace EFTeszt01
             }
         }
         public void Ujbeteg(People beteg, string taj) {
-            ++pID;
+            //++pID;
             ms.People.Local.Add(beteg);
+            Mentes();
+            pID = ms.People.OrderByDescending(x => x.PeopleID).First().PeopleID;
             ms.Betegek.Local.Add(new Betegek() {TAJ=taj, Deleted=0 , PeopleID=pID});
             //ms.Kortortenet_fej.Local.Add(new Kortortenet_fej() { Deleted = 0, BetegID = ms.Betegek.Where(x => x.Deleted == 0 && x.PeopleID == pID).First().BetegID });
 
@@ -336,7 +338,7 @@ namespace EFTeszt01
                 }
                 catch
                 {
-                    betegLazlapja = new Lazlap() { BetegID = selectedBeteg.BetegID, Deleted = 0, OrvosID = orvos.PeopleID, OrvosMegjegyzes = "Nincs megjegyzés.", ApoloMegjegyzes = "Nincs megjegyzés." };
+                    betegLazlapja = new Lazlap() { BetegID = selectedBeteg.BetegID, Deleted = 0, OrvosID = orvos.PeopleID, OrvosMegjegyzes = "Nincs megjegyzés.", ApoloMegjegyzes = "Nincs megjegyzés." ,Statusz=7};
                     ms.Lazlap.Add(betegLazlapja);
                     Mentes();
                     ms.Lazlap.Load();
@@ -487,9 +489,17 @@ namespace EFTeszt01
         public void OrvosGyogyszerBeszuras(KiadottGyogyszer kgy) {
             Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
             Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
-            kgy.ForrasID = laz.LazlapID;
+            int? kt_fejID = ms.Kortortenet_fej.Where(x => x.Deleted == 0 && x.BetegID == laz.BetegID).Single().KortortenetFejID;
+
+            Kortortenet_tetel kt = new Kortortenet_tetel() {Datum=DateTime.Now, Deleted=0, Kezeles="Gyógyszeres kezelés", Orvos=laz.OrvosID, KortortenetFejID= kt_fejID};
+            ms.Kortortenet_tetel.Local.Add(kt);
+            Mentes();
+
+            kgy.ForrasID = ms.Kortortenet_tetel.OrderByDescending(x => x.KortortenetTetelID).Where(x => x.Deleted == 0).Single().KortortenetTetelID;
+            kgy.Hasznalt = kgy.Mennyiseg;
             ms.KiadottGyogyszer.Local.Add(kgy);
             Mentes();
+
             ms.KiadottGyogyszer.Load();
             OrvosGyogyszerKiadas();
         }

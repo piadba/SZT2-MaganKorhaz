@@ -170,5 +170,20 @@ namespace EFTeszt01
             }
             mungoSystem.SaveChanges();
         }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            if (mungoSystem.ApoloMuszak.Where(am => am.Deleted == 0 && am.PeopleID == sessionUser.PeopleID && am.EndDate == null).Count() > 0)
+            {
+                MessageBox.Show("Nem adta le a műszakot!");
+            }
+            else
+            {
+                MainWindow mw = new MainWindow();
+                this.Close();
+                mw.ShowDialog();
+            }
+            
+        }
     }
 }
