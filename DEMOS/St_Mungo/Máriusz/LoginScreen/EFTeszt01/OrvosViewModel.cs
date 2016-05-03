@@ -480,9 +480,13 @@ namespace EFTeszt01
             {
                 ms.KiadottGyogyszer.Load();
                 Betegek beteg = ms.Betegek.Local.Where(y => y.Deleted == 0 && SelectedBeteg.PeopleID == y.PeopleID).First();
-                Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
-                OrvosBetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.Statusz == 10 && x.ForrasID == laz.LazlapID));
-                
+               // Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
+
+                int? kt_fejID = ms.Kortortenet_fej.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).Single().KortortenetFejID;
+                int ktid = ms.Kortortenet_tetel.Where(x=> x.Deleted==0 && x.KortortenetFejID == kt_fejID).First().KortortenetTetelID;
+
+               // OrvosBetegGyogyszerei = new ObservableCollection<KiadottGyogyszer>(ms.KiadottGyogyszer.Local.Where(x => x.Deleted == 0 && x.Statusz == 10 && x.ForrasID == ktid));
+               // OnPropChanged("orvosBetegGyogyszerei");
             }
             catch { }
         }
@@ -491,7 +495,8 @@ namespace EFTeszt01
             //Lazlap laz = ms.Lazlap.Local.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).First();
             int? kt_fejID = ms.Kortortenet_fej.Where(x => x.Deleted == 0 && x.BetegID == beteg.BetegID).Single().KortortenetFejID;
             
-            Kortortenet_tetel kt = new Kortortenet_tetel() {Datum=DateTime.Now, Deleted=0, Kezeles="Gyógyszeres kezelés", Orvos= orvosID, KortortenetFejID= kt_fejID};
+            Kortortenet_tetel kt = new Kortortenet_tetel() {Datum=DateTime.Now, Deleted=0, Kezeles="Gyógyszeres kezelés:  Gyógyszer: "+ kgy.getGyogyszernev+ " Mennyiség: "+kgy.getMennyiseg, Orvos= orvosID, KortortenetFejID= kt_fejID};
+            SelectedKorlapTetel.Add(kt);
             ms.Kortortenet_tetel.Local.Add(kt);
             Mentes();
 
@@ -502,6 +507,9 @@ namespace EFTeszt01
 
             ms.KiadottGyogyszer.Load();
             OrvosGyogyszerKiadas();
+
+
+            OnPropChanged("selectedKorlapTetel");
         }
         public void OrvosGyogyszerTorles(KiadottGyogyszer kgy) {
             try

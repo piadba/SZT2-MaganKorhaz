@@ -124,14 +124,14 @@ namespace EFTeszt01
                 MessageBox.Show("Nincs kijelölt beteg!");
         }
 
-        private void gyogydelBTN_Click(object sender, RoutedEventArgs e)
-        { 
-            if (ovm.SelectedBeteg != null)
-            {
-                ovm.OrvosGyogyszerTorles(orvosGyogyLST.SelectedItem as KiadottGyogyszer);
-            }
-            else
-                MessageBox.Show("Nincs kijelölt beteg!");
-        }
+        //private void gyogydelBTN_Click(object sender, RoutedEventArgs e)
+        //{ 
+        //    if (ovm.SelectedBeteg != null)
+        //    {
+        //        ovm.OrvosGyogyszerTorles(orvosGyogyLST.SelectedItem as KiadottGyogyszer);
+        //    }
+        //    else
+        //        MessageBox.Show("Nincs kijelölt beteg!");
+        //}
     }
 }
